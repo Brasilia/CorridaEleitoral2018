@@ -1,0 +1,8 @@
+Instruções gerais:
+	- https://unity3d.com/pt/learn/tutorials/topics/mobile-touch/building-your-unity-game-android-device-testing
+
+Nuances:
+	- Usar versão mais antiga do SDK: http://dl-ssl.google.com/android/repository/tools_r25.2.5-windows.zip
+	- Usar o JDK 8 (não o 9)
+	- (Aqui não tenho certeza, mas alguns dizem pra copiar o "zipalign.exe" da pasta "build-tools" para a pasta "tools")
+	- Em PlayerSettings -> PublishingSettings, na primeira build marcar "create a new keystore"	

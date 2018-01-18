@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ad106bcd2dbaa9409923acf54175590, type: 3}
+  m_Name: Evt06
+  m_EditorClassIdentifier: 
+  contentText: "Um amigo dono de uma empresa multimilion\xE1ria diz que concorda com
+    seus ideais economicos e oferece ajuda financeira na sua campanha."
+  answers:
+  - buttonText: "\xC9 sempre bom encontrar almas caridosas."
+    economicEqualityMarkets: 10
+    diplomaticNationGlobe: -10
+    civilAuthorityLiberty: 0
+    societalTraditionProgress: 0
+    cash: 3
+    corruption: 1
+    credibility: -1
+    exposition: 0
+  - buttonText: "N\xE3o posso vender minha opini\xE3o assim!"
+    economicEqualityMarkets: 0
+    diplomaticNationGlobe: 0
+    civilAuthorityLiberty: 0
+    societalTraditionProgress: 0
+    cash: 0
+    corruption: 0
+    credibility: 0
+    exposition: 0
+  itemIcon: {fileID: 0}

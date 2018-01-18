@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ad106bcd2dbaa9409923acf54175590, type: 3}
+  m_Name: Evt09
+  m_EditorClassIdentifier: 
+  contentText: "Alguns e-mails seus vazaram, e isso gerou um grande rebuli\xE7o."
+  answers:
+  - buttonText: "Evitar exposi\xE7\xE3o causando o mesmo a outro candidato."
+    economicEqualityMarkets: 0
+    diplomaticNationGlobe: 0
+    civilAuthorityLiberty: 0
+    societalTraditionProgress: 0
+    cash: 1
+    corruption: 1
+    credibility: 0
+    exposition: 0
+  - buttonText: Colocar a culpa no seu acessor e despedi-lo.
+    economicEqualityMarkets: 0
+    diplomaticNationGlobe: 0
+    civilAuthorityLiberty: 0
+    societalTraditionProgress: 0
+    cash: 0
+    corruption: 1
+    credibility: 0
+    exposition: 1
+  - buttonText: Negar a veracidade.
+    economicEqualityMarkets: 0
+    diplomaticNationGlobe: 0
+    civilAuthorityLiberty: 0
+    societalTraditionProgress: 0
+    cash: 0
+    corruption: 0
+    credibility: -1
+    exposition: 2
+  itemIcon: {fileID: 0}

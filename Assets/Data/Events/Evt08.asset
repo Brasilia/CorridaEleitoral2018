@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ad106bcd2dbaa9409923acf54175590, type: 3}
+  m_Name: Evt08
+  m_EditorClassIdentifier: 
+  contentText: Uma foto sua virou "meme" na internet.
+  answers:
+  - buttonText: Processar site que espalhou a piada.
+    economicEqualityMarkets: 0
+    diplomaticNationGlobe: 0
+    civilAuthorityLiberty: -5
+    societalTraditionProgress: -5
+    cash: 1
+    corruption: 0
+    credibility: -1
+    exposition: 1
+  - buttonText: "Aceitar, toda visibilidade \xE9 boa."
+    economicEqualityMarkets: 0
+    diplomaticNationGlobe: 0
+    civilAuthorityLiberty: 5
+    societalTraditionProgress: 5
+    cash: 0
+    corruption: 0
+    credibility: 0
+    exposition: 2
+  itemIcon: {fileID: 0}
