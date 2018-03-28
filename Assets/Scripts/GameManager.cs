@@ -10,7 +10,8 @@ public class GameManager : MonoBehaviour {
 	public MainScreen mainScreen;
 
 	public void Start(){
-		
+		DontDestroyOnLoad (this.gameObject);
+		mainScreen = GameObject.Find ("Panel Main Screen").GetComponent<MainScreen>();
 	}
 
 	public void UpdateIntentions(){

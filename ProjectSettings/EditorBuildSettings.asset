@@ -11,3 +11,6 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/testebuildAndroid.unity
     guid: 7b84a7e76347a6042b5fbaaeb802c338
+  - enabled: 1
+    path: Assets/Scenes/debate.unity
+    guid: 36ee4f692091dd149b0f45987f177618

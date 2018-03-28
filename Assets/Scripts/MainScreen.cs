@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MainScreen : MonoBehaviour {
 
@@ -35,6 +36,7 @@ public class MainScreen : MonoBehaviour {
 	public void UpdateDisplayValues(){
 		//Sliders - Puxa ou empurra? (Negativo ou Positivo?)
 		sliderEconomic.value = player.economicEqualityMarkets;
+		print ("slider");
 		sliderDiplomatic.value = player.diplomaticNationGlobe;
 		sliderCivil.value = player.civilAuthorityLiberty;
 		sliderSocietal.value = player.societalTraditionProgress;
@@ -50,5 +52,10 @@ public class MainScreen : MonoBehaviour {
 
 	public void UpdateVoteIntentionsDisplay(){
 		voteIntentionsText.text = player.voteIntentions.ToString("00.0") + "%";
+	}
+
+	public void OnClickDebate(){
+		gm.mainScreen = null;
+		SceneManager.LoadScene("debate");
 	}
 }

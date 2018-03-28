@@ -18,9 +18,11 @@ public class Player : MonoBehaviour {
 	//Intenções de voto
 	public float voteIntentions;
 
+	public string name;
+	public Sprite image;
 	// Use this for initialization
 	void Start () {
-		
+		DontDestroyOnLoad (this.gameObject);
 	}
 	
 	// Update is called once per frame
