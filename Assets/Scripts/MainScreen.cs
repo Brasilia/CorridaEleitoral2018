@@ -55,7 +55,7 @@ public class MainScreen : MonoBehaviour {
 	}
 
 	public void OnClickDebate(){
-		gm.mainScreen = null;
+		//gm.mainScreen = null;
 		SceneManager.LoadScene("debate");
 	}
 }

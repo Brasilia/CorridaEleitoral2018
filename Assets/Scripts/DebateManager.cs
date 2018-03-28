@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class DebateManager : MonoBehaviour {
-
 	public List<Image> imgCandidate;
 	public List<Text> txtCredibility;
 	public List<Text> txtCorruption;
@@ -24,8 +23,8 @@ public class DebateManager : MonoBehaviour {
 	public GameObject versusScreen;
 	public GameObject popUp;
 
-	private GameManager gameManager;
-	private Player player;
+	public GameManager gameManager;
+	public Player player;
 
 	private int candidateSelected;
 
@@ -48,7 +47,7 @@ public class DebateManager : MonoBehaviour {
 	void UpdateSelectScreen(){
 		int i;
 		for (i = 0; i < gameManager.otherCandidates.Count; i++) {
-			if (gameManager.otherCandidates [i].name.Equals (player.name)) {		// Se o candidato não é o player
+			if (!gameManager.otherCandidates [i].name.Equals (player.name)) {		// Se o candidato não é o player
 				imgCandidate[i].sprite = gameManager.otherCandidates[i].image;
 				txtCredibility [i].text = gameManager.otherCandidates [i].credibility.ToString();
 				txtCorruption [i].text = gameManager.otherCandidates [i].corruption.ToString();
@@ -73,33 +72,45 @@ public class DebateManager : MonoBehaviour {
 	}
 
 	public void OnClickCandidate1(){
-		candidateSelected = 0;
-		popUp.SetActive (true);
+		if (!popUp.activeInHierarchy) {
+			candidateSelected = 0;
+			popUp.SetActive (true);
+		}
 	}
 
 	public void OnClickCandidate2(){
-		candidateSelected = 1;
-		popUp.SetActive (true);
+		if (!popUp.activeInHierarchy) {
+			candidateSelected = 1;
+			popUp.SetActive (true);
+		}
 	}
 
 	public void OnClickCandidate3(){
-		candidateSelected = 2;
-		popUp.SetActive (true);
+		if (!popUp.activeInHierarchy) {
+			candidateSelected = 2;
+			popUp.SetActive (true);
+		}
 	}
 
 	public void OnClickCandidate4(){
-		candidateSelected = 3;
-		popUp.SetActive (true);
+		if (!popUp.activeInHierarchy) {
+			candidateSelected = 2;
+			popUp.SetActive (true);
+		}
 	}
 
 	public void OnClickCandidate5(){
-		candidateSelected = 4;
-		popUp.SetActive (true);
+		if (!popUp.activeInHierarchy) {
+			candidateSelected = 4;
+			popUp.SetActive (true);
+		}
 	}
 
 	public void OnClickCandidate6(){
-		candidateSelected = 5;
-		popUp.SetActive (true);
+		if (!popUp.activeInHierarchy) {
+			candidateSelected = 5;
+			popUp.SetActive (true);
+		}
 	}
 
 	public void OnClickDebate(){

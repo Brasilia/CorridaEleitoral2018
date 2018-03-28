@@ -7,11 +7,11 @@ public class GameManager : MonoBehaviour {
 	public Player player;
 	public List<Player> otherCandidates;
 	public List<ElectorGroup> electors;
-	public MainScreen mainScreen;
+	//public MainScreen mainScreen;
 
 	public void Start(){
 		DontDestroyOnLoad (this.gameObject);
-		mainScreen = GameObject.Find ("Panel Main Screen").GetComponent<MainScreen>();
+		//mainScreen = GameObject.Find ("Panel Main Screen").GetComponent<MainScreen>();
 	}
 
 	public void UpdateIntentions(){
@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour {
 			}
 		}
 		otherCandidates.Remove (player);
-		mainScreen.UpdateVoteIntentionsDisplay ();
+		//mainScreen.UpdateVoteIntentionsDisplay ();
 	}
 
 	private float GetDistance (Player p1, Player p2){
