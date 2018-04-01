@@ -21,7 +21,7 @@ public class DebateManager : MonoBehaviour {
 	public Sprite progressPrefab;
 
 	// Atributos Versus Screen
-	public enum TURN {QUESTION, ANSWER, REPLAY, REJOINDER} // possiveis estados do jogo
+	public enum TURN {QUESTION, ANSWER, REPLY, REJOINDER} // possiveis estados do jogo
 	private TURN turn;
 
 	public Image imgEnemy;
@@ -47,6 +47,13 @@ public class DebateManager : MonoBehaviour {
 	public Text txtCredibilityPlayer;
 	public Text txtCorruptionPlayer;
 	public Text txtVisibilityPlayer;
+
+	public Button btnAttack;
+	public Button btnPosition;
+	public Button btnAdvertising;
+	public Button btnEnrolar;
+	public Button btnProposal;
+	public Button btnEnemyPosition;
 
 	// Referências às janelas
 	public GameObject selectScreen;
@@ -78,6 +85,10 @@ public class DebateManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
+	}
+
+	IEnumerator Wait3Seconds(){
+		yield return new WaitForSeconds (3);
 	}
 
 	void UpdateSelectScreen(){
@@ -161,6 +172,146 @@ public class DebateManager : MonoBehaviour {
 		popUp.SetActive (false);
 	}
 
+	public void OnClickEconomic(){
+		selectAxis.SetActive (false);
+		selectSubtheme.SetActive (true);
+		axis = "Economic";
+	}
+
+	public void OnClickCivil(){
+		selectAxis.SetActive (false);
+		selectSubtheme.SetActive (true);
+		axis = "Civil";
+	}
+
+	public void OnClickSocietal(){
+		selectAxis.SetActive (false);
+		selectSubtheme.SetActive (true);
+		axis = "Societal";
+	}
+
+	public void OnClickReturn(){
+		selectSubtheme.SetActive (false);
+		selectAxis.SetActive (true);
+	}
+
+	public void OnClickSubtheme1(){
+		if (axis.Equals ("Economic"))
+			theme = "Subtema econômico 1";
+		else if (axis.Equals ("Civil"))
+			theme = "Subtema civil 1";
+		else
+			theme = "Subtema societal 1";
+
+		playerActions--;
+
+		selectAxis.SetActive (false);
+		selectAction.SetActive (true);
+		selectSubtheme.SetActive (false);
+	}
+
+	public void OnClickSubtheme2(){
+		if (axis.Equals ("Economic"))
+			theme = "Subtema econômico 2";
+		else if (axis.Equals ("Civil"))
+			theme = "Subtema civil 2";
+		else
+			theme = "Subtema societal 2";
+
+		playerActions--;
+
+		selectAxis.SetActive (false);
+		selectAction.SetActive (true);
+		selectSubtheme.SetActive (false);
+	}
+
+	public void OnClickSubtheme3(){
+		if (axis.Equals ("Economic"))
+			theme = "Subtema econômico 3";
+		else if (axis.Equals ("Civil"))
+			theme = "Subtema civil 3";
+		else
+			theme = "Subtema societal 3";
+
+		playerActions--;
+
+		selectAxis.SetActive (false);
+		selectAction.SetActive (true);
+		selectSubtheme.SetActive (false);
+	}
+
+	public void OnClickAttack(){
+		if (enemyActions == -1) {
+			if (gameManager.otherCandidates [candidateSelected].credibility > 0)
+				gameManager.otherCandidates [candidateSelected].credibility--;
+			if (gameManager.otherCandidates [candidateSelected].exposition > player.exposition)
+				player.exposition++;
+			playerActions--;
+			txtCandidateSpeech.text = "Atacou o inimigo.";
+		} else {
+			if(player.credibility > 0)
+				player.credibility--;
+			if (player.exposition > gameManager.otherCandidates[candidateSelected].exposition)
+				gameManager.otherCandidates[candidateSelected].exposition++;
+			enemyActions--;
+			txtCandidateSpeech.text = "Adversário te atacou.";
+			StartCoroutine (Wait3Seconds ());
+		}
+
+		VerifyTurn ();
+	}
+
+	public void OnClickPosition(){
+		if (enemyActions == -1) {
+			playerActions--;
+			txtCandidateSpeech.text = "Se posicionou sobre o tema " + theme + ".";
+		} else {
+			enemyActions--;
+			txtCandidateSpeech.text = "Adversário se posicionou sobre o tema " + theme + ".";
+			StartCoroutine (Wait3Seconds ());
+		}
+		VerifyTurn ();
+	}
+
+	public void OnClickAdvertising(){
+		if (enemyActions == -1) {
+			player.credibility++;
+			playerActions--;
+			txtCandidateSpeech.text = "Fez propaganda de si mesmo.";
+		} else {
+			gameManager.otherCandidates[candidateSelected].credibility++;
+			enemyActions--;
+			txtCandidateSpeech.text = "Adversário fez propaganda de si mesmo.";
+			StartCoroutine (Wait3Seconds ());
+		}
+		VerifyTurn ();
+	}
+
+	public void OnClickEnrolar(){
+		if (enemyActions == -1) {
+			playerActions--;
+			txtCandidateSpeech.text = "Enrolou.";
+		} else {
+			enemyActions--;
+			txtCandidateSpeech.text = "Adversário enrolou.";
+			StartCoroutine (Wait3Seconds ());
+		}
+		VerifyTurn ();
+	}
+
+	public void OnClickProposal(){
+		if (enemyActions == -1) {
+			playerActions--;
+			txtCandidateSpeech.text = "Fez uma proposta";
+		} else {
+			enemyActions--;
+			txtCandidateSpeech.text = "Adversário fez uma proposta";
+			StartCoroutine (Wait3Seconds ());
+		}
+		VerifyTurn ();
+	}
+
+	// "Start()" da VersusScreen
 	void StartVersus(){
 		Player enemy = gameManager.otherCandidates [candidateSelected];
 		imgPlayer.sprite = player.image;
@@ -182,5 +333,60 @@ public class DebateManager : MonoBehaviour {
 		turn = TURN.QUESTION;
 		playerActions = 2;
 		enemyActions = -1;
+
+		selectAxis.SetActive (true);
+		selectAction.SetActive (false);
+		selectSubtheme.SetActive (false);
+
+		theme = "";
+		axis = "";
 	}
+
+	void UpdateEnabledButtons(){
+		btnEnemyPosition.enabled = false;
+	}
+
+	// Verifica fim de turno
+	void VerifyTurn(){
+		// Se o turno do player acabou
+		if (playerActions == 0) {
+			playerActions = -1;
+			if (turn == TURN.QUESTION) {
+				turn = TURN.ANSWER;
+				enemyActions = 4;
+			} else if (turn == TURN.ANSWER) {
+				turn = TURN.REPLY;
+				enemyActions = 2;
+			} else if (turn == TURN.REPLY) {
+				turn = TURN.REJOINDER;
+				enemyActions = 2;
+			} else if (turn == TURN.REJOINDER) {
+				UpdateSelectScreen ();
+				versusScreen.SetActive (false);
+				selectScreen.SetActive (true);
+				candidateSelected = -1;
+			}
+		} else if(enemyActions == 0){	// Se o turno do enemy acabou	
+			enemyActions = -1;
+			selectAxis.SetActive (true);
+			selectAction.SetActive (false);
+			selectSubtheme.SetActive (false);
+			if (turn == TURN.QUESTION) {
+				turn = TURN.ANSWER;
+				playerActions = 4;
+			} else if (turn == TURN.ANSWER) {
+				turn = TURN.REPLY;
+				playerActions = 2;
+			} else if (turn == TURN.REPLY) {
+				turn = TURN.REJOINDER;
+				playerActions = 2;
+			} else if (turn == TURN.REJOINDER) {
+				UpdateSelectScreen ();
+				versusScreen.SetActive (false);
+				selectScreen.SetActive (true);
+				candidateSelected = -1;
+			}
+		}
+	}
+		
 }
