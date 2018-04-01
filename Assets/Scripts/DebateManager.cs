@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class DebateManager : MonoBehaviour {
+	//Atributos Select Screen 
 	public List<Image> imgCandidate;
 	public List<Text> txtCredibility;
 	public List<Text> txtCorruption;
@@ -19,12 +20,47 @@ public class DebateManager : MonoBehaviour {
 	public Sprite traditionPrefab;
 	public Sprite progressPrefab;
 
+	// Atributos Versus Screen
+	public enum TURN {QUESTION, ANSWER, REPLAY, REJOINDER} // possiveis estados do jogo
+	private TURN turn;
+
+	public Image imgEnemy;
+	public Slider sliderEconomicEnemy;
+	public Slider sliderCivilEnemy;
+	public Slider sliderSocietalEnemy;
+	public Text txtCredibilityEnemy;
+	public Text txtCorruptionEnemy;
+	public Text txtVisibilityEnemy;
+
+	public Text txtEnemyActions;
+	public Text txtEvidenceTheme;
+	public Text txtCandidateSpeech;
+
+	public GameObject selectAction;
+	public GameObject selectAxis;
+	public GameObject selectSubtheme;
+
+	public Image imgPlayer;
+	public Slider sliderEconomicPlayer;
+	public Slider sliderCivilPlayer;
+	public Slider sliderSocietalPlayer;
+	public Text txtCredibilityPlayer;
+	public Text txtCorruptionPlayer;
+	public Text txtVisibilityPlayer;
+
+	// Referências às janelas
 	public GameObject selectScreen;
 	public GameObject versusScreen;
 	public GameObject popUp;
 
-	public GameManager gameManager;
-	public Player player;
+	// Referências aos objetos do jogo
+	private GameManager gameManager;
+	private Player player;
+
+	private int playerActions;
+	private int enemyActions;
+	private string theme;
+	private string axis;
 
 	private int candidateSelected;
 
@@ -117,10 +153,34 @@ public class DebateManager : MonoBehaviour {
 		versusScreen.SetActive (true);
 		popUp.SetActive (false);
 		selectScreen.SetActive (false);
+		StartVersus ();
 	}
 
 	public void OnClickClosePopUp(){
 		candidateSelected = -1;
 		popUp.SetActive (false);
+	}
+
+	void StartVersus(){
+		Player enemy = gameManager.otherCandidates [candidateSelected];
+		imgPlayer.sprite = player.image;
+		sliderEconomicPlayer.value = player.economicEqualityMarkets;
+		sliderCivilPlayer.value = player.civilAuthorityLiberty;
+		sliderSocietalPlayer.value = player.societalTraditionProgress;
+		txtCorruptionPlayer.text = player.corruption.ToString ();
+		txtCredibilityPlayer.text = player.credibility.ToString ();
+		txtVisibilityPlayer.text = player.exposition.ToString ();
+
+		imgEnemy.sprite = enemy.image;
+		sliderEconomicEnemy.value = enemy.economicEqualityMarkets;
+		sliderCivilEnemy.value = enemy.civilAuthorityLiberty;
+		sliderSocietalEnemy.value = enemy.societalTraditionProgress;
+		txtCorruptionEnemy.text = enemy.corruption.ToString ();
+		txtCredibilityEnemy.text = enemy.ToString ();
+		txtVisibilityEnemy.text = enemy.ToString ();
+
+		turn = TURN.QUESTION;
+		playerActions = 2;
+		enemyActions = -1;
 	}
 }

@@ -18,8 +18,10 @@ public class Player : MonoBehaviour {
 	//Intenções de voto
 	public float voteIntentions;
 
+	// Informações pessoais
 	public string name;
 	public Sprite image;
+	public string partido;
 	// Use this for initialization
 	void Start () {
 		DontDestroyOnLoad (this.gameObject);

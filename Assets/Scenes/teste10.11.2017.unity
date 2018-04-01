@@ -258,6 +258,7 @@ MonoBehaviour:
   voteIntentions: 0
   name: Marina
   image: {fileID: 21300000, guid: 49a6034b2e7c08e4b874e2bd9f9be17f, type: 3}
+  partido: 
 --- !u!1 &38670688
 GameObject:
   m_ObjectHideFlags: 0
@@ -1033,10 +1034,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31226fb6cab900542a81c9cbc30b5f55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  economicEqualityMarkets: 11
-  diplomaticNationGlobe: -13
-  civilAuthorityLiberty: 17
-  societalTraditionProgress: -31
+  economicEqualityMarkets: 43
+  diplomaticNationGlobe: 10
+  civilAuthorityLiberty: 74
+  societalTraditionProgress: -57
   cash: 0
   corruption: 0
   credibility: 0
@@ -1044,6 +1045,7 @@ MonoBehaviour:
   voteIntentions: 0
   name: Bolsonaro
   image: {fileID: 21300000, guid: 754317c8c31da964dacfe1b0fdec08af, type: 3}
+  partido: 
 --- !u!1 &218937864
 GameObject:
   m_ObjectHideFlags: 0
@@ -1095,6 +1097,7 @@ MonoBehaviour:
   voteIntentions: 0
   name: Collor
   image: {fileID: 21300000, guid: 335ae2b700a509d43b598b218b6ca365, type: 3}
+  partido: 
 --- !u!1 &229809723
 GameObject:
   m_ObjectHideFlags: 0
@@ -1349,6 +1352,7 @@ MonoBehaviour:
   voteIntentions: 0
   name: Lula
   image: {fileID: 21300000, guid: 1d19ad690989a8542b5614cee201affc, type: 3}
+  partido: 
 --- !u!1 &334456187
 GameObject:
   m_ObjectHideFlags: 0
@@ -2504,6 +2508,7 @@ MonoBehaviour:
   voteIntentions: 0
   name: 
   image: {fileID: 0}
+  partido: 
   weight: 5
 --- !u!1 &665097397
 GameObject:
@@ -2619,6 +2624,7 @@ MonoBehaviour:
   voteIntentions: 0
   name: Player
   image: {fileID: 21300000, guid: 5306fad556c30d540aae04b76e3d20bd, type: 3}
+  partido: 
 --- !u!4 &668242229
 Transform:
   m_ObjectHideFlags: 0
@@ -2805,6 +2811,7 @@ MonoBehaviour:
   voteIntentions: 0
   name: 
   image: {fileID: 0}
+  partido: 
   weight: 10
 --- !u!1 &744357230
 GameObject:
@@ -2931,6 +2938,7 @@ MonoBehaviour:
   voteIntentions: 0
   name: Alckmin
   image: {fileID: 21300000, guid: 9f7644e86be7875418ea4c07d604a92d, type: 3}
+  partido: 
 --- !u!1 &756774297
 GameObject:
   m_ObjectHideFlags: 0
@@ -4739,6 +4747,7 @@ MonoBehaviour:
   voteIntentions: 0
   name: 
   image: {fileID: 0}
+  partido: 
   weight: 35
 --- !u!1 &1438739398
 GameObject:
@@ -5364,6 +5373,7 @@ MonoBehaviour:
   voteIntentions: 0
   name: 
   image: {fileID: 0}
+  partido: 
   weight: 30
 --- !u!1 &1668067306
 GameObject:
@@ -5700,6 +5710,7 @@ MonoBehaviour:
   voteIntentions: 0
   name: 
   image: {fileID: 0}
+  partido: 
   weight: 20
 --- !u!1 &1737663420
 GameObject:
@@ -5739,6 +5750,7 @@ MonoBehaviour:
   voteIntentions: 0
   name: Manuela
   image: {fileID: 21300000, guid: e545f957b7adf6a439e4d75232ba144c, type: 3}
+  partido: 
 --- !u!4 &1737663422
 Transform:
   m_ObjectHideFlags: 0
@@ -6143,7 +6155,6 @@ MonoBehaviour:
   - {fileID: 1709496955}
   - {fileID: 1654981634}
   - {fileID: 1416318065}
-  mainScreen: {fileID: 0}
 --- !u!4 &1840796310
 Transform:
   m_ObjectHideFlags: 0
