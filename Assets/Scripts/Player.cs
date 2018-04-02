@@ -22,6 +22,7 @@ public class Player : MonoBehaviour {
 	public string name;
 	public Sprite image;
 	public string partido;
+	public string slogan;
 	// Use this for initialization
 	void Start () {
 		DontDestroyOnLoad (this.gameObject);

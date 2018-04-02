@@ -20,6 +20,18 @@ public class DebateManager : MonoBehaviour {
 	public Sprite traditionPrefab;
 	public Sprite progressPrefab;
 
+	// Atributos pop-up screen
+	public Image imgChoosenCandidate;
+	public Text txtChoosenCredibility;
+	public Text txtChoosenCorruption;
+	public Text txtChoosenVisibility;
+	public Image imgChoosenEconomic;
+	public Image imgChoosenCivil;
+	public Image imgChoosenSocietal;
+	public Text txtChoosenName;
+	public Text txtChoosenPartido;
+	public Text txtChoosenSlogan;
+
 	// Atributos Versus Screen
 	public enum TURN {QUESTION, ANSWER, REPLY, REJOINDER} // possiveis estados do jogo
 	private TURN turn;
@@ -87,6 +99,7 @@ public class DebateManager : MonoBehaviour {
 		
 	}
 
+	// Espera 3 segundos
 	IEnumerator Wait3Seconds(){
 		yield return new WaitForSeconds (3);
 	}
@@ -118,10 +131,39 @@ public class DebateManager : MonoBehaviour {
 		}
 	}
 
+	// Verificar maneira de mesclar ambos as funções.
+
+	void UpdateChoosenCandidate(){
+		imgChoosenCandidate.sprite = gameManager.otherCandidates[candidateSelected].image;
+		txtChoosenCredibility.text = gameManager.otherCandidates [candidateSelected].credibility.ToString();
+		txtChoosenCorruption.text = gameManager.otherCandidates [candidateSelected].corruption.ToString();
+		txtChoosenVisibility.text = gameManager.otherCandidates [candidateSelected].exposition.ToString();
+
+		if (gameManager.otherCandidates [candidateSelected].economicEqualityMarkets > 0)
+			imgChoosenEconomic .sprite = marketPrefab;
+		else
+			imgChoosenEconomic.sprite = equalityPrefab;
+
+		if (gameManager.otherCandidates [candidateSelected].civilAuthorityLiberty > 0)
+			imgChoosenCivil.sprite = libertyPrefab;
+		else
+			imgChoosenCivil.sprite = authorityPrefab;
+
+		if (gameManager.otherCandidates [candidateSelected].societalTraditionProgress > 0)
+			imgChoosenSocietal.sprite = progressPrefab;
+		else
+			imgChoosenSocietal.sprite = traditionPrefab;
+
+		txtChoosenName.text = gameManager.otherCandidates [candidateSelected].name;
+		txtChoosenPartido.text = gameManager.otherCandidates [candidateSelected].partido;
+		txtChoosenSlogan.text = gameManager.otherCandidates [candidateSelected].slogan;
+	}
+
 	public void OnClickCandidate1(){
 		if (!popUp.activeInHierarchy) {
 			candidateSelected = 0;
 			popUp.SetActive (true);
+			UpdateChoosenCandidate ();
 		}
 	}
 
@@ -129,6 +171,7 @@ public class DebateManager : MonoBehaviour {
 		if (!popUp.activeInHierarchy) {
 			candidateSelected = 1;
 			popUp.SetActive (true);
+			UpdateChoosenCandidate ();
 		}
 	}
 
@@ -136,6 +179,7 @@ public class DebateManager : MonoBehaviour {
 		if (!popUp.activeInHierarchy) {
 			candidateSelected = 2;
 			popUp.SetActive (true);
+			UpdateChoosenCandidate ();
 		}
 	}
 
@@ -143,6 +187,7 @@ public class DebateManager : MonoBehaviour {
 		if (!popUp.activeInHierarchy) {
 			candidateSelected = 2;
 			popUp.SetActive (true);
+			UpdateChoosenCandidate ();
 		}
 	}
 
@@ -150,6 +195,7 @@ public class DebateManager : MonoBehaviour {
 		if (!popUp.activeInHierarchy) {
 			candidateSelected = 4;
 			popUp.SetActive (true);
+			UpdateChoosenCandidate ();
 		}
 	}
 
@@ -157,6 +203,7 @@ public class DebateManager : MonoBehaviour {
 		if (!popUp.activeInHierarchy) {
 			candidateSelected = 5;
 			popUp.SetActive (true);
+			UpdateChoosenCandidate ();
 		}
 	}
 
@@ -388,5 +435,4 @@ public class DebateManager : MonoBehaviour {
 			}
 		}
 	}
-		
 }
