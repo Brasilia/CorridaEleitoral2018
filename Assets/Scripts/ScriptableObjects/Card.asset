@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7f7cb91d514bcc408d26eff18e01356, type: 3}
+  m_Name: Card
+  m_EditorClassIdentifier: 
+  resources:
+    cash: 0
+    corruption: 0
+    credibility: 0
+    visibility: 0
+  alignment:
+    economic:
+      value: 0
+      bolsaFamilia: 0
+      salarioMinimo: 0
+      impostoDeRenda: 0
+    civil:
+      value: 0
+    societal:
+      value: 0
