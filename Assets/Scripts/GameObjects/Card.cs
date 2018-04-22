@@ -19,4 +19,12 @@ public class Card : MonoBehaviour {
 	void Update () {
 		
 	}
+
+	public void ActionNo(){
+		print ("Escolheu opção No");
+	}
+
+	public void ActionYes(){
+		print ("Escolheu opção Yes");
+	}
 }
