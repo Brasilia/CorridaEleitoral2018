@@ -12,6 +12,7 @@ public class CandidateBHV : PersonBHV {
 	//Execution ----------------
 	public List<CandidateBHV> candidates; //Base de conhecimento sobre os outros candidatos
 	public float voteIntentions;
+	public List<Alignment> debateBoosts;
 
 
 	public void LoadData(Candidate_Data card){
