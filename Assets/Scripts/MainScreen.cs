@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class MainScreen : MonoBehaviour {
 
-	public GameManager gm; //tirar daqui
+	public GameManagerOld gm; //tirar daqui
 
 	public Player player;
 	//Sliders

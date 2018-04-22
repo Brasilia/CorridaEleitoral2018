@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class BoolAction : MonoBehaviour {
 
-	public Card card;
+	public CardBHV card;
 	public GameObject panelCard;
 
 	// Use this for initialization
 	void Start () {
-		card = panelCard.GetComponent<Card> ();
+		card = panelCard.GetComponent<CardBHV> ();
 	}
 	
 	// Update is called once per frame

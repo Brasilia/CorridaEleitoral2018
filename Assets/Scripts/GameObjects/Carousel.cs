@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Carousel : MonoBehaviour {
 
-	private List<Card> cards;
+	private List<CardBHV> cards;
 	public List <GameObject> panels;
 	public GameObject pivotCard;
 
@@ -14,7 +14,7 @@ public class Carousel : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		foreach (GameObject p in panels) 
-			cards.Add (p.GetComponent<Card> ());
+			cards.Add (p.GetComponent<CardBHV> ());
 	}
 	
 	// Update is called once per frame

@@ -2,12 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EventBHV : Card {
+public class EventBHV : CardBHV {
 	//Database -----------------
 	public EventAction_Data actionDecline;
 	public EventAction_Data actionAccept;
 	//Execution ----------------
 
+
+	public void LoadData(Event_Data card){
+		base.LoadData (card);
+		actionDecline = card.actionDecline;
+		actionAccept = card.actionAccept;
+	}
 	// Use this for initialization
 	void Start () {
 		

@@ -73,7 +73,7 @@ public class DebateManager : MonoBehaviour {
 	public GameObject popUp;
 
 	// Referências aos objetos do jogo
-	private GameManager gameManager;
+	private GameManagerOld gameManager;
 	private Player player;
 
 	private int playerActions;
@@ -88,7 +88,7 @@ public class DebateManager : MonoBehaviour {
 		selectScreen.SetActive (true);
 		versusScreen.SetActive (false);
 		popUp.SetActive (false);
-		gameManager = GameObject.Find ("GameManager").GetComponent<GameManager> ();
+		gameManager = GameObject.Find ("GameManager").GetComponent<GameManagerOld> ();
 		player = GameObject.Find ("Player").GetComponent<Player> ();
 		candidateSelected = -1;
 		UpdateSelectScreen ();

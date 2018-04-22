@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DebateQuestion : EventBHV {
+public class StaffBHV : PersonBHV {
+
 	//Database -----------------
-	public Event_Data nextEvent2nd;
-	public Event_Data nextEvent3rd;
+
 	//Execution ----------------
+	public void LoadData(Person_Data card){ //public new void...
+		base.LoadData (card);
+	}
 
 	// Use this for initialization
 	void Start () {

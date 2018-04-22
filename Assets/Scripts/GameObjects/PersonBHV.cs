@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Person : Card {
+public class PersonBHV : CardBHV {
 	//Database -----------------
 	//Name
 	public string personName;
@@ -17,6 +17,13 @@ public class Person : Card {
 
 
 	//Execution ----------------
+
+	public void LoadData(Person_Data card){
+		base.LoadData (card);
+		personName = card.personName;
+		resources = card.resources;
+		events = card.events;
+	}
 
 	// Use this for initialization
 	void Start () {

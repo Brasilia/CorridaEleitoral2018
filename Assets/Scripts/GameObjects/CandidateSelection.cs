@@ -6,13 +6,13 @@ using UnityEngine.UI;
 public class CandidateSelection : MonoBehaviour {
 
 	public List<Image> imgCandidate;
-	private GameManager gameManager;
+	private GameManagerOld gameManager;
 	private Player player;
 	private int candidateSelected;
 
 	// Use this for initialization
 	void Start () {
-		gameManager = GameObject.Find ("GameManager").GetComponent<GameManager> ();
+		gameManager = GameObject.Find ("GameManager").GetComponent<GameManagerOld> ();
 		player = GameObject.Find ("Player").GetComponent<Player> ();
 		candidateSelected = -1;
 		UpdateSelectScreen ();

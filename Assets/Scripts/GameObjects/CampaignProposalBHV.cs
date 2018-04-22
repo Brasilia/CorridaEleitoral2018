@@ -2,14 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Card : MonoBehaviour {
-
+public class CampaignProposalBHV : EventBHV {
 	//Database -----------------
-	public string description;
-	public SpriteRenderer image;
-
+	//Eixos
+	public Alignment debateBoost;
 	//Execution ----------------
 
+
+	public void LoadData(CampaignProposal_Data card){
+		base.LoadData (card);
+		debateBoost = card.debateBoost;
+	}
 	// Use this for initialization
 	void Start () {
 		
@@ -18,13 +21,5 @@ public class Card : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
-	}
-
-	public void ActionNo(){
-		print ("Escolheu opção No");
-	}
-
-	public void ActionYes(){
-		print ("Escolheu opção Yes");
 	}
 }
