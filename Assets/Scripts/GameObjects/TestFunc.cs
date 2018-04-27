@@ -7,7 +7,7 @@ public class TestFunc : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		GetMethod (Method1, 10, "oi");
+//		GetMethod (Method1, 10, "oi");
 	}
 	
 	// Update is called once per frame
