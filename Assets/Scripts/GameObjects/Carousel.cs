@@ -5,9 +5,10 @@ using UnityEngine.UI;
 
 public class Carousel : MonoBehaviour {
 
-	private List<CardBHV> cards;
+	private List<GameObject> cards;
 	//public List <GameObject> panels;
 	public GameObject pivotCard;
+	public List<GameObject> cardsToTest;
 
 	public RectTransform scrollPanel;	// ScrollPanel
 	public RectTransform center;	// CenterToCompare
@@ -16,19 +17,20 @@ public class Carousel : MonoBehaviour {
 	private float[] distance;		// array de distâncias de cada panel
 	private bool dragging = false;
 	private int selected;
-	private List<RectTransform> panels;
+	public List<RectTransform> panels;
 	private float offsetButtons = 700f;
 
 	private GameObject gameManager;
 
 	// Use this for initialization
 	void Start () {
-		
+		int i;
+		SetCarouselActive (cardsToTest);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (gameObject.activeInHierarchy && panels.Count > 0) {
+		if (panels.Count > 0) {
 			int i;
 			float minDistance;
 
@@ -39,6 +41,7 @@ public class Carousel : MonoBehaviour {
 			for (i = 0; i < panels.Count; i++) {		// Recupera o índice do panel selecionado
 				if (minDistance == distance [i]) {
 					selected = i;
+					print ("selected = " + i);
 					break;
 				}
 			}
@@ -48,15 +51,16 @@ public class Carousel : MonoBehaviour {
 		}
 	}
 
-	public void SetCarouselActive(List<CardBHV> cards){
+	public void SetCarouselActive(List<GameObject> cards){
 		int i;
 		float deltaX = 0;
 		RectTransform panel;
 
 		distance = new float[cards.Count];
 		this.cards = cards;
-		foreach (CardBHV card in this.cards) {		// Instancia cada card a aparecer no carousel
+		foreach (GameObject card in this.cards) {		// Instancia cada card a aparecer no carousel
 			panel = Instantiate (prefabCardPanel, scrollPanel);
+			card.transform.SetParent (panel.transform);
 			panel.transform.position = new Vector2 (panel.transform.position.x + deltaX, transform.position.y);
 			deltaX += offsetButtons;
 			panels.Add (panel);
@@ -77,6 +81,12 @@ public class Carousel : MonoBehaviour {
 
 	public void EndDrag(){
 		dragging = false;
+	}
+
+	public void OnClick(){
+		cards.Clear ();
+		gameObject.SetActive (false);
+		// chama função seguinte retornando selected
 	}
 
 	public void OnDrag(){

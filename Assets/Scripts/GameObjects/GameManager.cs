@@ -22,8 +22,8 @@
 //		DontDestroyOnLoad (gameObject);
 //	}
 //
-//
-//
+// candidates => CandidateBHV
+// 
 //
 //
 //
