@@ -6,16 +6,15 @@ using UnityEngine.UI;
 public class CandidateSelection : MonoBehaviour {
 
 	public List<Image> imgCandidate;
-	private GameManagerOld gameManager;
+	private GameManager gameManager;
 	private Player player;
 	private int candidateSelected;
 
 	// Use this for initialization
 	void Start () {
-		gameManager = GameObject.Find ("GameManager").GetComponent<GameManagerOld> ();
+		gameManager = GameManager.instance;
 		player = GameObject.Find ("Player").GetComponent<Player> ();
 		candidateSelected = -1;
-		UpdateSelectScreen ();
 	}
 	
 	// Update is called once per frame
@@ -23,15 +22,18 @@ public class CandidateSelection : MonoBehaviour {
 		
 	}
 
-	void UpdateSelectScreen(){
+	public void UpdateSelectScreen(List<Candidate_Data> availableCandidates){
+		gameObject.SetActive (true);
 		int i;
-		for (i = 0; i < gameManager.otherCandidates.Count; i++) 
-			imgCandidate[i].sprite = gameManager.otherCandidates[i].image;
+		for (i = 0; i < availableCandidates.Count; i++) 
+			imgCandidate[i].sprite = availableCandidates[i].image;
 	}
 
 	public void OnClickCandidate(int candidateSelected){
 		this.candidateSelected = candidateSelected;
-		print ("Você selecionou o candidato " + gameManager.otherCandidates [candidateSelected].name);
+		//print ("Você selecionou o candidato " + gameManager.otherCandidates [candidateSelected].name);
+		if (gameManager.State == GameManager.STATE.ChooseCandidate)
+			gameManager.CandidateChoosen (candidateSelected);
 	}
 		
 }

@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CardBHV : MonoBehaviour {
+public class CardBHV : MonoBehaviour{
 
 	//Database -----------------
 	public string description;
-	public SpriteRenderer image;
+	public Sprite image;
 
 	//Execution ----------------
 
@@ -26,10 +26,10 @@ public class CardBHV : MonoBehaviour {
 	}
 
 	public void ActionNo(){
-		print ("Escolheu opção No");
+		//print ("Escolheu opção No");
 	}
 
 	public void ActionYes(){
-		print ("Escolheu opção Yes");
+		//print ("Escolheu opção Yes");
 	}
 }

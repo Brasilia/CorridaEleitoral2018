@@ -8,21 +8,34 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf119fa67d484b94e8a48ddea04f83d9, type: 3}
-  m_Name: Event 1
+  m_Script: {fileID: 11500000, guid: d9493707cc2e8eb4aa3c2884998b1546, type: 3}
+  m_Name: Candidate 1
   m_EditorClassIdentifier: 
+  description: Mito
+  image: {fileID: 21300000, guid: 754317c8c31da964dacfe1b0fdec08af, type: 3}
+  personName: Bolsonaro
   resources:
     cash: 0
     corruption: 0
     credibility: 0
     visibility: 0
+  events: []
   alignment:
     economic:
       value: 0
       bolsaFamilia: 0
       salarioMinimo: 0
       impostoDeRenda: 0
+      privatizacao: 0
+      previdencia: 0
     civil:
       value: 0
+      servicoMilitarObrigatorio: 0
+      escolasMilitares: 0
     societal:
       value: 0
+      ensinoReligiosoEscolas: 0
+      legalizacaoAborto: 0
+      casamentoGay: 0
+      legalizacaoDrogas: 0
+  avaiableStaff: []

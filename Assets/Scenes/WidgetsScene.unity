@@ -190,9 +190,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 97954276}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7bd3d510f30f907409d614f86ab8f919, type: 3}
+  m_Script: {fileID: 11500000, guid: 12b45f7fc9a36b145861df7204fc886a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  carousel: {fileID: 1627684550}
+  chooseOptions: {fileID: 1567471280}
+  chooseBool: {fileID: 1065605539}
+  availableCandidates:
+  - {fileID: 11400000, guid: 7ea9ed85a4c86a74aa950b37f08e62c8, type: 2}
+  - {fileID: 11400000, guid: d68c7b1df9372fd499bd6b100de6caaa, type: 2}
+  player: {fileID: 0}
+  candidates:
+  - {fileID: 0}
+  - {fileID: 0}
+  events: []
+  campProposals: []
+  debateQuestions: []
+  countEvents: 0
+  eventsPerCicle: 0
 --- !u!4 &97954278
 Transform:
   m_ObjectHideFlags: 0
@@ -3044,6 +3059,7 @@ MonoBehaviour:
   center: {fileID: 1377321908}
   prefabCardPanel: {fileID: 224611948395796378, guid: d34a2c7f3fa2fdc4f9bda22eca79b4a0,
     type: 2}
+  panels: []
 --- !u!1 &1694135757
 GameObject:
   m_ObjectHideFlags: 0
