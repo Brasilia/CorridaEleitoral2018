@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour {
 
 	public List<Candidate_Data> availableCandidates;	// Lista de scriptable objects de candidatos
 	public List<Candidate> candidates = new List<Candidate>();				//
-	public List<Event_Data> events;
+	public List<Event_Data> eventsData;
 	public List<CampaignProposal_Data> campProposals;
 	public List<DebateQuestion_Data> debateQuestions;
 	public int countEvents;
