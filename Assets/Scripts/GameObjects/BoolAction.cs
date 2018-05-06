@@ -20,18 +20,18 @@ public class BoolAction : MonoBehaviour {
 		
 	}
 
+	// Ativa o widget.
 	public void SetActiveBoolAction(GameObject card){
 		this.card = card;
 		this.card.transform.SetParent (panelCard.transform);
 		this.card.transform.position = new Vector3 (16.2f, 325.6f, 0.0f);
 	}
-
+		
 	public void OnDrag(){
 		float x, y;
 		x = Input.mousePosition.x;
 		if (x < 0) {
 			//x = 0.0f;
-
 			gameObject.SetActive (false);
 			panelCard.transform.position = new Vector2(16.2f, 325.6f);
 			gameManager.BoolChoosen(false, card);

@@ -46,22 +46,32 @@ public class GameManager : MonoBehaviour {
 		chooseBool.GetComponent<BoolAction>().SetActiveBoolAction(GameObject.Find("Cube"));
 	}
 
+	// Chamado após o candidato ser escolhido.
 	public void CandidateChoosen(int index){
 		chooseOptions.SetActive (false);
-		int i;
-		Candidate cand = null;
-		cand = new Candidate (availableCandidates[index]);
-		candidates.Add (cand);
-		for (i = 0; i < availableCandidates.Count; i++) {
-			if (i != index) {
-				cand = new Candidate(availableCandidates [i]);
-				candidates.Add (cand);
+		if (state == STATE.ChooseCandidate) {
+			int i;
+			Candidate cand = null;
+			cand = new Candidate (availableCandidates[index]);
+			candidates.Add (cand);
+			for (i = 0; i < availableCandidates.Count; i++) {
+				if (i != index) {
+					cand = new Candidate(availableCandidates [i]);
+					candidates.Add (cand);
+				}
 			}
 		}
 	}
 
+	// Chamada após a opção booleana ser escolhida (decline or accept, yes or no)
 	public void BoolChoosen(bool option, GameObject card){
 		// Chama a função dependendo do estado	0 => esquerda (não)		1 => direita (sim)
+		if(!option)
+			print("Escolheu NO!");
+		else
+			print("Escolheu YES!");//
+		Destroy(card);
+		// Próximo passo dependendo da máquina de estados
 	}
 
 	

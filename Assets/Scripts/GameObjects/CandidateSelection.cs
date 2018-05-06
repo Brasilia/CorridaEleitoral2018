@@ -22,6 +22,7 @@ public class CandidateSelection : MonoBehaviour {
 		
 	}
 
+	// Ativa o widget.
 	public void SetActiveSelectScreen(List<GameObject> candidates){
 		gameObject.SetActive (true);
 		int i;
@@ -31,11 +32,12 @@ public class CandidateSelection : MonoBehaviour {
 		}
 	}
 
+	// Identifica o candidato escolhido.
 	public void OnClickCandidate(int candidateSelected){
 		this.candidateSelected = candidateSelected;
 		//print ("Você selecionou o candidato " + gameManager.otherCandidates [candidateSelected].name);
-		if (gameManager.State == GameManager.STATE.ChooseCandidate)
-			gameManager.CandidateChoosen (candidateSelected);
+		//if (gameManager.State == GameManager.STATE.ChooseCandidate)
+		gameManager.CandidateChoosen (candidateSelected);
 	}
 		
 }

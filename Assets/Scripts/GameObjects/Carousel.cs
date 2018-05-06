@@ -24,7 +24,6 @@ public class Carousel : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		int i;
 		SetCarouselActive (cardsToTest);
 	}
 	
@@ -51,8 +50,8 @@ public class Carousel : MonoBehaviour {
 		}
 	}
 
+	// Ativa o widget.
 	public void SetCarouselActive(List<GameObject> cards){
-		int i;
 		float deltaX = 0;
 		RectTransform panel;
 
@@ -68,6 +67,7 @@ public class Carousel : MonoBehaviour {
 		gameObject.SetActive (true);
 	}
 
+	// Suaviza o panel selecionado para a posição certa.
 	void LerpToSelectedPanel(int position){
 		float newX = Mathf.Lerp (scrollPanel.anchoredPosition.x, position, Time.deltaTime * 10f);	// Suaviza o panel pra posição certa
 		Vector2 newPosition = new Vector2(newX, scrollPanel.anchoredPosition.y);	// Nova posição do panel
@@ -94,7 +94,7 @@ public class Carousel : MonoBehaviour {
 		// right: (-636, 327.89)
 		// left: (673, 327.89)
 		// double centerRightMiddlePoint = 655.74, centerLeftMiddlePoint = 653.26;
-		double centerRightMiddlePoint = 327.87, centerLeftMiddlePoint = 326.63;
+		//double centerRightMiddlePoint = 327.87, centerLeftMiddlePoint = 326.63;
 		float x, y;
 		x = Input.mousePosition.x;
 
