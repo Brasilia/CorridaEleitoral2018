@@ -42,7 +42,8 @@ public class GameManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		state = STATE.ChooseCandidate;
-		chooseOptions.GetComponent<CandidateSelection> ().UpdateSelectScreen (availableCandidates);
+		//chooseOptions.GetComponent<CandidateSelection> ().SetActiveSelectScreen (availableCandidates);
+		chooseBool.GetComponent<BoolAction>().SetActiveBoolAction(GameObject.Find("Cube"));
 	}
 
 	public void CandidateChoosen(int index){
@@ -57,6 +58,10 @@ public class GameManager : MonoBehaviour {
 				candidates.Add (cand);
 			}
 		}
+	}
+
+	public void BoolChoosen(bool option, GameObject card){
+		// Chama a função dependendo do estado	0 => esquerda (não)		1 => direita (sim)
 	}
 
 	

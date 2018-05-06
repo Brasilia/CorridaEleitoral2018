@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class CandidateSelection : MonoBehaviour {
 
-	public List<Image> imgCandidate;
+	public List<Button> btnCandidate;
 	private GameManager gameManager;
 	private Player player;
 	private int candidateSelected;
@@ -22,11 +22,13 @@ public class CandidateSelection : MonoBehaviour {
 		
 	}
 
-	public void UpdateSelectScreen(List<Candidate_Data> availableCandidates){
+	public void SetActiveSelectScreen(List<GameObject> candidates){
 		gameObject.SetActive (true);
 		int i;
-		for (i = 0; i < availableCandidates.Count; i++) 
-			imgCandidate[i].sprite = availableCandidates[i].image;
+		for (i = 0; i < candidates.Count; i++) {
+			candidates [i].transform.SetParent (btnCandidate [i].transform);
+			candidates [i].transform.position = btnCandidate [i].transform.position;
+		}
 	}
 
 	public void OnClickCandidate(int candidateSelected){
