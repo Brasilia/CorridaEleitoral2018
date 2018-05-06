@@ -38,4 +38,6 @@ MonoBehaviour:
       legalizacaoAborto: 0
       casamentoGay: 0
       legalizacaoDrogas: 0
-  avaiableStaff: []
+  avaiableStaff:
+  - {fileID: 11400000, guid: 2a143d1461d0c76468795d31b0dc8635, type: 2}
+  - {fileID: 11400000, guid: 512e5d002a64dc044b93d57cd1929142, type: 2}

@@ -20,7 +20,9 @@ public class Candidate{
 
 	//Eixos
 	public Alignment alignment;
+
 	public List<Staff_Data> avaiableStaff;
+	public List<Staff_Data> hiredStaff = new List<Staff_Data>();
 
 	//Execution ----------------
 	public List<CandidateBHV> candidates; //Base de conhecimento sobre os outros candidatos

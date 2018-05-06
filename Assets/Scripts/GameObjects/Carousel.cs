@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Carousel : MonoBehaviour {
 
-	private List<GameObject> cards;
+	private List<GameObject> cards = new List<GameObject>();
 	//public List <GameObject> panels;
 	public GameObject pivotCard;
 	public List<GameObject> cardsToTest;
@@ -16,15 +16,17 @@ public class Carousel : MonoBehaviour {
 
 	private float[] distance;		// array de distâncias de cada panel
 	private bool dragging = false;
-	private int selected;
+	public int chooseCount;
+	public List<int> chosenList = new List<int>();
+	private int selected; 
 	public List<RectTransform> panels;
 	private float offsetButtons = 700f;
 
-	private GameObject gameManager;
+	private GameManager gameManager;
 
 	// Use this for initialization
 	void Start () {
-		SetCarouselActive (cardsToTest);
+		//SetCarouselActive (cardsToTest);
 	}
 	
 	// Update is called once per frame
@@ -40,7 +42,7 @@ public class Carousel : MonoBehaviour {
 			for (i = 0; i < panels.Count; i++) {		// Recupera o índice do panel selecionado
 				if (minDistance == distance [i]) {
 					selected = i;
-					print ("selected = " + i);
+					//print ("selected = " + i);
 					break;
 				}
 			}
@@ -51,21 +53,33 @@ public class Carousel : MonoBehaviour {
 	}
 
 	// Ativa o widget.
-	public void SetCarouselActive(List<GameObject> cards){
+	public void SetCarouselActive(List<GameObject> cards, int count = 1){
+		this.cards.Clear ();
+		this.cards = cards;
+		chooseCount = count;
+		Debug.Log ("Chamando Organize()");
+		Organize ();
+		gameObject.SetActive (true);
+	}
+
+	private void Organize(){
 		float deltaX = 0;
-		RectTransform panel;
 
 		distance = new float[cards.Count];
-		this.cards = cards;
-		foreach (GameObject card in this.cards) {		// Instancia cada card a aparecer no carousel
+		Debug.Log ("Staff count: "+cards.Count);
+		foreach (GameObject card in cards) {		// Instancia cada card a aparecer no carousel
+			Debug.Log("carta "+ card);
+			RectTransform panel;
 			panel = Instantiate (prefabCardPanel, scrollPanel);
 			card.transform.SetParent (panel.transform);
-			panel.transform.position = new Vector2 (panel.transform.position.x + deltaX, transform.position.y);
+			panel.transform.localPosition = new Vector2 (0 + deltaX, 0);
+			card.transform.localPosition = Vector2.zero;
 			deltaX += offsetButtons;
 			panels.Add (panel);
 		}
-		gameObject.SetActive (true);
 	}
+
+
 
 	// Suaviza o panel selecionado para a posição certa.
 	void LerpToSelectedPanel(int position){
@@ -76,17 +90,29 @@ public class Carousel : MonoBehaviour {
 	}
 
 	public void BeginDrag(){
+		Debug.Log ("BeginDrag");
 		dragging = true;
 	}
 
 	public void EndDrag(){
 		dragging = false;
+		Debug.Log ("EndDrag");
 	}
 
 	public void OnClick(){
-		cards.Clear ();
-		gameObject.SetActive (false);
+		
 		// chama função seguinte retornando selected
+		chosenList.Add(selected);
+		cards.RemoveAt (selected);
+		RectTransform removedPanel = panels [selected];
+		Destroy (panels [selected].gameObject);
+		panels.RemoveAt (selected);
+		Debug.Log ("Click!");
+		chooseCount--;
+		if(chooseCount == 0){
+			gameObject.SetActive (false);
+			GameManager.instance.ReturnControl ();
+		}
 	}
 
 	public void OnDrag(){

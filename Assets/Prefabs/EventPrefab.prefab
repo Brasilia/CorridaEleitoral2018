@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 224571233856323628}
   - component: {fileID: 222194717455191108}
   - component: {fileID: 114878335500574890}
-  - component: {fileID: 114613394044889992}
+  - component: {fileID: 114709933724726518}
   m_Layer: 5
   m_Name: EventPrefab
   m_TagString: Untagged
@@ -124,7 +124,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: TEXT TESTE
---- !u!114 &114613394044889992
+--- !u!114 &114709933724726518
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -132,10 +132,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1095635327186730}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd7186acfb3e4be4f9d91f4510e967d2, type: 3}
+  m_Script: {fileID: 11500000, guid: 95aac9bf643b2f641bb35a387edb93f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gm: {fileID: 0}
+  description: {fileID: 114465038493016738}
+  image: {fileID: 0}
+  actionDecline: {fileID: 0}
+  actionAccept: {fileID: 0}
 --- !u!114 &114768145897819770
 MonoBehaviour:
   m_ObjectHideFlags: 1

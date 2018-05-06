@@ -740,6 +740,7 @@ GameObject:
   - component: {fileID: 224996311833358882}
   - component: {fileID: 222017801536110518}
   - component: {fileID: 114383563815331682}
+  - component: {fileID: 114704802368389662}
   m_Layer: 5
   m_Name: PoliticPrefab
   m_TagString: Untagged
@@ -1784,6 +1785,48 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114704802368389662
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1807809837863690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab19ebccec3d01b4b8942b1d0fa4e2a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: {fileID: 0}
+  image: {fileID: 0}
+  personName: 
+  resources:
+    cash: 0
+    corruption: 0
+    credibility: 0
+    visibility: 0
+  events: []
+  alignment:
+    economic:
+      value: 0
+      bolsaFamilia: 0
+      salarioMinimo: 0
+      impostoDeRenda: 0
+      privatizacao: 0
+      previdencia: 0
+    civil:
+      value: 0
+      servicoMilitarObrigatorio: 0
+      escolasMilitares: 0
+    societal:
+      value: 0
+      ensinoReligiosoEscolas: 0
+      legalizacaoAborto: 0
+      casamentoGay: 0
+      legalizacaoDrogas: 0
+  avaiableStaff: []
+  candidates: []
+  voteIntentions: 0
+  debateBoosts: []
 --- !u!114 &114708996174465240
 MonoBehaviour:
   m_ObjectHideFlags: 1
