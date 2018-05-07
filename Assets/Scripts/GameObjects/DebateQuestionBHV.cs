@@ -8,11 +8,11 @@ public class DebateQuestionBHV : EventBHV {
 	public Event_Data nextEvent3rd;
 	//Execution ----------------
 
-	public void LoadData(DebateQuestion_Data card){
-		base.LoadData (card);
-		nextEvent2nd = card.nextEvent2nd;
-		nextEvent3rd = card.nextEvent3rd;
-	}
+//	public void LoadData(DebateQuestion_Data card){
+//		base.LoadData (card);
+//		nextEvent2nd = card.nextEvent2nd;
+//		nextEvent3rd = card.nextEvent3rd;
+//	}
 	// Use this for initialization
 	void Start () {
 		

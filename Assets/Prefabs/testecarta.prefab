@@ -21,6 +21,9 @@ GameObject:
   - component: {fileID: 224062925572065100}
   - component: {fileID: 222227549282689894}
   - component: {fileID: 114973505635405880}
+  - component: {fileID: 114329893256603036}
+  - component: {fileID: 114650522178800010}
+  - component: {fileID: 114909734751853708}
   m_Layer: 5
   m_Name: testecarta
   m_TagString: Untagged
@@ -28,6 +31,67 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &114329893256603036
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1582283163777816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab19ebccec3d01b4b8942b1d0fa4e2a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardData: {fileID: 0}
+  description: {fileID: 0}
+  image: {fileID: 0}
+  events: []
+  personName: {fileID: 0}
+  resources:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  economical: 0
+  civil: 0
+  societal: 0
+--- !u!114 &114650522178800010
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1582283163777816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95aac9bf643b2f641bb35a387edb93f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardData: {fileID: 0}
+  description: {fileID: 0}
+  image: {fileID: 0}
+  actionDecline: {fileID: 0}
+  actionAccept: {fileID: 0}
+--- !u!114 &114909734751853708
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1582283163777816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60e2938ce94a72d4a9879d50f7f0ee3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardData: {fileID: 0}
+  description: {fileID: 0}
+  image: {fileID: 0}
+  events: []
+  personName: {fileID: 0}
+  resources:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &114973505635405880
 MonoBehaviour:
   m_ObjectHideFlags: 1

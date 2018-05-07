@@ -12,11 +12,11 @@ public class EventBHV : CardBHV {
 	//Execution ----------------
 
 
-	public void LoadData(Event_Data card){
-		base.LoadData (card);
-//		actionDecline = card.actionDecline;
-//		actionAccept = card.actionAccept;
-	}
+//	public void LoadData(Event_Data card){
+//		base.LoadData (card);
+////		actionDecline = card.actionDecline;
+////		actionAccept = card.actionAccept;
+//	}
 	// Use this for initialization
 	void Start () {
 		
@@ -28,9 +28,8 @@ public class EventBHV : CardBHV {
 	}
 
 	public void Load(Event_Data e){
-		
+		base.Load (e);
 		actionDecline.text = e.actionDecline.description;
 		actionAccept.text = e.actionAccept.description;
-		base.Load (e);
 	}
 }

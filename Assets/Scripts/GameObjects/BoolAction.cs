@@ -5,9 +5,11 @@ using UnityEngine;
 public class BoolAction : MonoBehaviour {
 
 	[SerializeField]
-	private GameObject card;
-	public GameObject panelCard;
+	public GameObject card;
+	public RectTransform panelCard;
 	private GameManager gameManager;
+
+	public bool choice;
 
 	// Use this for initialization
 	void Start () {
@@ -22,9 +24,16 @@ public class BoolAction : MonoBehaviour {
 
 	// Ativa o widget.
 	public void SetActiveBoolAction(GameObject card){
+		Invoke ("Activate", 0.5f);
 		this.card = card;
+
+	}
+
+	private void Activate(){
+		gameObject.SetActive (true);
 		this.card.transform.SetParent (panelCard.transform);
-		this.card.transform.position = new Vector3 (16.2f, 325.6f, 0.0f);
+		panelCard.anchoredPosition = Vector2.zero;
+		this.card.transform.localPosition = Vector2.zero;
 	}
 		
 	public void OnDrag(){
@@ -33,15 +42,23 @@ public class BoolAction : MonoBehaviour {
 		if (x < 0) {
 			//x = 0.0f;
 			gameObject.SetActive (false);
-			panelCard.transform.position = new Vector2(16.2f, 325.6f);
-			gameManager.BoolChoosen(false, card);
+			Destroy (this.card);
+			//panelCard.transform.localPosition = Vector2.zero;
+			choice = false;
+			Debug.Log ("NO");
+			GameManager.instance.ReturnControl ();
+			//gameManager.BoolChosen(false, card);
 		}
 		if (x > 900f) {
 			//x = 900f;
 			//card.ActionYes();
 			gameObject.SetActive (false);
-			panelCard.transform.position = new Vector2(16.2f, 325.6f);
-			gameManager.BoolChoosen(true, card);
+			Destroy (this.card);
+			//panelCard.transform.localPosition = Vector2.zero;
+			choice = true;
+			Debug.Log ("YES");
+			GameManager.instance.ReturnControl ();
+			//gameManager.BoolChosen(true, card);
 		}
 		y = panelCard.transform.position.y;
 		panelCard.transform.position = new Vector2(x, y);

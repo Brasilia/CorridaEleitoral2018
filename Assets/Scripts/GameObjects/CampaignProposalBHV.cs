@@ -9,10 +9,10 @@ public class CampaignProposalBHV : EventBHV {
 	//Execution ----------------
 
 
-	public void LoadData(CampaignProposal_Data card){
-		base.LoadData (card);
-		debateBoost = card.debateBoost;
-	}
+//	public void LoadData(CampaignProposal_Data card){
+//		base.LoadData (card);
+//		debateBoost = card.debateBoost;
+//	}
 	// Use this for initialization
 	void Start () {
 		

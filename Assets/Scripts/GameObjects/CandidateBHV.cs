@@ -20,14 +20,15 @@ public class CandidateBHV : PersonBHV {
 
 
 
-	public void LoadData(Candidate_Data card){
-//		base.LoadData (card);
-//		alignment = card.alignment;
-//		avaiableStaff = card.avaiableStaff;
-	}
+//	public void LoadData(Candidate_Data card){
+////		base.LoadData (card);
+////		alignment = card.alignment;
+////		avaiableStaff = card.avaiableStaff;
+//	}
 
 
 	public void Load(Candidate_Data card){
+		base.Load (card);
 		economical = card.alignment.economic.value;
 		civil = card.alignment.civil.value;
 		societal = card.alignment.societal.value;

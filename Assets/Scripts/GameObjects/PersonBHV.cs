@@ -23,12 +23,12 @@ public class PersonBHV : CardBHV {
 
 	//Execution ----------------
 
-	public void LoadData(Person_Data card){
-//		base.LoadData (card);
-//		personName.text = card.personName;
-//		resources = card.resources;
-//		events = card.events;
-	}
+//	public void LoadData(Person_Data card){
+////		base.LoadData (card);
+////		personName.text = card.personName;
+////		resources = card.resources;
+////		events = card.events;
+//	}
 
 	public void Load (Person_Data card){
 		base.Load (card);
