@@ -11,7 +11,7 @@ public class CardBHV : MonoBehaviour{
 
 	public Card_Data cardData;
 	public Text description;
-	public Sprite image;
+	public Image image;
 
 	//Execution ----------------
 
@@ -32,7 +32,7 @@ public class CardBHV : MonoBehaviour{
 
 	public void Load(Card_Data c){
 		description.text = c.description;
-		image = c.image;
+		image.sprite = c.image;
 		cardData = c;
 	}
 

@@ -30,7 +30,9 @@ public class CardTable : MonoBehaviour {
 		for (i = 0; i < candidates.Count; i++) {
 			Debug.Log (i + " " + candidates [i]);
 			candidates [i].transform.SetParent (btnCandidate [i].transform);
-			candidates [i].transform.position = btnCandidate [i].transform.position;
+			candidates [i].transform.localPosition = Vector2.zero;
+			candidates [i].transform.localScale = Vector2.one;
+			candidates [i].GetComponent<RectTransform> ().sizeDelta = Vector2.zero;
 		}
 	}
 

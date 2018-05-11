@@ -32,7 +32,6 @@ public class CandidateBHV : PersonBHV {
 		economical = card.alignment.economic.value;
 		civil = card.alignment.civil.value;
 		societal = card.alignment.societal.value;
-
 	}
 
 
