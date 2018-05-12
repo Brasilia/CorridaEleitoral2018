@@ -2287,6 +2287,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb737ed46e1276d45b5e174022f6cc11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  eventList: []
+  eventText: {fileID: 0}
+  options: {fileID: 0}
+  eventAnswerButtonPrefab: {fileID: 0}
+  currentEvent: {fileID: 0}
 --- !u!114 &114882103738854802
 MonoBehaviour:
   m_ObjectHideFlags: 1

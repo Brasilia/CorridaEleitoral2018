@@ -149,7 +149,6 @@ public class GameManager : MonoBehaviour {
 		GameObject ev = Instantiate(eventPrefab);
 		ev.GetComponent<EventBHV> ().Load (events[rand]); //Carregar atributos da carta - de índice rand
 		uiBoolSlider.SetActiveBoolAction (ev);
-
 	}
 
 	private void EventAnswerChosen(){

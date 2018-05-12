@@ -142,7 +142,7 @@ GameObject:
   - component: {fileID: 224470456960374232}
   - component: {fileID: 222565293171776396}
   - component: {fileID: 114065352526376944}
-  - component: {fileID: 114177492265367140}
+  - component: {fileID: 114325016386314842}
   m_Layer: 5
   m_Name: StaffPrefab
   m_TagString: Untagged
@@ -581,30 +581,6 @@ MonoBehaviour:
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 1
   m_ChildControlHeight: 1
---- !u!114 &114177492265367140
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1204328589525772}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab19ebccec3d01b4b8942b1d0fa4e2a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cardData: {fileID: 0}
-  description: {fileID: 114855399909980722}
-  image: {fileID: 0}
-  events: []
-  personName: {fileID: 114005958180906874}
-  resources:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  economical: 0
-  civil: 0
-  societal: 0
 --- !u!114 &114178429651959604
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -689,6 +665,27 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &114325016386314842
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1204328589525772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60e2938ce94a72d4a9879d50f7f0ee3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardData: {fileID: 0}
+  description: {fileID: 114855399909980722}
+  image: {fileID: 114391949321043480}
+  events: []
+  personName: {fileID: 114005958180906874}
+  resources:
+  - {fileID: 114654279773824994}
+  - {fileID: 114136419967418310}
+  - {fileID: 114672335772354318}
+  - {fileID: 114586642910727010}
 --- !u!114 &114355142779015230
 MonoBehaviour:
   m_ObjectHideFlags: 1
