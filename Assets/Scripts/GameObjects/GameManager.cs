@@ -141,6 +141,7 @@ public class GameManager : MonoBehaviour {
 		for (int i = 0; i < uiCarousel.chosenList.Count; i++){
 			candidates[0].hiredStaff.Add( candidates[0].avaiableStaff[uiCarousel.chosenList[i]] );
 		}
+		uiCarousel.chosenList.Clear ();
 	}
 
 	//--Events

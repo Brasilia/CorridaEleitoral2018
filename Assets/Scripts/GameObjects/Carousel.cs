@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class Carousel : MonoBehaviour {
 
 	private List<GameObject> cards = new List<GameObject>();
 	//public List <GameObject> panels;
 	public GameObject pivotCard;
-	public List<GameObject> cardsToTest;
+	//public List<GameObject> cardsToTest;
 
 	public RectTransform scrollPanel;	// ScrollPanel
 	public RectTransform center;	// CenterToCompare
@@ -18,9 +19,11 @@ public class Carousel : MonoBehaviour {
 	private bool dragging = false;
 	public int chooseCount;
 	public List<int> chosenList = new List<int>();
+	[SerializeField]
 	private int selected; 
 	public List<RectTransform> panels;
 	private float offsetButtons = 700f;
+	private int movesAfterSelecion = 0;
 
 	private GameManager gameManager;
 
@@ -64,6 +67,7 @@ public class Carousel : MonoBehaviour {
 
 	private void Organize(){
 		float deltaX = 0;
+		int counter = 0;
 
 		distance = new float[cards.Count];
 		Debug.Log ("Staff count: "+cards.Count);
@@ -76,6 +80,7 @@ public class Carousel : MonoBehaviour {
 			card.transform.localPosition = Vector2.zero;
 			deltaX += offsetButtons;
 			panels.Add (panel);
+			counter++;
 		}
 	}
 
@@ -86,7 +91,6 @@ public class Carousel : MonoBehaviour {
 		float newX = Mathf.Lerp (scrollPanel.anchoredPosition.x, position, Time.deltaTime * 10f);	// Suaviza o panel pra posição certa
 		Vector2 newPosition = new Vector2(newX, scrollPanel.anchoredPosition.y);	// Nova posição do panel
 		scrollPanel.anchoredPosition = newPosition;		// Seta a posição
-
 	}
 
 	public void BeginDrag(){
@@ -100,19 +104,35 @@ public class Carousel : MonoBehaviour {
 	}
 
 	public void OnClick(){
-		
-		// chama função seguinte retornando selected
-		chosenList.Add(selected);
-		cards.RemoveAt (selected);
-		RectTransform removedPanel = panels [selected];
-		Destroy (panels [selected].gameObject);
-		panels.RemoveAt (selected);
-		Debug.Log ("Click!");
-		chooseCount--;
-		if(chooseCount == 0){
-			gameObject.SetActive (false);
-			GameManager.instance.ReturnControl ();
+		if (!dragging) {
+			if (Input.mousePosition.x < 800 && Input.mousePosition.x > 130) { 	
+				chosenList.Add (selected + movesAfterSelecion + chosenList.Count);		
+				print("selecionado = " + (chosenList[chosenList.Count - 1]));
+				if (selected == panels.Count - 1) {		// Se for selecionado o último
+					Debug.Log ("Seleção certa");
+					//for (int i = selected - 1; i >= 0; i--)
+						//panels [i].anchoredPosition = new Vector2 (panels [i].anchoredPosition.x + offsetButtons, scrollPanel.anchoredPosition.y);
+					movesAfterSelecion--;
+					scrollPanel.anchoredPosition = new Vector2(scrollPanel.anchoredPosition.x + offsetButtons, scrollPanel.anchoredPosition.y);
+				}
+				else { // Se for selecionado um do meio ou primeiro
+					//movesAfterSelecion++;
+					for (int i = selected + 1; i < panels.Count; i++) 
+						panels [i].anchoredPosition = new Vector2 (panels [i].anchoredPosition.x - offsetButtons, scrollPanel.anchoredPosition.y);
+				}
+				//cards.RemoveAt (selected);
+				RectTransform removedPanel = panels [selected];
+				Destroy (panels [selected].gameObject);
+				panels.RemoveAt (selected);
+				Debug.Log ("Click!");
+				chooseCount--;
+				if(chooseCount == 0){
+					gameObject.SetActive (false);
+					GameManager.instance.ReturnControl ();
+				}
+			}
 		}
+		// chama função seguinte retornando selected
 	}
 
 	public void OnDrag(){
