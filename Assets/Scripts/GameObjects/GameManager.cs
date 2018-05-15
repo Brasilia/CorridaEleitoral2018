@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour {
 	public Carousel uiCarousel;
 	public CardTable uiChoiceTable;
 	public BoolAction uiBoolSlider;
+	public ResourcesBHV uiResources;
 
 	//Candidatos - sempre em memória principal; leitura e escrita
 	public List<Candidate> candidates = new List<Candidate>();	
@@ -76,6 +77,7 @@ public class GameManager : MonoBehaviour {
 		case STATE.ChooseCandidate:
 			CandidateChosen ();
 			state = STATE.ChooseStaff;
+			//uiResources.SetResourcesActive ();
 			Debug.Log ("ChooseStaff()");
 			ChooseStaff ();
 			break;

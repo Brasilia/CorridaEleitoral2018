@@ -112,13 +112,10 @@ public class Carousel : MonoBehaviour {
 				print("selecionado = " + (chosenList[chosenList.Count - 1]));
 				if (selected == panels.Count - 1) {		// Se for selecionado o último
 					Debug.Log ("Seleção certa");
-					//for (int i = selected - 1; i >= 0; i--)
-						//panels [i].anchoredPosition = new Vector2 (panels [i].anchoredPosition.x + offsetButtons, scrollPanel.anchoredPosition.y);
 					movesAfterSelecion--;
 					scrollPanel.anchoredPosition = new Vector2(scrollPanel.anchoredPosition.x + offsetButtons, scrollPanel.anchoredPosition.y);
 				}
 				else { // Se for selecionado um do meio ou primeiro
-					//movesAfterSelecion++;
 					for (int i = selected + 1; i < panels.Count; i++) 
 						panels [i].anchoredPosition = new Vector2 (panels [i].anchoredPosition.x - offsetButtons, scrollPanel.anchoredPosition.y);
 				}

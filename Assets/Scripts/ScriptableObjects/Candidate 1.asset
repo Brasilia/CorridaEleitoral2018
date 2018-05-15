@@ -15,25 +15,25 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: 754317c8c31da964dacfe1b0fdec08af, type: 3}
   personName: Bolsonaro
   resources:
-    cash: 0
-    corruption: 0
-    credibility: 0
-    visibility: 0
+    cash: 35
+    corruption: 10
+    credibility: 300
+    visibility: 20
   events: []
   alignment:
     economic:
-      value: 0
+      value: 20
       bolsaFamilia: 0
       salarioMinimo: 0
       impostoDeRenda: 0
       privatizacao: 0
       previdencia: 0
     civil:
-      value: 0
+      value: 35
       servicoMilitarObrigatorio: 0
       escolasMilitares: 0
     societal:
-      value: 0
+      value: -35
       ensinoReligiosoEscolas: 0
       legalizacaoAborto: 0
       casamentoGay: 0
