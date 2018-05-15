@@ -29,7 +29,7 @@ public class EventBHV : CardBHV {
 
 	public void Load(Event_Data e){
 		base.Load (e);
-		actionDecline.text = e.actionDecline.description;
-		actionAccept.text = e.actionAccept.description;
+		//actionDecline.text = e.actionDecline.description; FIXME descomentar
+		//actionAccept.text = e.actionAccept.description; FIXME descomentar
 	}
 }

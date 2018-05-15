@@ -153,7 +153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardData: {fileID: 0}
   description: {fileID: 114290327702024542}
-  image: {fileID: 0}
+  image: {fileID: 114167858373110846}
   actionDecline: {fileID: 0}
   actionAccept: {fileID: 0}
 --- !u!114 &114555875050070630
@@ -241,7 +241,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1302772646419650}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -11.340134, z: 0}
+  m_LocalPosition: {x: 0, y: -51.703, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224320586398095208}
@@ -296,8 +296,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1262249551318410}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -58, z: 0}
-  m_LocalScale: {x: 1.0002246, y: 1.0002246, z: 1.0002246}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224039528005478862}
   - {fileID: 224240365407043646}
@@ -306,6 +306,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -58}
-  m_SizeDelta: {x: -954.4, y: -324.2}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}

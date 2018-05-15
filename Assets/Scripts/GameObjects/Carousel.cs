@@ -78,6 +78,8 @@ public class Carousel : MonoBehaviour {
 			card.transform.SetParent (panel.transform);
 			panel.transform.localPosition = new Vector2 (0 + deltaX, 0);
 			card.transform.localPosition = Vector2.zero;
+			card.transform.localScale = Vector2.one;
+			card.GetComponent<RectTransform> ().sizeDelta = Vector2.zero;
 			deltaX += offsetButtons;
 			panels.Add (panel);
 			counter++;

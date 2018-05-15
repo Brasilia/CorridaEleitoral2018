@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour {
 
 	public static GameManager instance = null;
 
+	public Camera camera;
+
 	//Referência para os widgets
 	public Carousel uiCarousel;
 	public CardTable uiChoiceTable;
