@@ -77,6 +77,7 @@ public class GameManager : MonoBehaviour {
 		case STATE.ChooseCandidate:
 			CandidateChosen ();
 			state = STATE.ChooseStaff;
+			//uiResources.SetResourcesActive ();
 			Debug.Log ("ChooseStaff()");
 			ChooseStaff ();
 			break;
@@ -84,7 +85,6 @@ public class GameManager : MonoBehaviour {
 			StaffChosen ();
 			state = STATE.Event;
 			Debug.Log ("ah, mlk");
-			uiResources.SetResourcesActive ();
 			ChooseEvent (eventsData);
 			break;
 		case STATE.Event:
@@ -143,9 +143,7 @@ public class GameManager : MonoBehaviour {
 
 	private void StaffChosen (){
 		for (int i = 0; i < uiCarousel.chosenList.Count; i++){
-			Staff_Data staffChosen = candidates [0].avaiableStaff [uiCarousel.chosenList [i]];
-			SetResourcesFromStaff (staffChosen);
-			candidates[0].hiredStaff.Add(staffChosen);
+			candidates[0].hiredStaff.Add( candidates[0].avaiableStaff[uiCarousel.chosenList[i]] );
 		}
 		uiCarousel.chosenList.Clear ();
 	}
@@ -166,7 +164,7 @@ public class GameManager : MonoBehaviour {
 		} else {
 			chosenAction = evData.actionAccept;
 		}
-		SetEventConsequences(chosenAction);
+		//apply action TODO
 		if(chosenAction.nextEvent != null){
 			GameObject ev = Instantiate(eventPrefab);
 			ev.GetComponent<EventBHV> ().Load (chosenAction.nextEvent); //Carregar atributos da carta - apontada por chosenAction.nextEvent
@@ -174,48 +172,8 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
-	// Incrementa alinhamento e recursos do player com valores do staff
-	private void SetEventConsequences(EventAction_Data eventChosen){
-		// Incrementa recursos
-		candidates [0].resources.cash += eventChosen.resources.cash;
-		candidates [0].resources.corruption += eventChosen.resources.corruption;
-		candidates [0].resources.credibility += eventChosen.resources.credibility;
-		candidates [0].resources.visibility += eventChosen.resources.visibility;
 
-		// Incrementa alinhamento
 
-		// Economic
-		candidates[0].alignment.economic.value += eventChosen.alignment.economic.value;
-		candidates[0].alignment.economic.bolsaFamilia += eventChosen.alignment.economic.bolsaFamilia;
-		candidates[0].alignment.economic.salarioMinimo += eventChosen.alignment.economic.salarioMinimo;
-		candidates[0].alignment.economic.impostoDeRenda += eventChosen.alignment.economic.impostoDeRenda;
-		candidates[0].alignment.economic.privatizacao += eventChosen.alignment.economic.privatizacao;
-		candidates[0].alignment.economic.previdencia += eventChosen.alignment.economic.previdencia;
-
-		// Civil
-		candidates[0].alignment.civil.value += eventChosen.alignment.civil.value;
-		candidates[0].alignment.civil.servicoMilitarObrigatorio += eventChosen.alignment.civil.servicoMilitarObrigatorio;
-		candidates[0].alignment.civil.escolasMilitares += eventChosen.alignment.civil.escolasMilitares;
-
-		// Societal
-		candidates[0].alignment.societal.value += eventChosen.alignment.societal.value;
-		candidates[0].alignment.societal.ensinoReligiosoEscolas += eventChosen.alignment.societal.ensinoReligiosoEscolas;
-		candidates[0].alignment.societal.legalizacaoAborto += eventChosen.alignment.societal.legalizacaoAborto;
-		candidates[0].alignment.societal.casamentoGay += eventChosen.alignment.societal.casamentoGay;
-		candidates[0].alignment.societal.legalizacaoDrogas += eventChosen.alignment.societal.legalizacaoDrogas;
-
-		uiResources.UpdateValues ();
-	}
-
-	// Incrementa atributos do player com os valores de recursos do staff
-	private void SetResourcesFromStaff(Staff_Data staffChosen){
-		candidates [0].resources.cash += staffChosen.resources.cash;
-		candidates [0].resources.corruption += staffChosen.resources.corruption;
-		candidates [0].resources.credibility += staffChosen.resources.credibility;
-		candidates [0].resources.visibility += staffChosen.resources.visibility;
-
-		uiResources.UpdateValues ();
-	}
 
 //	// Chamada após a opção booleana ser escolhida (decline or accept, yes or no)
 //	public void BoolChosen(bool option, GameObject card){
