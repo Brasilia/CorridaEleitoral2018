@@ -4283,17 +4283,24 @@ RectTransform:
   - {fileID: 1927613148}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> 0469b54... merge3
+=======
+<<<<<<< HEAD
+>>>>>>> 0469b5472fd3af4846d1e85c9e655d7761973d86
   - {fileID: 1941758098}
   - {fileID: 1844833930}
 =======
   - {fileID: 1701211247}
 >>>>>>> ab930a2... adicinando icones no prefab candidato
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 0469b5472fd3af4846d1e85c9e655d7761973d86
 =======
   - {fileID: 1701211247}
 =======
@@ -4304,7 +4311,10 @@ RectTransform:
 =======
   - {fileID: 1941758098}
 >>>>>>> parent of ab930a2... adicinando icones no prefab candidato
+<<<<<<< HEAD
 >>>>>>> 0469b54... merge3
+=======
+>>>>>>> 0469b5472fd3af4846d1e85c9e655d7761973d86
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5940,6 +5950,7 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1694135757}
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1001 &1701211246
 Prefab:
   m_ObjectHideFlags: 0
@@ -7189,6 +7200,8 @@ CanvasRenderer:
   m_GameObject: {fileID: 1694135757}
 =======
 >>>>>>> 0469b54... merge3
+=======
+>>>>>>> 0469b5472fd3af4846d1e85c9e655d7761973d86
 --- !u!1 &1697041817
 GameObject:
   m_ObjectHideFlags: 0
@@ -7394,6 +7407,7 @@ CanvasRenderer:
 --- !u!114 &1779988917
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_GameObject: {fileID: 1701211248}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -7414,6 +7428,8 @@ CanvasRenderer:
 --- !u!114 &1701211251
 >>>>>>> ab930a2... adicinando icones no prefab candidato
 =======
+=======
+>>>>>>> 0469b5472fd3af4846d1e85c9e655d7761973d86
   m_Navigation:
     m_Mode: 3
     m_SelectOnUp: {fileID: 0}
@@ -7457,7 +7473,10 @@ CanvasRenderer:
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1694135760
 >>>>>>> parent of ab930a2... adicinando icones no prefab candidato
+<<<<<<< HEAD
 >>>>>>> 0469b54... merge3
+=======
+>>>>>>> 0469b5472fd3af4846d1e85c9e655d7761973d86
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 114707417518337868, guid: a5867a6038f30354d8d27990017a4cf6,
@@ -7526,6 +7545,7 @@ RectTransform:
   m_AnchoredPosition: {x: -5, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+<<<<<<< HEAD
 =======
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -7533,6 +7553,7 @@ RectTransform:
 =======
   m_GameObject: {fileID: 1694135757}
 >>>>>>> parent of ab930a2... adicinando icones no prefab candidato
+<<<<<<< HEAD
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
@@ -7541,15 +7562,21 @@ RectTransform:
 <<<<<<< HEAD
 =======
   m_GameObject: {fileID: 1701211249}
+=======
+>>>>>>> 0469b5472fd3af4846d1e85c9e655d7761973d86
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 1297475563, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
 >>>>>>> ab930a2... adicinando icones no prefab candidato
 =======
 <<<<<<< HEAD
 >>>>>>> 0469b54... merge3
+=======
+<<<<<<< HEAD
+>>>>>>> 0469b5472fd3af4846d1e85c9e655d7761973d86
   m_Padding:
     m_Left: 0
     m_Right: 0
@@ -7594,7 +7621,10 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1694135757}
 >>>>>>> parent of ab930a2... adicinando icones no prefab candidato
+<<<<<<< HEAD
 >>>>>>> 0469b54... merge3
+=======
+>>>>>>> 0469b5472fd3af4846d1e85c9e655d7761973d86
 --- !u!1 &1841768614
 GameObject:
   m_ObjectHideFlags: 0
@@ -8074,10 +8104,15 @@ RectTransform:
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> 30405f588a79a776e75b3a300b533947be48bb5f
 >>>>>>> 0469b54... merge3
+=======
+=======
+>>>>>>> 30405f588a79a776e75b3a300b533947be48bb5f
+>>>>>>> 0469b5472fd3af4846d1e85c9e655d7761973d86
 --- !u!1 &1939902516
 GameObject:
   m_ObjectHideFlags: 0
@@ -8264,12 +8299,15 @@ Prefab:
   m_ParentPrefab: {fileID: 100100000, guid: dcdcf96087963374f8b5bca32a9186e9, type: 2}
   m_IsPrefabParent: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> ab930a2... adicinando icones no prefab candidato
 =======
 >>>>>>> ab930a2... adicinando icones no prefab candidato
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> 0469b5472fd3af4846d1e85c9e655d7761973d86
 <<<<<<< HEAD
 =======
 >>>>>>> ab930a2... adicinando icones no prefab candidato
@@ -8278,7 +8316,10 @@ Prefab:
 >>>>>>> 30405f588a79a776e75b3a300b533947be48bb5f
 =======
 >>>>>>> parent of ab930a2... adicinando icones no prefab candidato
+<<<<<<< HEAD
 >>>>>>> 0469b54... merge3
+=======
+>>>>>>> 0469b5472fd3af4846d1e85c9e655d7761973d86
 --- !u!1 &1969154280
 GameObject:
   m_ObjectHideFlags: 0
