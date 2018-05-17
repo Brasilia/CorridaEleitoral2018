@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CandidateBHV : PersonBHV {
 
@@ -14,10 +15,9 @@ public class CandidateBHV : PersonBHV {
 //	public float voteIntentions;
 //	public List<Alignment> debateBoosts;
 
-	public int economical;
-	public int civil;
-	public int societal;
-
+	public Slider economical;
+	public Slider civil;
+	public Slider societal;
 
 
 //	public void LoadData(Candidate_Data card){
@@ -29,9 +29,9 @@ public class CandidateBHV : PersonBHV {
 
 	public void Load(Candidate_Data card){
 		base.Load (card);
-		economical = card.alignment.economic.value;
-		civil = card.alignment.civil.value;
-		societal = card.alignment.societal.value;
+		economical.value = card.alignment.economic.value;
+		civil.value = card.alignment.civil.value;
+		societal.value = card.alignment.societal.value;
 	}
 
 

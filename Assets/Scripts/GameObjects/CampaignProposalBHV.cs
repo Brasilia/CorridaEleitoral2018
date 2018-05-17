@@ -1,11 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CampaignProposalBHV : EventBHV {
 	//Database -----------------
 	//Eixos
 	public Alignment debateBoost;
+
+	public Slider economical;
+	public Slider civil;
+	public Slider societal;
 	//Execution ----------------
 
 
