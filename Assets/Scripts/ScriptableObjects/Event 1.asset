@@ -43,8 +43,8 @@ MonoBehaviour:
   actionAccept:
     description: Action accept
     resources:
-      cash: 0
-      corruption: 0
+      cash: 15
+      corruption: 3
       credibility: 0
       visibility: 0
     alignment:
