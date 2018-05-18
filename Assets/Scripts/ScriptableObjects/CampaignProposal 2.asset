@@ -43,10 +43,10 @@ MonoBehaviour:
   actionAccept:
     description: "Descri\xE7\xE3o Gen\xE9rica"
     resources:
-      cash: 0
-      corruption: 0
-      credibility: 0
-      visibility: 0
+      cash: 50
+      corruption: 50
+      credibility: -20
+      visibility: 30
     alignment:
       economic:
         value: 0

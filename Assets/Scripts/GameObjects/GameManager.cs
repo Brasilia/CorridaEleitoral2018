@@ -96,6 +96,11 @@ public class GameManager : MonoBehaviour {
 				ChooseEvent (eventsData);
 			}
 			break;
+		case STATE.Proposal:
+			ProposalChosen ();
+			state = STATE.ChooseOpponent;
+			Debug.Log ("ChooseOpponent");
+			break;
 		}
 	}
 
@@ -146,7 +151,7 @@ public class GameManager : MonoBehaviour {
 			SetResourcesFromStaff (staffChosen);
 			candidates[0].hiredStaff.Add(staffChosen);
 		}
-		uiCarousel.chosenList.Clear ();
+		//uiCarousel.chosenList.Clear (); passado pra classe carousel
 	}
 
 	//--Events
@@ -192,6 +197,13 @@ public class GameManager : MonoBehaviour {
 			}
 		}
 		uiCarousel.SetCarouselActive (proposals, 1);
+	}
+
+	private void ProposalChosen(){
+		CampaignProposal_Data prop = (CampaignProposal_Data)( uiCarousel.cards [uiCarousel.chosenList [0]].GetComponent<CampaignProposalBHV>().cardData );
+		Debug.Log (uiCarousel.chosenList.Count);
+		Debug.Log ("prop: " + prop);
+		SetEventConsequences (prop.actionAccept);
 	}
 
 

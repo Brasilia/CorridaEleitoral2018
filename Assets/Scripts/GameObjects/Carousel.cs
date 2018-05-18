@@ -4,9 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
+//TODO carousel deve manter referência (como resposta) para as cartas escolhidas
 public class Carousel : MonoBehaviour {
 
-	private List<GameObject> cards = new List<GameObject>();
+	public List<GameObject> cards = new List<GameObject>();
 	//public List <GameObject> panels;
 	public GameObject pivotCard;
 	//public List<GameObject> cardsToTest;
@@ -58,6 +59,7 @@ public class Carousel : MonoBehaviour {
 	// Ativa o widget.
 	public void SetCarouselActive(List<GameObject> cards, int count = 1){
 		this.cards.Clear ();
+		chosenList.Clear ();
 		this.cards = cards;
 		chooseCount = count;
 		Debug.Log ("Chamando Organize()");
