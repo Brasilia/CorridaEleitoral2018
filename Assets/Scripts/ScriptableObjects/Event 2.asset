@@ -14,7 +14,7 @@ MonoBehaviour:
   description: Segundo Evento
   image: {fileID: 0}
   actionDecline:
-    description: 
+    description: No
     resources:
       cash: 0
       corruption: 0
@@ -41,7 +41,7 @@ MonoBehaviour:
     nextEvent: {fileID: 0}
     specialConsequences: 
   actionAccept:
-    description: 
+    description: Yes
     resources:
       cash: -8
       corruption: 0

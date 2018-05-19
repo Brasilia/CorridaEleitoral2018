@@ -1,12 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BoolAction : MonoBehaviour {
 
 	[SerializeField]
 	public GameObject card;
 	public RectTransform panelCard;
+	public Text textDecline;
+	public Text textAccept;
+	public GameObject panelDecline;
+	public GameObject panelAccept;
+
 	private GameManager gameManager;
 
 	private Vector2 clickPoint; //coordenadas do mouse
@@ -34,6 +40,13 @@ public class BoolAction : MonoBehaviour {
 
 	private void Activate(){
 		gameObject.SetActive (true);
+		panelDecline.gameObject.SetActive (false);
+		panelAccept.gameObject.SetActive (false);
+		textDecline.text = card.GetComponent<EventBHV> ().actionDecline;
+		textAccept.text = card.GetComponent<EventBHV> ().actionAccept;
+
+
+
 		this.card.transform.SetParent (panelCard.transform);
 
 		panelCard.anchoredPosition = Vector2.zero;
@@ -73,9 +86,20 @@ public class BoolAction : MonoBehaviour {
 			GameManager.instance.ReturnControl ();
 			//gameManager.BoolChosen(true, card);
 		}
+
+		panelDecline.gameObject.SetActive (false);
+		panelAccept.gameObject.SetActive (false);
+		if (offset.x < 10){
+			panelDecline.gameObject.SetActive (true);
+		}
+		else if (offset.x > 10){
+			panelAccept.gameObject.SetActive (true);
+		}
 	}
 
 	public void OnEndDrag(){
+		panelDecline.gameObject.SetActive (false);
+		panelAccept.gameObject.SetActive (false);
 		panelCard.transform.localPosition = Vector3.zero;
 		panelCard.transform.localRotation = Quaternion.identity;
 	}
