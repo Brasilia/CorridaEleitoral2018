@@ -107,6 +107,7 @@ public class Carousel : MonoBehaviour {
 		Debug.Log ("EndDrag");
 	}
 
+	// Índices de cartas selecionadas são mantidas em chosenList
 	public void OnClick(){
 		if (!dragging) {
 			if (Input.mousePosition.x < 800 && Input.mousePosition.x > 130) { 	
