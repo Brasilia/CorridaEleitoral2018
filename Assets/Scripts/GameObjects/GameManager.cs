@@ -120,6 +120,14 @@ public class GameManager : MonoBehaviour {
 			ReplyQuestion ();
 			break;
 		case STATE.DebateReply:
+			RejoinderQuestion ();
+			state = STATE.DebateRejoinder;
+			ShowRejoinder ();
+			break;
+		case STATE.DebateRejoinder:
+			// ?? Simulação dos outros candidatos debatendo
+			state = STATE.DebateResults;
+			ShowResults ();
 			break;
 		}
 	}
@@ -274,6 +282,19 @@ public class GameManager : MonoBehaviour {
 		uiBoolSlider.SetActiveBoolAction (ev);
 	}
 
+	private void RejoinderQuestion(){
+		// IA do oponente escolhe resposta
+		// Gera consequencias da resposta
+
+	}
+
+	private void ShowRejoinder(){
+		// Cria evento pro player de acordo com a resposta - player só vê a resposta, joga pra qualquer um dos lados, sem consequencia
+	}
+
+	private void ShowResults(){
+		// Mostra resultados gerais do ciclo de debate
+	}
 
 
 	// Incrementa alinhamento e recursos do player com valores do staff
