@@ -130,6 +130,10 @@ public class Carousel : MonoBehaviour {
 				chooseCount--;
 				if(chooseCount == 0){
 					movesAfterSelecion = 0;
+					foreach (RectTransform p in panels){
+						Destroy (p.gameObject);
+					}
+					panels.Clear ();
 					gameObject.SetActive (false);
 					GameManager.instance.ReturnControl ();
 				}

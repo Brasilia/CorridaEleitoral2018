@@ -45,6 +45,10 @@ public class GameManager : MonoBehaviour {
 	public GameObject campaignProposalPrefab;
 	public GameObject debateQuestionPrefab;
 
+	//Atributos para controle do debate
+	private int opponentIndex;
+	
+
 	public STATE State {
 		get {
 			return state;
@@ -100,6 +104,22 @@ public class GameManager : MonoBehaviour {
 			ProposalChosen ();
 			state = STATE.ChooseOpponent;
 			Debug.Log ("ChooseOpponent");
+			uiResources.gameObject.SetActive (false);
+			ChooseOpponent ();
+			break;
+		case STATE.ChooseOpponent:
+			OpponentChosen ();
+			state = STATE.DebateQuestion;
+			Debug.Log ("AskQuestion");
+			AskQuestion ();
+			break;
+		case STATE.DebateQuestion:
+			QuestionAsked ();
+			state = STATE.DebateReply;
+			Debug.Log ("DebateReply");
+			ReplyQuestion ();
+			break;
+		case STATE.DebateReply:
 			break;
 		}
 	}
@@ -207,9 +227,52 @@ public class GameManager : MonoBehaviour {
 	}
 
 
+	private void ChooseOpponent(){
+		List<GameObject> candidates = new List<GameObject> ();
+		foreach(Candidate cand in this.candidates){
+			GameObject candCard = (GameObject)Instantiate (candidateCardPrefab);
+			Debug.Log (cand);
+			Debug.Log (candCard.GetComponent<CandidateBHV> ());
+			candCard.GetComponent<CandidateBHV> ().Load (cand); //Carregar atributos da carta
+			candidates.Add (candCard.gameObject);
+		}
+		uiChoiceTable.SetActiveSelectScreen (candidates);
+	}
 
+	private void OpponentChosen(){
+		opponentIndex = uiChoiceTable.candidateSelected;
+		uiChoiceTable.gameObject.SetActive (false);
+	}
 
+	private void AskQuestion(){
+		//Sorteia 3 debate questions
+		List<GameObject> questions = new List<GameObject>();
+		for (int i = 0; i < 3; i++){
+			// FIXME - tirar repetição
+			int index = Random.Range (0, debateQuestions.Count);
+			GameObject questionCard = (GameObject)Instantiate (debateQuestionPrefab);
+			questionCard.GetComponent<EventBHV> ().Load (debateQuestions [index]);
+			questions.Add (questionCard);
+		}
+		//poe no carrossel
+		uiCarousel.SetCarouselActive (questions, 1);
+	}
 
+	private void QuestionAsked(){
+		// IA do oponente escolhe resposta
+		// Gera consequencias da resposta
+		// Cria evento pro player de acordo com a resposta
+		// Chama uiBoolSlider
+
+	}
+
+	private void ReplyQuestion(){
+		// FIXME - puxamos o conteúdo que deveria estar em QuestionAsked?
+		DebateQuestion_Data question = (DebateQuestion_Data)( uiCarousel.cards [uiCarousel.chosenList [0]].GetComponent<EventBHV>().cardData ); // FIXME - EventBHV deve ser DebateQuestionBHV
+		GameObject ev = Instantiate(eventPrefab);
+		ev.GetComponent<EventBHV> ().Load (question.actionAccept.nextEvent); // FIXME - IA vai escolher se aceita ou rejeita
+		uiBoolSlider.SetActiveBoolAction (ev);
+	}
 
 
 

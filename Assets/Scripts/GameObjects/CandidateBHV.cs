@@ -34,6 +34,13 @@ public class CandidateBHV : PersonBHV {
 		societal.value = card.alignment.societal.value;
 	}
 
+	public void Load(Candidate cand){
+		image.sprite = cand.image;
+		economical.value = cand.alignment.economic.value;
+		civil.value = cand.alignment.civil.value;
+		societal.value = cand.alignment.societal.value;
+	}
+
 
 	// Use this for initialization
 	void Start () {
