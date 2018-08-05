@@ -129,6 +129,7 @@ public class Carousel : MonoBehaviour {
 				Debug.Log ("Click!");
 				chooseCount--;
 				if(chooseCount == 0){
+					movesAfterSelecion = 0;
 					gameObject.SetActive (false);
 					GameManager.instance.ReturnControl ();
 				}
