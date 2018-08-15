@@ -47,6 +47,9 @@ public class GameManager : MonoBehaviour {
 
 	//Atributos para controle do debate
 	private int opponentIndex;
+	private int firstPlayer;
+	private DebateQuestion_Data currentQuestion;
+	private List<int> questionsIndex = new List<int>();
 	
 
 	public STATE State {
@@ -114,22 +117,28 @@ public class GameManager : MonoBehaviour {
 			AskQuestion ();
 			break;
 		case STATE.DebateQuestion:
-			QuestionAsked ();
 			state = STATE.DebateReply;
+			QuestionAsked ();
 			Debug.Log ("DebateReply");
-			ReplyQuestion ();
 			break;
 		case STATE.DebateReply:
-			RejoinderQuestion ();
 			state = STATE.DebateRejoinder;
-			ShowRejoinder ();
+			ReplyQuestion ();
 			break;
 		case STATE.DebateRejoinder:
+			RejoinderQuestion ();
+			ShowRejoinder ();
 			// ?? Simulação dos outros candidatos debatendo
 			state = STATE.DebateResults;
 			ShowResults ();
 			break;
 		}
+
+		/*Debate Question
+		 * 	Player escolhe pergunta ou IA escolhe pergunta
+		 *
+		 *
+		*/
 	}
 
 	//--Start: Choose Candidate
@@ -199,7 +208,7 @@ public class GameManager : MonoBehaviour {
 			chosenAction = evData.actionAccept;
 		}
 
-		SetEventConsequences(chosenAction);
+		SetEventConsequences(chosenAction, 0);
 
 		if(chosenAction.nextEvent != null){
 			GameObject ev = Instantiate(eventPrefab);
@@ -231,61 +240,91 @@ public class GameManager : MonoBehaviour {
 		CampaignProposal_Data prop = (CampaignProposal_Data)( uiCarousel.cards [uiCarousel.chosenList [0]].GetComponent<CampaignProposalBHV>().cardData );
 		Debug.Log (uiCarousel.chosenList.Count);
 		Debug.Log ("prop: " + prop);
-		SetEventConsequences (prop.actionAccept);
+		SetEventConsequences (prop.actionAccept, 0);
 	}
 
 
 	private void ChooseOpponent(){
-		List<GameObject> candidates = new List<GameObject> ();
-		foreach(Candidate cand in this.candidates){
-			GameObject candCard = (GameObject)Instantiate (candidateCardPrefab);
-			Debug.Log (cand);
-			Debug.Log (candCard.GetComponent<CandidateBHV> ());
-			candCard.GetComponent<CandidateBHV> ().Load (cand); //Carregar atributos da carta
-			candidates.Add (candCard.gameObject);
+		firstPlayer = Random.Range (0, 2);
+		if (firstPlayer == 0) {	// Jogador inicia a jogada
+			List<GameObject> candidates = new List<GameObject> ();
+			foreach (Candidate cand in this.candidates) {
+				GameObject candCard = (GameObject)Instantiate (candidateCardPrefab);
+				Debug.Log (cand);
+				Debug.Log (candCard.GetComponent<CandidateBHV> ());
+				candCard.GetComponent<CandidateBHV> ().Load (cand); //Carregar atributos da carta
+				candidates.Add (candCard.gameObject);
+			}
+			uiChoiceTable.SetActiveSelectScreen (candidates);
+		} else { 	// IA inicia a jogada => sorteia o oponente
+			opponentIndex = Random.Range (1, candidates.Count);
+			ReturnControl ();
 		}
-		uiChoiceTable.SetActiveSelectScreen (candidates);
 	}
 
 	private void OpponentChosen(){
-		opponentIndex = uiChoiceTable.candidateSelected;
-		uiChoiceTable.gameObject.SetActive (false);
+		if (firstPlayer == 0) {
+			opponentIndex = uiChoiceTable.candidateSelected;
+			uiChoiceTable.gameObject.SetActive (false);
+		} 
 	}
 
 	private void AskQuestion(){
-		//Sorteia 3 debate questions
-		List<GameObject> questions = new List<GameObject>();
-		for (int i = 0; i < 3; i++){
-			// FIXME - tirar repetição
-			int index = Random.Range (0, debateQuestions.Count);
+		if (firstPlayer == 0) {	// Se o player faz a pergunta
+			//Sorteia 3 debate questions
+			List<GameObject> questions = new List<GameObject>();
+			for (int i = 0; i < 3; i++) {
+				// FIXME - tirar repetição
+				int index = Random.Range (0, debateQuestions.Count);
+				questionsIndex.Add (index);
+				GameObject questionCard = (GameObject)Instantiate (debateQuestionPrefab);
+				questionCard.GetComponent<EventBHV> ().Load (debateQuestions [index]);
+				questions.Add (questionCard);
+			}
+			Debug.Log ("Player fez primeira pergunta");
+			//poe no carrossel
+			uiCarousel.SetCarouselActive (questions, 1);
+		} else {	// Se a IA faz a pergunta
+			// Gera o card com a pergunta
+			int index = Random.Range(0, debateQuestions.Count);
+			currentQuestion = debateQuestions [index];
 			GameObject questionCard = (GameObject)Instantiate (debateQuestionPrefab);
-			questionCard.GetComponent<EventBHV> ().Load (debateQuestions [index]);
-			questions.Add (questionCard);
+			questionCard.GetComponent<EventBHV> ().Load (currentQuestion);
+
+			Debug.Log ("IA fez primeira pergunta.");
+			// Envia o card para o Bool Action.
+			uiBoolSlider.SetActiveBoolAction(questionCard);
 		}
-		//poe no carrossel
-		uiCarousel.SetCarouselActive (questions, 1);
 	}
 
 	private void QuestionAsked(){
-		// IA do oponente escolhe resposta
-		// Gera consequencias da resposta
-		// Cria evento pro player de acordo com a resposta
-		// Chama uiBoolSlider
+		if (firstPlayer == 0) {		// Se o player perguntou
+			currentQuestion = debateQuestions[uiCarousel.chosenList[0]];	// Pergunta escolhida no carousel.
+			// IA escolhe resposta e exibe
+			IAChooseAnswer ();
+			ShowUIAnswer ();
+		} else {	// Pega a resposta do player
+			GetPlayerAnswer();
+			ReturnControl ();
+		}
 
 	}
 
 	private void ReplyQuestion(){
-		// FIXME - puxamos o conteúdo que deveria estar em QuestionAsked?
-		DebateQuestion_Data question = (DebateQuestion_Data)( uiCarousel.cards [uiCarousel.chosenList [0]].GetComponent<EventBHV>().cardData ); // FIXME - EventBHV deve ser DebateQuestionBHV
-		GameObject ev = Instantiate(eventPrefab);
-		ev.GetComponent<EventBHV> ().Load (question.actionAccept.nextEvent); // FIXME - IA vai escolher se aceita ou rejeita
-		uiBoolSlider.SetActiveBoolAction (ev);
+		// Exibe a tréplica da IA, se o player iniciou o debate, ou a réplica da IA, caso contrário.
+		// Pega a resposta do player
+		if (firstPlayer == 0) 
+			GetPlayerAnswer ();
+
+		IAChooseAnswer ();
+		ShowUIAnswer ();
 	}
 
 	private void RejoinderQuestion(){
-		// IA do oponente escolhe resposta
-		// Gera consequencias da resposta
-
+		// Consequências da tréplica do player
+		if (firstPlayer == 1) 
+			GetPlayerAnswer ();
+		questionsIndex.Clear ();
 	}
 
 	private void ShowRejoinder(){
@@ -296,38 +335,73 @@ public class GameManager : MonoBehaviour {
 		// Mostra resultados gerais do ciclo de debate
 	}
 
+	private void GetPlayerAnswer(){
+		if (uiBoolSlider.choice){
+			SetEventConsequences(currentQuestion.actionAccept, 0);
+			currentQuestion = (DebateQuestion_Data)currentQuestion.actionAccept.nextEvent;
+			Debug.Log ("Player aceitou.");// Consequências de positivo
+		}
+		else{
+			SetEventConsequences(currentQuestion.actionDecline, 0);
+			currentQuestion = (DebateQuestion_Data)currentQuestion.actionDecline.nextEvent;
+			Debug.Log ("Player recusou.");// Consequências de negativo
+		}
+	}
+
+	private void IAChooseAnswer(){
+		// TODO: IA escolhe a resposta
+		int answer = Random.Range (0, 2);
+
+		if (answer == 0){
+			SetEventConsequences (currentQuestion.actionAccept, opponentIndex);
+			currentQuestion = (DebateQuestion_Data) currentQuestion.actionAccept.nextEvent;
+			Debug.Log ("IA aceitou");
+		}
+		else{
+			SetEventConsequences (currentQuestion.actionDecline, opponentIndex);
+			currentQuestion = (DebateQuestion_Data) currentQuestion.actionDecline.nextEvent;
+			Debug.Log ("IA recusou.");
+		}
+	}
+
+	private void ShowUIAnswer(){
+		GameObject ev = Instantiate (eventPrefab);
+		ev.GetComponent<EventBHV> ().Load (currentQuestion); // FIXME - IA vai escolher se aceita ou rejeita
+		uiBoolSlider.SetActiveBoolAction (ev);
+	}
 
 	// Incrementa alinhamento e recursos do player com valores do staff
-	private void SetEventConsequences(EventAction_Data eventChosen){
+	private void SetEventConsequences(EventAction_Data eventChosen, int index){
 		// Incrementa recursos
-		candidates [0].resources.cash += eventChosen.resources.cash;
-		candidates [0].resources.corruption += eventChosen.resources.corruption;
-		candidates [0].resources.credibility += eventChosen.resources.credibility;
-		candidates [0].resources.visibility += eventChosen.resources.visibility;
+		candidates [index].resources.cash += eventChosen.resources.cash;
+		candidates [index].resources.corruption += eventChosen.resources.corruption;
+		candidates [index].resources.credibility += eventChosen.resources.credibility;
+		candidates [index].resources.visibility += eventChosen.resources.visibility;
 		
 		// Incrementa alinhamento
 		
 		// Economic
-		candidates[0].alignment.economic.value += eventChosen.alignment.economic.value;
-		candidates[0].alignment.economic.bolsaFamilia += eventChosen.alignment.economic.bolsaFamilia;
-		candidates[0].alignment.economic.salarioMinimo += eventChosen.alignment.economic.salarioMinimo;
-		candidates[0].alignment.economic.impostoDeRenda += eventChosen.alignment.economic.impostoDeRenda;
-		candidates[0].alignment.economic.privatizacao += eventChosen.alignment.economic.privatizacao;
-		candidates[0].alignment.economic.previdencia += eventChosen.alignment.economic.previdencia;
+		candidates[index].alignment.economic.value += eventChosen.alignment.economic.value;
+		candidates[index].alignment.economic.bolsaFamilia += eventChosen.alignment.economic.bolsaFamilia;
+		candidates[index].alignment.economic.salarioMinimo += eventChosen.alignment.economic.salarioMinimo;
+		candidates[index].alignment.economic.impostoDeRenda += eventChosen.alignment.economic.impostoDeRenda;
+		candidates[index].alignment.economic.privatizacao += eventChosen.alignment.economic.privatizacao;
+		candidates[index].alignment.economic.previdencia += eventChosen.alignment.economic.previdencia;
 		
 		// Civil
-		candidates[0].alignment.civil.value += eventChosen.alignment.civil.value;
-		candidates[0].alignment.civil.servicoMilitarObrigatorio += eventChosen.alignment.civil.servicoMilitarObrigatorio;
-		candidates[0].alignment.civil.escolasMilitares += eventChosen.alignment.civil.escolasMilitares;
+		candidates[index].alignment.civil.value += eventChosen.alignment.civil.value;
+		candidates[index].alignment.civil.servicoMilitarObrigatorio += eventChosen.alignment.civil.servicoMilitarObrigatorio;
+		candidates[index].alignment.civil.escolasMilitares += eventChosen.alignment.civil.escolasMilitares;
 		
 		// Societal
-		candidates[0].alignment.societal.value += eventChosen.alignment.societal.value;
-		candidates[0].alignment.societal.ensinoReligiosoEscolas += eventChosen.alignment.societal.ensinoReligiosoEscolas;
-		candidates[0].alignment.societal.legalizacaoAborto += eventChosen.alignment.societal.legalizacaoAborto;
-		candidates[0].alignment.societal.casamentoGay += eventChosen.alignment.societal.casamentoGay;
-		candidates[0].alignment.societal.legalizacaoDrogas += eventChosen.alignment.societal.legalizacaoDrogas;
-		
-		uiResources.UpdateValues ();
+		candidates[index].alignment.societal.value += eventChosen.alignment.societal.value;
+		candidates[index].alignment.societal.ensinoReligiosoEscolas += eventChosen.alignment.societal.ensinoReligiosoEscolas;
+		candidates[index].alignment.societal.legalizacaoAborto += eventChosen.alignment.societal.legalizacaoAborto;
+		candidates[index].alignment.societal.casamentoGay += eventChosen.alignment.societal.casamentoGay;
+		candidates[index].alignment.societal.legalizacaoDrogas += eventChosen.alignment.societal.legalizacaoDrogas;
+
+		if(index == 0)
+			uiResources.UpdateValues ();
 	}
 
 	// Incrementa atributos do player com os valores de recursos do staff
