@@ -248,13 +248,20 @@ public class GameManager : MonoBehaviour {
 		firstPlayer = Random.Range (0, 2);
 		if (firstPlayer == 0) {	// Jogador inicia a jogada
 			List<GameObject> candidates = new List<GameObject> ();
+			for (int i = 1; i < this.candidates.Count; i++) {
+				GameObject candCard = (GameObject)Instantiate (candidateCardPrefab);
+				Debug.Log (this.candidates[i]);
+				Debug.Log (candCard.GetComponent<CandidateBHV> ());
+				candCard.GetComponent<CandidateBHV> ().Load (this.candidates[i]); //Carregar atributos da carta
+				candidates.Add(candCard.gameObject);
+			}/*
 			foreach (Candidate cand in this.candidates) {
 				GameObject candCard = (GameObject)Instantiate (candidateCardPrefab);
 				Debug.Log (cand);
 				Debug.Log (candCard.GetComponent<CandidateBHV> ());
 				candCard.GetComponent<CandidateBHV> ().Load (cand); //Carregar atributos da carta
 				candidates.Add (candCard.gameObject);
-			}
+			}*/
 			uiChoiceTable.SetActiveSelectScreen (candidates);
 		} else { 	// IA inicia a jogada => sorteia o oponente
 			opponentIndex = Random.Range (1, candidates.Count);
