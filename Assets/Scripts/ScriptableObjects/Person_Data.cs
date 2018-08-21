@@ -11,6 +11,9 @@ public class Person_Data : Card_Data {
 	//Recursos
 	public Resources resources;
 
+	// Alignment
+	public Alignment alignment;
+
 	//Eventos associados ao personagem
 	public List<Event_Data> events;
 }

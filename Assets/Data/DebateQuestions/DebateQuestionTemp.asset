@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 88e2d520734ba6246a682b2ed74c5006, type: 3}
-  m_Name: DebateQuestion1
+  m_Name: DebateQuestionTemp
   m_EditorClassIdentifier: 
   description: 
   image: {fileID: 0}
@@ -38,7 +38,7 @@ MonoBehaviour:
         legalizacaoAborto: 0
         casamentoGay: 0
         legalizacaoDrogas: 0
-    nextEvent: {fileID: 11400000, guid: b3c4f939ad8a09e40802e5a09136b62b, type: 2}
+    nextEvent: {fileID: 11400000, guid: ab5b12823f5f3db4684101e8796248b0, type: 2}
     specialConsequences: 
   actionAccept:
     description: 
@@ -65,7 +65,7 @@ MonoBehaviour:
         legalizacaoAborto: 0
         casamentoGay: 0
         legalizacaoDrogas: 0
-    nextEvent: {fileID: 11400000}
+    nextEvent: {fileID: 11400000, guid: ab5b12823f5f3db4684101e8796248b0, type: 2}
     specialConsequences: 
   nextEvent2nd: {fileID: 0}
   nextEvent3rd: {fileID: 0}

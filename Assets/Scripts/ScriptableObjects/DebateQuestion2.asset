@@ -38,7 +38,7 @@ MonoBehaviour:
         legalizacaoAborto: 0
         casamentoGay: 0
         legalizacaoDrogas: 0
-    nextEvent: {fileID: 0}
+    nextEvent: {fileID: 11400000, guid: b3c4f939ad8a09e40802e5a09136b62b, type: 2}
     specialConsequences: 
   actionAccept:
     description: 
@@ -65,7 +65,7 @@ MonoBehaviour:
         legalizacaoAborto: 0
         casamentoGay: 0
         legalizacaoDrogas: 0
-    nextEvent: {fileID: 0}
+    nextEvent: {fileID: 11400000}
     specialConsequences: 
   nextEvent2nd: {fileID: 0}
   nextEvent3rd: {fileID: 0}

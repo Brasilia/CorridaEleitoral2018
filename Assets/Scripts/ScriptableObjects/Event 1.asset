@@ -23,7 +23,7 @@ MonoBehaviour:
     alignment:
       economic:
         value: 0
-        bolsaFamilia: 0
+        bolsaFamilia: 1000
         salarioMinimo: 0
         impostoDeRenda: 0
         privatizacao: 0
@@ -50,7 +50,7 @@ MonoBehaviour:
     alignment:
       economic:
         value: 0
-        bolsaFamilia: 0
+        bolsaFamilia: 999
         salarioMinimo: 0
         impostoDeRenda: 0
         privatizacao: 0

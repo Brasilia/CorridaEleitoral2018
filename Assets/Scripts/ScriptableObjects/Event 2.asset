@@ -24,7 +24,7 @@ MonoBehaviour:
       economic:
         value: 0
         bolsaFamilia: 0
-        salarioMinimo: 0
+        salarioMinimo: 100
         impostoDeRenda: 0
         privatizacao: 0
         previdencia: 0
@@ -51,7 +51,7 @@ MonoBehaviour:
       economic:
         value: 0
         bolsaFamilia: 0
-        salarioMinimo: 0
+        salarioMinimo: 99
         impostoDeRenda: 0
         privatizacao: 0
         previdencia: 0

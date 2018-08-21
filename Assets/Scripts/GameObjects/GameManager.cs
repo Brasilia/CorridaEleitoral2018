@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour {
 	public List<Candidate> candidates = new List<Candidate>();	
 	//Data: apenas leitura
 	public List<Candidate_Data> availableCandidates;	// Lista de scriptable objects de candidatos
+	public List<ElectoralGroup_Data> electorGroups; // Lista de scriptable objects de grupos eleitorais (para cálculo de votos)
 	public List<Event_Data> eventsData;
 	public List<CampaignProposal_Data> campProposals;
 	public List<DebateQuestion_Data> debateQuestions;
@@ -78,6 +79,7 @@ public class GameManager : MonoBehaviour {
 
 	//Método para receber o controle de volta para o Game Manager
 	public void ReturnControl(){
+		UpdateIntentions (); // FIXME - local temporário para teste
 		switch (state) {
 		case STATE.ChooseCandidate:
 			CandidateChosen ();
@@ -386,26 +388,7 @@ public class GameManager : MonoBehaviour {
 		candidates [index].resources.visibility += eventChosen.resources.visibility;
 		
 		// Incrementa alinhamento
-		
-		// Economic
-		candidates[index].alignment.economic.value += eventChosen.alignment.economic.value;
-		candidates[index].alignment.economic.bolsaFamilia += eventChosen.alignment.economic.bolsaFamilia;
-		candidates[index].alignment.economic.salarioMinimo += eventChosen.alignment.economic.salarioMinimo;
-		candidates[index].alignment.economic.impostoDeRenda += eventChosen.alignment.economic.impostoDeRenda;
-		candidates[index].alignment.economic.privatizacao += eventChosen.alignment.economic.privatizacao;
-		candidates[index].alignment.economic.previdencia += eventChosen.alignment.economic.previdencia;
-		
-		// Civil
-		candidates[index].alignment.civil.value += eventChosen.alignment.civil.value;
-		candidates[index].alignment.civil.servicoMilitarObrigatorio += eventChosen.alignment.civil.servicoMilitarObrigatorio;
-		candidates[index].alignment.civil.escolasMilitares += eventChosen.alignment.civil.escolasMilitares;
-		
-		// Societal
-		candidates[index].alignment.societal.value += eventChosen.alignment.societal.value;
-		candidates[index].alignment.societal.ensinoReligiosoEscolas += eventChosen.alignment.societal.ensinoReligiosoEscolas;
-		candidates[index].alignment.societal.legalizacaoAborto += eventChosen.alignment.societal.legalizacaoAborto;
-		candidates[index].alignment.societal.casamentoGay += eventChosen.alignment.societal.casamentoGay;
-		candidates[index].alignment.societal.legalizacaoDrogas += eventChosen.alignment.societal.legalizacaoDrogas;
+		candidates [index].alignment += eventChosen.alignment;
 
 		if(index == 0)
 			uiResources.UpdateValues ();
@@ -426,4 +409,70 @@ public class GameManager : MonoBehaviour {
 	void Update () {
 		
 	}
+
+
+
+
+
+
+	// Métodos de cálculo de inteções de votos...
+	public void UpdateIntentions(){
+		//Reseta intenções de voto
+		foreach(Candidate cand in candidates){
+			cand.voteIntentions = 0;
+		}
+		//Recalcula intenções
+		foreach (ElectoralGroup_Data elec in electorGroups){
+			//Calcula intenções, partindo deste grupo de eleitores
+			List<float> attractionFactors = new List<float>();
+			float af;
+			float totalAttraction = 0.0f;
+			foreach(Candidate cand in candidates){
+				af = GetAttractionFactor (cand, elec);
+				attractionFactors.Add (af);
+				totalAttraction += af;
+			}
+			foreach (Candidate	cand in candidates){
+				float partialIntentions = 
+					(float)elec.weight * attractionFactors[candidates.IndexOf(cand)] / totalAttraction;
+				Debug.Log ("total Attraction " + totalAttraction);
+				cand.voteIntentions += partialIntentions; 
+			}
+		}
+		//mainScreen.UpdateVoteIntentionsDisplay ();
+	}
+
+	private float GetDistance (Candidate p1, ElectoralGroup_Data p2){
+		float distance1, distance2, d1, d2, d3, d4;
+		d1 = Mathf.Abs(p1.alignment.economic.value - p2.alignment.economic.value);
+		d2 = Mathf.Abs(p1.alignment.civil.value - p2.alignment.civil.value);
+		d3 = Mathf.Abs(p1.alignment.societal.value - p2.alignment.societal.value);
+		d4 = Mathf.Abs(p1.resources.visibility - p2.resources.visibility);
+		distance1 = d1 + d2 + d3;
+		distance2 = distance1 + d4*d4 / (p1.resources.visibility*p1.resources.visibility+200);// + Mathf.Sqrt(p2.exposition/(p1.exposition+100));
+		return (distance2 + 0.001f);
+	}
+
+//	//Euclidiana... não parece interessante
+//	private float GetEuclidianDistance(Player p1, Player p2){
+//		//Distância nas 5 dimensões
+//		float distance1, distance2, d1, d2, d3, d4, d5;
+//		d1 = p1.economicEqualityMarkets - p2.economicEqualityMarkets;
+//		d2 = p1.diplomaticNationGlobe - p2.diplomaticNationGlobe;
+//		d3 = p1.civilAuthorityLiberty - p2.civilAuthorityLiberty;
+//		d4 = p1.societalTraditionProgress - p2.societalTraditionProgress;
+//		d5 = Mathf.Abs(p1.exposition - p2.exposition);
+//		//d5 = 1.0f * p2.exposition / (p1.exposition+1); //teste
+//		distance1 = Mathf.Sqrt (d1 * d1 + d2 * d2 + d3 * d3 + d4 * d4);
+//		distance2 = Mathf.Sqrt (d1 * d1 + d2 * d2 + d3 * d3 + d4 * d4 + d5 * d5);
+//		return (distance1 + distance2 + 0.001f);// + distance*d5*d5;
+//	}
+
+	private float GetAttractionFactor(Candidate p1, ElectoralGroup_Data elec){
+		float af = (float)(p1.resources.visibility+100) / GetDistance (p1, elec);
+		Debug.Log ("Attraction Factor " + af);
+		return af;
+	}
+
+
 }
