@@ -77,11 +77,10 @@ public class Carousel : MonoBehaviour {
 			Debug.Log("carta "+ card);
 			RectTransform panel;
 			panel = Instantiate (prefabCardPanel, scrollPanel);
-			card.transform.SetParent (panel.transform);
 			panel.transform.localPosition = new Vector2 (0 + deltaX, 0);
-			card.transform.localPosition = Vector2.zero;
-			card.transform.localScale = Vector2.one;
-			card.GetComponent<RectTransform> ().sizeDelta = Vector2.zero;
+
+			card.GetComponent<UI_StretchableElement> ().FitToParent (panel.transform);
+
 			deltaX += offsetButtons;
 			panels.Add (panel);
 			counter++;

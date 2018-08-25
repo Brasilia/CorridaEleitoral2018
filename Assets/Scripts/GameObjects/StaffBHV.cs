@@ -11,9 +11,9 @@ public class StaffBHV : PersonBHV {
 //		base.LoadData (card);
 //	}
 
-	public void Load(Person_Data card){
-		base.Load (card);
-	}
+//	public void Load(Person_Data card){
+//		base.Load (card);
+//	}
 
 	// Use this for initialization
 	void Start () {

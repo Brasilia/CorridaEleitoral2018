@@ -9,18 +9,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d9493707cc2e8eb4aa3c2884998b1546, type: 3}
-  m_Name: Candidate
+  m_Name: Candidate 2
   m_EditorClassIdentifier: 
-  description: 
-  image: {fileID: 0}
+  description: Preso
+  image: {fileID: 21300000, guid: 1d19ad690989a8542b5614cee201affc, type: 3}
+  personName: Lula
   resources:
     cash: 0
     corruption: 0
     credibility: 0
     visibility: 0
-  events:
-  - {fileID: 11400000, guid: d382695c0fd79a9478df408af8d73073, type: 2}
-  - {fileID: 11400000, guid: 8c048882b6cd2c343b2cb9b62410f492, type: 2}
   alignment:
     economic:
       value: 0
@@ -39,4 +37,7 @@ MonoBehaviour:
       legalizacaoAborto: 0
       casamentoGay: 0
       legalizacaoDrogas: 0
-  avaiableStaff: []
+  events: []
+  avaiableStaff:
+  - {fileID: 11400000, guid: 2a143d1461d0c76468795d31b0dc8635, type: 2}
+  - {fileID: 11400000, guid: 512e5d002a64dc044b93d57cd1929142, type: 2}

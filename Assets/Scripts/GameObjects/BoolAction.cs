@@ -45,15 +45,7 @@ public class BoolAction : MonoBehaviour {
 		textDecline.text = card.GetComponent<EventBHV> ().actionDecline;
 		textAccept.text = card.GetComponent<EventBHV> ().actionAccept;
 
-
-
-		this.card.transform.SetParent (panelCard.transform);
-
-		panelCard.anchoredPosition = Vector2.zero;
-
-		card.transform.localPosition = Vector2.zero;
-		card.transform.localScale = Vector2.one;
-		card.GetComponent<RectTransform> ().sizeDelta = Vector2.zero;
+		card.GetComponent<UI_StretchableElement> ().FitToParent (panelCard);
 	}
 
 	public void OnBeginDrag(){
@@ -63,7 +55,7 @@ public class BoolAction : MonoBehaviour {
 	public void OnDrag(){
 		Vector2 offset = (Vector2)Input.mousePosition - clickPoint;
 		SetCardTransform (offset);
-		if (offset.x < -450) {
+		if (offset.x < -280) {
 			//x = 0.0f;
 			gameObject.SetActive (false);
 			Destroy (this.card);
@@ -74,7 +66,7 @@ public class BoolAction : MonoBehaviour {
 			GameManager.instance.ReturnControl ();
 			//gameManager.BoolChosen(false, card);
 		}
-		if (offset.x > 450) {
+		if (offset.x > 280) {
 			//x = 900f;
 			//card.ActionYes();
 			gameObject.SetActive (false);
@@ -107,7 +99,7 @@ public class BoolAction : MonoBehaviour {
 	//Função de deslocamento da carta
 	private void SetCardTransform(Vector2 offset){
 		float y = -Mathf.Pow (offset.x/20, 2)/5;
-		panelCard.transform.localPosition = new Vector2(offset.x, y);
-		panelCard.transform.localRotation = Quaternion.AngleAxis (-offset.x / 20, Vector3.forward);
+		panelCard.transform.localPosition = new Vector2(offset.x*2, y);
+		panelCard.transform.localRotation = Quaternion.AngleAxis (-offset.x / 10, Vector3.forward);
 	}
 }

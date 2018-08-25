@@ -291,6 +291,7 @@ GameObject:
   - component: {fileID: 224825071282037360}
   - component: {fileID: 222658022898172476}
   - component: {fileID: 114460642766803830}
+  - component: {fileID: 114429857546449914}
   - component: {fileID: 114819344645519412}
   m_Layer: 5
   m_Name: CampaignProposalPrefab
@@ -1612,6 +1613,17 @@ MonoBehaviour:
   m_FlexibleWidth: 1
   m_FlexibleHeight: 1
   m_LayoutPriority: 1
+--- !u!114 &114429857546449914
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1490231395554024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e45cf79357ecd342a9c55c958c8e7df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114441822274629170
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2198,8 +2210,8 @@ MonoBehaviour:
   cardData: {fileID: 0}
   description: {fileID: 114654640844355424}
   image: {fileID: 114790535566536920}
-  actionDecline: {fileID: 0}
-  actionAccept: {fileID: 0}
+  actionDecline: 0
+  actionAccept: 4
   debateBoost:
     economic:
       value: 0

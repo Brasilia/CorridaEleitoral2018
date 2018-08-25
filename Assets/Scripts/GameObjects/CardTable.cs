@@ -7,7 +7,6 @@ public class CardTable : MonoBehaviour {
 
 	public List<Button> btnCandidate;
 	private GameManager gameManager;
-	private Player player;
 	public int candidateSelected;
 	private List<GameObject> candidates;
 
@@ -31,10 +30,7 @@ public class CardTable : MonoBehaviour {
 		int i;
 		for (i = 0; i < candidates.Count; i++) {
 			Debug.Log (i + " " + candidates [i]);
-			candidates [i].transform.SetParent (btnCandidate [i].transform);
-			candidates [i].transform.localPosition = Vector2.zero;
-			candidates [i].transform.localScale = Vector2.one;
-			candidates [i].GetComponent<RectTransform> ().sizeDelta = Vector2.zero;
+			candidates [i].GetComponent<UI_StretchableElement> ().FitToParent (btnCandidate [i].transform);
 		}
 	}
 

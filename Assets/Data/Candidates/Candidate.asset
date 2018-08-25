@@ -8,9 +8,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7f7cb91d514bcc408d26eff18e01356, type: 3}
-  m_Name: Card
+  m_Script: {fileID: 11500000, guid: d9493707cc2e8eb4aa3c2884998b1546, type: 3}
+  m_Name: Candidate
   m_EditorClassIdentifier: 
+  description: 
+  image: {fileID: 0}
+  personName: 
   resources:
     cash: 0
     corruption: 0
@@ -22,7 +25,19 @@ MonoBehaviour:
       bolsaFamilia: 0
       salarioMinimo: 0
       impostoDeRenda: 0
+      privatizacao: 0
+      previdencia: 0
     civil:
       value: 0
+      servicoMilitarObrigatorio: 0
+      escolasMilitares: 0
     societal:
       value: 0
+      ensinoReligiosoEscolas: 0
+      legalizacaoAborto: 0
+      casamentoGay: 0
+      legalizacaoDrogas: 0
+  events:
+  - {fileID: 11400000, guid: d382695c0fd79a9478df408af8d73073, type: 2}
+  - {fileID: 0}
+  avaiableStaff: []

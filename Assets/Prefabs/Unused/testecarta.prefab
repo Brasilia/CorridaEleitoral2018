@@ -52,9 +52,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  economical: 0
-  civil: 0
-  societal: 0
+  economical: {fileID: 0}
+  civil: {fileID: 0}
+  societal: {fileID: 0}
 --- !u!114 &114650522178800010
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -69,8 +69,8 @@ MonoBehaviour:
   cardData: {fileID: 0}
   description: {fileID: 0}
   image: {fileID: 0}
-  actionDecline: {fileID: 0}
-  actionAccept: {fileID: 0}
+  actionDecline: 0
+  actionAccept: 4
 --- !u!114 &114909734751853708
 MonoBehaviour:
   m_ObjectHideFlags: 1

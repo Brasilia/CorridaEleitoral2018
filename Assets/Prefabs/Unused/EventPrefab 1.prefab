@@ -251,9 +251,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  economical: 0
-  civil: 0
-  societal: 0
+  economical: {fileID: 0}
+  civil: {fileID: 0}
+  societal: {fileID: 0}
 --- !u!114 &114797333008687046
 MonoBehaviour:
   m_ObjectHideFlags: 1
