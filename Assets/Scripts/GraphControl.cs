@@ -1,15 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class GraphControl : MonoBehaviour {
 	public GameObject graph;		 //referencia para o grafico
 	public LineRenderer baseX;		 //eixo x
 	public LineRenderer baseY;		 //eixo y
-	public GameObject lines;		 //referencia p/ prefab para emptyObject com LineRender
+	public GameObject lines;		 //referencia p/ prefab Lines
 
-    public GameManager gm;
+    public List<Text> dates;
+    public List<Text> scales;
+
+
+    //public GameManager gm;
 
     private float panelWidth;
     private float panelHeight;
@@ -18,40 +23,62 @@ public class GraphControl : MonoBehaviour {
     // Use this for initialization
     void Start () {
 
-        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
-        
+        //gm = GameManager.instance;
+
         //baseX = baseX.gameObject.GetComponent<LineRenderer> ();
-        Vector3[] positions = new Vector3[2];
 
         RectTransform panel = (RectTransform) graph.transform;
         panelWidth = panel.rect.width;
         panelHeight = panel.rect.height;
 
-        positions [0] = new Vector3 (0f, 0f, -1f);
-		positions [1] = new Vector3 (panelWidth, 0.0f, -1f);
-		baseX.positionCount = positions.Length;
-        baseX.SetPositions(positions);
-        //Material m = baseX.GetComponent<Renderer> ().material;
-        //baseX.material = new Material(Shader.Find("Particles/Additive")).SetColors(Color.white, Color.black);
+        //ajusta posição das datas no grafico
+        float scale = 0f;
+        foreach (Text date in dates)
+        {
+            //tamanho texto data
+            RectTransform dateSize = (RectTransform)date.transform;
+            date.rectTransform.anchoredPosition = new Vector2( ( (0.25f + scale) * panelWidth) + (dateSize.rect.height/2) , -dateSize.rect.width);
+            scale += 0.25f;
+        }
 
+        //ajusta posicao das escalas no grafico
+        scale = 0;
+        foreach(Text s in scales)
+        {
+            RectTransform scaleSize = (RectTransform)s.transform;
+            s.rectTransform.anchoredPosition = new Vector2( -(scaleSize.rect.width), panelHeight * (0.25f + scale) - (scaleSize.rect.height / 2) );
+            scale += 0.25f;
+        }
+
+        //cria eixo X
+        Vector3[] positions = new Vector3[2];
+        positions[0] = new Vector3 (-5f, 0f, -1f);
+		positions [1] = new Vector3 (panelWidth + 25f, 0.0f, -1f);
+		baseX.positionCount = positions.Length;
+        baseX.startColor = Color.black;     //ajusta cor
+        baseX.endColor = Color.black;
+        baseX.SetPositions(positions);   //cria linha
+        //cria eixo Y
         positions[0] = new Vector3 (0f, 0f, -1f);
-		positions [1] = new Vector3 (0f, panelHeight, 0f);
+		positions [1] = new Vector3 (0f, panelHeight + 25f, 0f);
 		baseY.positionCount = positions.Length;
+        baseY.startColor = Color.black;
+        baseY.endColor = Color.black;
 		baseY.SetPositions (positions);
 
 
         List<float> votIntentions = new List<float>();
-        votIntentions.Add(0.5f);
-        votIntentions.Add(0.3f);
-        votIntentions.Add(0.7f);
+        votIntentions.Add(0.25f);
+        votIntentions.Add(0.01f);
+        votIntentions.Add(0.75f);
+        votIntentions.Add(1f);
 
-        Vector3[] positionGraph = new Vector3[4];
+        Vector3[] positionGraph = new Vector3[votIntentions.Count + 1];
         positionGraph[0] = new Vector3(0f, 0f, -1f);
         int i = 1;
         foreach (float f in votIntentions)
         {
-            print("AQUI: " + 0.1f * panelWidth + " " + f * panelHeight);
-            positionGraph[i] = new Vector3((0.1f * panelWidth * (i+1)), (f * panelHeight), -1f);
+            positionGraph[i] = new Vector3( ((((i-1) + 1f)/4f) * panelWidth), (f * panelHeight), -1f);
             i++;
         }
 
@@ -65,9 +92,9 @@ public class GraphControl : MonoBehaviour {
         line.positionCount = positionGraph.Length;
         line.SetPositions(positionGraph);
 
-        foreach (Candidate cand in gm.candidates) {
+        //foreach (Candidate cand in gm.candidates) {
             //positions [1] = new Vector3 ((0.1f * panelWidth), (cand.voteIntentions * panelHeight), -1f);
-        }
+        //}
     }
 	
 	// Update is called once per frame
