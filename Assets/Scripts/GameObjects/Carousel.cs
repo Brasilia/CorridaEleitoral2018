@@ -23,7 +23,7 @@ public class Carousel : MonoBehaviour {
 	[SerializeField]
 	private int selected; 
 	public List<RectTransform> panels;
-	private float offsetButtons = 700f;
+	public float offsetButtons = 740;
 	private int movesAfterSelecion = 0;
 
 	private GameManager gameManager;
@@ -79,7 +79,7 @@ public class Carousel : MonoBehaviour {
 			panel = Instantiate (prefabCardPanel, scrollPanel);
 			panel.transform.localPosition = new Vector2 (0 + deltaX, 0);
 
-			card.GetComponent<UI_StretchableElement> ().FitToParent (panel.transform);
+			card.GetComponent<UI_StretchableElement> ().FitToParent (panel.GetComponent<RectTransform> ());
 
 			deltaX += offsetButtons;
 			panels.Add (panel);

@@ -49,10 +49,10 @@ MonoBehaviour:
       visibility: 0
     alignment:
       economic:
-        value: 0
+        value: -5
         bolsaFamilia: 0
         salarioMinimo: 0
-        impostoDeRenda: 0
+        impostoDeRenda: 1
         privatizacao: 0
         previdencia: 0
       civil:

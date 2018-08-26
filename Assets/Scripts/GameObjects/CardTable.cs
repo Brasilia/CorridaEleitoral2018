@@ -30,7 +30,7 @@ public class CardTable : MonoBehaviour {
 		int i;
 		for (i = 0; i < candidates.Count; i++) {
 			Debug.Log (i + " " + candidates [i]);
-			candidates [i].GetComponent<UI_StretchableElement> ().FitToParent (btnCandidate [i].transform);
+			candidates [i].GetComponent<UI_StretchableElement> ().FitToParent (btnCandidate [i].GetComponent<RectTransform> ());
 		}
 	}
 

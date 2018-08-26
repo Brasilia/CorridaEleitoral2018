@@ -44,7 +44,7 @@ public class BoolAction : MonoBehaviour {
 		panelAccept.gameObject.SetActive (false);
 		textDecline.text = card.GetComponent<EventBHV> ().actionDecline;
 		textAccept.text = card.GetComponent<EventBHV> ().actionAccept;
-
+		panelCard.anchoredPosition = Vector2.zero;
 		card.GetComponent<UI_StretchableElement> ().FitToParent (panelCard);
 	}
 

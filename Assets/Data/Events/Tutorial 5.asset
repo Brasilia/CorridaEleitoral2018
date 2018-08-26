@@ -8,13 +8,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c78c4f219a1de740ba5ecddeee4fa80, type: 3}
-  m_Name: CampaignProposal
+  m_Script: {fileID: 11500000, guid: bf119fa67d484b94e8a48ddea04f83d9, type: 3}
+  m_Name: Tutorial 5
   m_EditorClassIdentifier: 
-  description: Bolsa Familia
+  description: "O fantasma desaparece como num passe de m\xE1gica. "
   image: {fileID: 0}
   actionDecline:
-    description: 
+    description: '...'
     resources:
       cash: 0
       corruption: 0
@@ -25,7 +25,7 @@ MonoBehaviour:
         value: 0
         bolsaFamilia: 0
         salarioMinimo: 0
-        impostoDeRenda: 0
+        impostoDeRenda: 10
         privatizacao: 0
         previdencia: 0
       civil:
@@ -41,7 +41,7 @@ MonoBehaviour:
     nextEvent: {fileID: 0}
     specialConsequences: 
   actionAccept:
-    description: "Bolsa Fam\xEDlia pra todo mundo"
+    description: '...'
     resources:
       cash: 0
       corruption: 0
@@ -49,10 +49,10 @@ MonoBehaviour:
       visibility: 0
     alignment:
       economic:
-        value: -5
+        value: 0
         bolsaFamilia: 0
         salarioMinimo: 0
-        impostoDeRenda: 0
+        impostoDeRenda: 9
         privatizacao: 0
         previdencia: 0
       civil:
@@ -67,21 +67,3 @@ MonoBehaviour:
         legalizacaoDrogas: 0
     nextEvent: {fileID: 0}
     specialConsequences: 
-  debateBoost:
-    economic:
-      value: 0
-      bolsaFamilia: 1
-      salarioMinimo: 0
-      impostoDeRenda: 0
-      privatizacao: 0
-      previdencia: 0
-    civil:
-      value: 0
-      servicoMilitarObrigatorio: 0
-      escolasMilitares: 0
-    societal:
-      value: 0
-      ensinoReligiosoEscolas: 0
-      legalizacaoAborto: 0
-      casamentoGay: 0
-      legalizacaoDrogas: 0

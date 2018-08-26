@@ -27,4 +27,12 @@ public class CampaignProposalBHV : EventBHV {
 	void Update () {
 		
 	}
+
+	public void Load (CampaignProposal_Data cp) {
+		base.Load (cp);
+		economical.value = cp.actionAccept.alignment.economic.value;
+		civil.value = cp.actionAccept.alignment.civil.value;
+		societal.value = cp.actionAccept.alignment.societal.value;
+		debateBoost = cp.debateBoost;
+	}
 }
