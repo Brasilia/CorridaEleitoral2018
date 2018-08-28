@@ -13,7 +13,8 @@ public class GameManager : MonoBehaviour {
 		DebateQuestion,
 		DebateReply,
 		DebateRejoinder,
-		DebateResults
+		DebateEnd,
+		//DebateResults
 	} // possiveis estados do jogo
 
 	private STATE state;
@@ -36,8 +37,15 @@ public class GameManager : MonoBehaviour {
 	public List<DebateQuestion_Data> debateQuestions;
 
 	//Gerenciamento do ciclo de eventos
-	public int countEvents;
-	public int eventsPerCicle;
+	public int countEvents = 0;
+	public int eventsPerCicle = 2;
+
+
+	// Gerenciamento do fluxo de jogo
+	public int countCicles = 0;
+	public int countDebateTurns = 0;
+	private bool isFirstDebateTurn;
+	private int indexAux;
 
 	//Referência para os prefabs de cartas
 	public GameObject candidateCardPrefab;
@@ -50,8 +58,9 @@ public class GameManager : MonoBehaviour {
 	private int opponentIndex;
 	private int firstPlayer;
 	private DebateQuestion_Data currentQuestion;
+	//private DebateQuestion_Data chosenQuestion;
 	private List<int> questionsIndex = new List<int>();
-	
+
 
 	public STATE State {
 		get {
@@ -69,12 +78,17 @@ public class GameManager : MonoBehaviour {
 			Destroy (gameObject);
 		DontDestroyOnLoad (gameObject);
 	}
-		
+
 	// Use this for initialization
 	void Start () {
 		state = STATE.ChooseCandidate;
 		ChooseCandidate ();
+		/*
 		countEvents = 0;
+		countCicles = 0;
+		countDebateTurns = 0;*/
+		//isFirstDebateTurn = true;
+		//firstPlayer = -1;
 	}
 
 	//Método para receber o controle de volta para o Game Manager
@@ -95,9 +109,11 @@ public class GameManager : MonoBehaviour {
 			ChooseEvent (eventsData);
 			break;
 		case STATE.Event:
+			Debug.Log ("countEvents: " + countEvents);
 			EventAnswerChosen ();
 			countEvents++;
 			if (countEvents >= eventsPerCicle){
+				countEvents = 0;
 				state = STATE.Proposal;
 				Debug.Log ("ChooseProposal");
 				ChooseProposal ();
@@ -128,12 +144,24 @@ public class GameManager : MonoBehaviour {
 			ReplyQuestion ();
 			break;
 		case STATE.DebateRejoinder:
+			Debug.Log ("DebateRejoinder");
+			state = STATE.DebateEnd;
+			RejoinderQuestion ();
+			break;
+		case STATE.DebateEnd:
+			Debug.Log ("DebateEnd");
+			DebateEnd ();
+			break;
+
+			/*
+		case STATE.DebateRejoinder:
 			RejoinderQuestion ();
 			ShowRejoinder ();
 			// ?? Simulação dos outros candidatos debatendo
 			state = STATE.DebateResults;
 			ShowResults ();
 			break;
+			*/
 		}
 
 		/*Debate Question
@@ -195,10 +223,11 @@ public class GameManager : MonoBehaviour {
 
 	//--Events
 	private void ChooseEvent(List<Event_Data> events){
-		int rand = Random.Range (0, events.Count); //params are min(inclusive), max(exclusive)
+		indexAux = Random.Range (0, events.Count); //params are min(inclusive), max(exclusive)
 		GameObject ev = Instantiate(eventPrefab);
-		ev.GetComponent<EventBHV> ().Load (events[rand]); //Carregar atributos da carta - de índice rand
+		ev.GetComponent<EventBHV> ().Load (events[indexAux]); //Carregar atributos da carta - de índice rand
 		uiBoolSlider.SetActiveBoolAction (ev);
+		//events.RemoveAt (indexAux);
 	}
 
 	private void EventAnswerChosen(){
@@ -209,18 +238,17 @@ public class GameManager : MonoBehaviour {
 		} else {
 			chosenAction = evData.actionAccept;
 		}
-
 		SetEventConsequences(chosenAction, 0);
-
 		if(chosenAction.nextEvent != null){
 			GameObject ev = Instantiate(eventPrefab);
 			ev.GetComponent<EventBHV> ().Load (chosenAction.nextEvent); //Carregar atributos da carta - apontada por chosenAction.nextEvent
 			uiBoolSlider.SetActiveBoolAction (ev);
 		}
+		eventsData.RemoveAt (indexAux);
 	}
 
 	private void ChooseProposal(){
-		int nAlternatives = 3;
+		int nAlternatives = 2;
 		List<int> rands = new List<int> ();
 		int rand;
 		List<GameObject> proposals = new List<GameObject> ();
@@ -243,20 +271,40 @@ public class GameManager : MonoBehaviour {
 		Debug.Log (uiCarousel.chosenList.Count);
 		Debug.Log ("prop: " + prop);
 		SetEventConsequences (prop.actionAccept, 0);
+		campProposals.Remove (prop);
 	}
 
 
 	private void ChooseOpponent(){
-		firstPlayer = Random.Range (0, 2);
-		if (firstPlayer == 0) {	// Jogador inicia a jogada
-			List<GameObject> candidates = new List<GameObject> ();
-			for (int i = 1; i < this.candidates.Count; i++) {
-				GameObject candCard = (GameObject)Instantiate (candidateCardPrefab);
-				Debug.Log (this.candidates[i]);
-				Debug.Log (candCard.GetComponent<CandidateBHV> ());
-				candCard.GetComponent<CandidateBHV> ().Load (this.candidates[i]); //Carregar atributos da carta
-				candidates.Add(candCard.gameObject);
-			}/*
+		if (countDebateTurns == 0) {	// Se é a primeira jogada do debate
+			countDebateTurns++;
+			firstPlayer = Random.Range (0, 2);
+			if (firstPlayer == 0) {	// Jogador inicia a jogada
+				PlayerChooseOpponent();
+			} else { 	// IA inicia a jogada => sorteia o oponente
+				IAChooseOpponent();
+			}
+		} else { // Se é a segunda rodada do debate => inverte quem pergunta
+			countDebateTurns++;
+			if (firstPlayer == 0) {	// Agora a IA pergunta
+				firstPlayer++;
+				IAChooseOpponent ();
+			} else {				// Agora o player pergunta
+				firstPlayer--;
+				PlayerChooseOpponent ();
+			}
+		}
+	}
+
+	private void PlayerChooseOpponent(){
+		List<GameObject> candidates = new List<GameObject> ();
+		for (int i = 1; i < this.candidates.Count; i++) {
+			GameObject candCard = (GameObject)Instantiate (candidateCardPrefab);
+			Debug.Log (this.candidates [i]);
+			Debug.Log (candCard.GetComponent<CandidateBHV> ());
+			candCard.GetComponent<CandidateBHV> ().Load (this.candidates [i]); //Carregar atributos da carta
+			candidates.Add (candCard.gameObject);
+		}/*
 			foreach (Candidate cand in this.candidates) {
 				GameObject candCard = (GameObject)Instantiate (candidateCardPrefab);
 				Debug.Log (cand);
@@ -264,11 +312,12 @@ public class GameManager : MonoBehaviour {
 				candCard.GetComponent<CandidateBHV> ().Load (cand); //Carregar atributos da carta
 				candidates.Add (candCard.gameObject);
 			}*/
-			uiChoiceTable.SetActiveSelectScreen (candidates);
-		} else { 	// IA inicia a jogada => sorteia o oponente
-			opponentIndex = Random.Range (1, candidates.Count);
-			ReturnControl ();
-		}
+		uiChoiceTable.SetActiveSelectScreen (candidates);
+	}
+
+	private void IAChooseOpponent(){
+		opponentIndex = Random.Range (1, candidates.Count);
+		ReturnControl ();
 	}
 
 	private void OpponentChosen(){
@@ -290,13 +339,13 @@ public class GameManager : MonoBehaviour {
 				questionCard.GetComponent<EventBHV> ().Load (debateQuestions [index]);
 				questions.Add (questionCard);
 			}
-			Debug.Log ("Player fez primeira pergunta");
+			Debug.Log ("Player faz primeira pergunta");
 			//poe no carrossel
 			uiCarousel.SetCarouselActive (questions, 1);
 		} else {	// Se a IA faz a pergunta
 			// Gera o card com a pergunta
-			int index = Random.Range(0, debateQuestions.Count);
-			currentQuestion = debateQuestions [index];
+			indexAux = Random.Range(0, debateQuestions.Count);
+			currentQuestion = debateQuestions [indexAux];
 			GameObject questionCard = (GameObject)Instantiate (debateQuestionPrefab);
 			questionCard.GetComponent<EventBHV> ().Load (currentQuestion);
 
@@ -308,7 +357,8 @@ public class GameManager : MonoBehaviour {
 
 	private void QuestionAsked(){
 		if (firstPlayer == 0) {		// Se o player perguntou
-			currentQuestion = debateQuestions[uiCarousel.chosenList[0]];	// Pergunta escolhida no carousel.
+			indexAux = uiCarousel.chosenList[0];
+			currentQuestion = debateQuestions[indexAux];	// Pergunta escolhida no carousel.
 			// IA escolhe resposta e exibe
 			IAChooseAnswer ();
 			ShowUIAnswer ();
@@ -334,16 +384,42 @@ public class GameManager : MonoBehaviour {
 		if (firstPlayer == 1) 
 			GetPlayerAnswer ();
 		questionsIndex.Clear ();
+		debateQuestions.RemoveAt (indexAux);
+		ReturnControl ();
 	}
 
+	private void DebateEnd(){
+		Debug.Log ("Count Cicles = " + countCicles);
+		if (countDebateTurns == 1) {	// Se volta pro início do debate
+			Debug.Log("Volta pro início");
+			state = STATE.ChooseOpponent;
+			uiResources.gameObject.SetActive (false);
+			ChooseOpponent();
+			//ReturnControl ();
+		} else {	// Se volta pros eventos
+			countCicles++;
+			if (countCicles < 2) {	// Se o loop do jogo ainda não acabou
+				Debug.Log("Volta pros eventos");
+				countDebateTurns = 0;
+				state = STATE.Event;
+				uiResources.SetResourcesActive ();
+				ChooseEvent (eventsData);
+			}
+			else
+				Debug.Log ("Fim de jogo!");
+		} 
+	}
+
+	/*
 	private void ShowRejoinder(){
 		// Cria evento pro player de acordo com a resposta - player só vê a resposta, joga pra qualquer um dos lados, sem consequencia
 	}
 
+	/*
 	private void ShowResults(){
 		// Mostra resultados gerais do ciclo de debate
 	}
-
+	*/
 	private void GetPlayerAnswer(){
 		if (uiBoolSlider.choice){
 			SetEventConsequences(currentQuestion.actionAccept, 0);
@@ -386,7 +462,7 @@ public class GameManager : MonoBehaviour {
 		candidates [index].resources.corruption += eventChosen.resources.corruption;
 		candidates [index].resources.credibility += eventChosen.resources.credibility;
 		candidates [index].resources.visibility += eventChosen.resources.visibility;
-		
+
 		// Incrementa alinhamento
 		candidates [index].alignment += eventChosen.alignment;
 
@@ -404,10 +480,10 @@ public class GameManager : MonoBehaviour {
 		uiResources.UpdateValues ();
 	}
 
-	
+
 	// Update is called once per frame
 	void Update () {
-		
+
 	}
 
 
@@ -435,7 +511,7 @@ public class GameManager : MonoBehaviour {
 			foreach (Candidate	cand in candidates){
 				float partialIntentions = 
 					(float)elec.weight * attractionFactors[candidates.IndexOf(cand)] / totalAttraction;
-				Debug.Log ("total Attraction " + totalAttraction);
+				//Debug.Log ("total Attraction " + totalAttraction);
 				cand.voteIntentions += partialIntentions; 
 			}
 		}
@@ -453,24 +529,24 @@ public class GameManager : MonoBehaviour {
 		return (distance2 + 0.001f);
 	}
 
-//	//Euclidiana... não parece interessante
-//	private float GetEuclidianDistance(Player p1, Player p2){
-//		//Distância nas 5 dimensões
-//		float distance1, distance2, d1, d2, d3, d4, d5;
-//		d1 = p1.economicEqualityMarkets - p2.economicEqualityMarkets;
-//		d2 = p1.diplomaticNationGlobe - p2.diplomaticNationGlobe;
-//		d3 = p1.civilAuthorityLiberty - p2.civilAuthorityLiberty;
-//		d4 = p1.societalTraditionProgress - p2.societalTraditionProgress;
-//		d5 = Mathf.Abs(p1.exposition - p2.exposition);
-//		//d5 = 1.0f * p2.exposition / (p1.exposition+1); //teste
-//		distance1 = Mathf.Sqrt (d1 * d1 + d2 * d2 + d3 * d3 + d4 * d4);
-//		distance2 = Mathf.Sqrt (d1 * d1 + d2 * d2 + d3 * d3 + d4 * d4 + d5 * d5);
-//		return (distance1 + distance2 + 0.001f);// + distance*d5*d5;
-//	}
+	//	//Euclidiana... não parece interessante
+	//	private float GetEuclidianDistance(Player p1, Player p2){
+	//		//Distância nas 5 dimensões
+	//		float distance1, distance2, d1, d2, d3, d4, d5;
+	//		d1 = p1.economicEqualityMarkets - p2.economicEqualityMarkets;
+	//		d2 = p1.diplomaticNationGlobe - p2.diplomaticNationGlobe;
+	//		d3 = p1.civilAuthorityLiberty - p2.civilAuthorityLiberty;
+	//		d4 = p1.societalTraditionProgress - p2.societalTraditionProgress;
+	//		d5 = Mathf.Abs(p1.exposition - p2.exposition);
+	//		//d5 = 1.0f * p2.exposition / (p1.exposition+1); //teste
+	//		distance1 = Mathf.Sqrt (d1 * d1 + d2 * d2 + d3 * d3 + d4 * d4);
+	//		distance2 = Mathf.Sqrt (d1 * d1 + d2 * d2 + d3 * d3 + d4 * d4 + d5 * d5);
+	//		return (distance1 + distance2 + 0.001f);// + distance*d5*d5;
+	//	}
 
 	private float GetAttractionFactor(Candidate p1, ElectoralGroup_Data elec){
 		float af = (float)(p1.resources.visibility+100) / GetDistance (p1, elec);
-		Debug.Log ("Attraction Factor " + af);
+		//Debug.Log ("Attraction Factor " + af);
 		return af;
 	}
 
