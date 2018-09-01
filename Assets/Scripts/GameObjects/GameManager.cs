@@ -379,6 +379,7 @@ public class GameManager : MonoBehaviour {
 			GetPlayerAnswer ();
 
 		IAChooseAnswer ();
+	
 		ShowUIAnswer ();
 	}
 
@@ -393,6 +394,7 @@ public class GameManager : MonoBehaviour {
 
 	private void DebateEnd(){
 		Debug.Log ("Count Cicles = " + countCicles);
+		DebateSimulation ();
 		if (countDebateTurns == 1) {	// Se volta pro início do debate
 			Debug.Log("Volta pro início");
 			state = STATE.ChooseOpponent;
@@ -411,6 +413,45 @@ public class GameManager : MonoBehaviour {
 			else
 				Debug.Log ("Fim de jogo!");
 		} 
+	}
+
+	// Função principal de simulação de outros confrontos
+	private void DebateSimulation(){
+		ArrayList debatedCandidates = new ArrayList ();
+		int oppa, oppb, lim;
+
+		debatedCandidates.Add (opponentIndex);
+
+		// Se o número de candidatos for par, a simulação é feita em n-1 candidatos.
+		// Se o número de candidatos for ímpar, a simulação é feita em n-2 candidatos.
+		if ((candidates.Count % 2) == 0)
+			lim = 1;
+		else
+			lim = 2;
+
+		while(debatedCandidates.Count < (candidates.Count - lim)){		// Enquanto não simulou todos os embates
+			// Sorteia oponente A
+			do{
+				oppa = Random.Range(1, candidates.Count);
+			} while(!debatedCandidates.Contains(oppa));
+			debatedCandidates.Add (oppa);
+			// Sorteia oponente B
+			do{
+				oppb = Random.Range(1, candidates.Count);
+			} while(!debatedCandidates.Contains(oppa));
+			debatedCandidates.Add (oppb);
+
+			currentQuestion = debateQuestions[Random.Range (0, debateQuestions.Count)];
+
+			opponentIndex = oppa;
+			IAChooseAnswer ();
+			opponentIndex = oppb;
+			IAChooseAnswer ();
+			opponentIndex = oppa;
+			IAChooseAnswer ();
+			opponentIndex = oppb;
+			IAChooseAnswer ();
+		}
 	}
 
 	/*
