@@ -46,6 +46,7 @@ public class GameManager : MonoBehaviour {
 	public int countDebateTurns = 0;
 	private bool isFirstDebateTurn;
 	private int indexAux;
+	private int credibilityBonus = 5;	// FIXME - bônus de credibilidade de boost
 
 	//Referência para os prefabs de cartas
 	public GameObject candidateCardPrefab;
@@ -248,7 +249,7 @@ public class GameManager : MonoBehaviour {
 	}
 
 	private void ChooseProposal(){
-		int nAlternatives = 2;
+		int nAlternatives = 3;
 		List<int> rands = new List<int> ();
 		int rand;
 		List<GameObject> proposals = new List<GameObject> ();
@@ -271,6 +272,7 @@ public class GameManager : MonoBehaviour {
 		Debug.Log (uiCarousel.chosenList.Count);
 		Debug.Log ("prop: " + prop);
 		SetEventConsequences (prop.actionAccept, 0);
+		candidates [0].debateBoosts.Add (prop.debateBoost);
 		campProposals.Remove (prop);
 	}
 
@@ -372,6 +374,7 @@ public class GameManager : MonoBehaviour {
 	private void ReplyQuestion(){
 		// Exibe a tréplica da IA, se o player iniciou o debate, ou a réplica da IA, caso contrário.
 		// Pega a resposta do player
+		// FIXME
 		if (firstPlayer == 0) 
 			GetPlayerAnswer ();
 
@@ -427,6 +430,25 @@ public class GameManager : MonoBehaviour {
 			Debug.Log ("Player aceitou.");// Consequências de positivo
 		}
 		else{
+			SetEventConsequences(currentQuestion.actionDecline, 0);
+			currentQuestion = (DebateQuestion_Data)currentQuestion.actionDecline.nextEvent;
+			Debug.Log ("Player recusou.");// Consequências de negativo
+		}
+	}
+
+	// Exclusivo para o evento de réplica
+	private void GetPlayerReply(){
+		if (uiBoolSlider.choice){	// Faz propaganda
+			if(candidates[0].HasBoosts(currentQuestion.actionAccept))	// Boost
+				candidates[0].resources.credibility += credibilityBonus;
+			SetEventConsequences(currentQuestion.actionAccept, 0);
+			currentQuestion = (DebateQuestion_Data)currentQuestion.actionAccept.nextEvent;
+			Debug.Log ("Player aceitou.");// Consequências de positivo
+		}
+		else{	// Faz ataque
+			// FIXME - o quanto de credibilidade deve ser diminuído com base na corrupção dele?
+			candidates[opponentIndex].resources.credibility -= (candidates[opponentIndex].resources.corruption)/2;
+			//
 			SetEventConsequences(currentQuestion.actionDecline, 0);
 			currentQuestion = (DebateQuestion_Data)currentQuestion.actionDecline.nextEvent;
 			Debug.Log ("Player recusou.");// Consequências de negativo

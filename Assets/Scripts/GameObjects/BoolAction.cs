@@ -63,7 +63,7 @@ public class BoolAction : MonoBehaviour {
 			choice = false;
 			Debug.Log ("NO");
 			panelCard.transform.localRotation = Quaternion.identity;
-			GameManager.instance.ReturnControl ();
+			gameManager.ReturnControl ();
 			//gameManager.BoolChosen(false, card);
 		}
 		if (offset.x > 280) {
@@ -75,7 +75,7 @@ public class BoolAction : MonoBehaviour {
 			choice = true;
 			Debug.Log ("YES");
 			panelCard.transform.localRotation = Quaternion.identity;
-			GameManager.instance.ReturnControl ();
+			gameManager.ReturnControl ();
 			//gameManager.BoolChosen(true, card);
 		}
 
