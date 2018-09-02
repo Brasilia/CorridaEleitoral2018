@@ -30,15 +30,10 @@ public class UI_StretchableElement : MonoBehaviour {
 		//parent.anchoredPosition = Vector2.zero;
 		transform.localPosition = Vector2.zero;
 		// Calculate Scale
-		Debug.Log ("Scaling");
 		float scaleX = parent.rect.width;
-		Debug.Log (scaleX);
 		scaleX /= rectTransform.rect.width;
-		Debug.Log (scaleX);
 		float scaleY = parent.rect.height;
-		Debug.Log (scaleY);
 		scaleY /= rectTransform.rect.height;
-		Debug.Log (scaleY);
 		Vector2 scale = new Vector2 (parent.rect.width / rectTransform.rect.width, parent.rect.height / rectTransform.rect.height);
 		if (keepAspectRatio && scale.x != scale.y){
 			float fScale = Mathf.Min (scale.x, scale.y);

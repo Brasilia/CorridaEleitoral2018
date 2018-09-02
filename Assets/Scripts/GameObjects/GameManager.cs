@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour {
 		//DebateResults
 	} // possiveis estados do jogo
 
-	private STATE state;
+	public STATE state {get; private set;}
 
 	public static GameManager instance = null;
 
@@ -26,6 +26,9 @@ public class GameManager : MonoBehaviour {
 	public CardTable uiChoiceTable;
 	public BoolAction uiBoolSlider;
 	public ResourcesBHV uiResources;
+
+	//Referência para animações de transição
+	public TransitionScreen debateStart;
 
 	//Candidatos - sempre em memória principal; leitura e escrita
 	public List<Candidate> candidates = new List<Candidate>();	
@@ -63,14 +66,14 @@ public class GameManager : MonoBehaviour {
 	private List<int> questionsIndex = new List<int>();
 
 
-	public STATE State {
-		get {
-			return state;
-		}
-		set { 
-			state = value; 
-		}
-	}
+//	public STATE State {
+//		get {
+//			return state;
+//		}
+//		set { 
+//			state = value; 
+//		}
+//	}
 
 	void Awake(){
 		if (instance == null)
@@ -282,18 +285,18 @@ public class GameManager : MonoBehaviour {
 			countDebateTurns++;
 			firstPlayer = Random.Range (0, 2);
 			if (firstPlayer == 0) {	// Jogador inicia a jogada
-				PlayerChooseOpponent();
+				debateStart.SetAndMakeTransition (PlayerChooseOpponent);
 			} else { 	// IA inicia a jogada => sorteia o oponente
-				IAChooseOpponent();
+				debateStart.SetAndMakeTransition (IAChooseOpponent);
 			}
 		} else { // Se é a segunda rodada do debate => inverte quem pergunta
 			countDebateTurns++;
 			if (firstPlayer == 0) {	// Agora a IA pergunta
 				firstPlayer++;
-				IAChooseOpponent ();
+				debateStart.SetAndMakeTransition (IAChooseOpponent);
 			} else {				// Agora o player pergunta
 				firstPlayer--;
-				PlayerChooseOpponent ();
+				debateStart.SetAndMakeTransition (PlayerChooseOpponent);
 			}
 		}
 	}
