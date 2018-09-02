@@ -81,10 +81,10 @@ public class BoolAction : MonoBehaviour {
 
 		panelDecline.gameObject.SetActive (false);
 		panelAccept.gameObject.SetActive (false);
-		if (offset.x < 10){
+		if (offset.x < -15){
 			panelDecline.gameObject.SetActive (true);
 		}
-		else if (offset.x > 10){
+		else if (offset.x > 15){
 			panelAccept.gameObject.SetActive (true);
 		}
 	}

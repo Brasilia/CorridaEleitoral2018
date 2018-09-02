@@ -248,7 +248,7 @@ public class GameManager : MonoBehaviour {
 	}
 
 	private void ChooseProposal(){
-		int nAlternatives = 2;
+		int nAlternatives = 3;
 		List<int> rands = new List<int> ();
 		int rand;
 		List<GameObject> proposals = new List<GameObject> ();

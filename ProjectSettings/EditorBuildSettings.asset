@@ -5,12 +5,15 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/teste10.11.2017.unity
     guid: 6b54ff04d24d67344b4e27b4c20c236f
   - enabled: 0
     path: Assets/Scenes/testebuildAndroid.unity
     guid: 7b84a7e76347a6042b5fbaaeb802c338
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/debate.unity
     guid: 36ee4f692091dd149b0f45987f177618
+  - enabled: 1
+    path: Assets/Scenes/CE_Game.unity
+    guid: 7146d7f38a9a4a94f9bf134ecabf6c95

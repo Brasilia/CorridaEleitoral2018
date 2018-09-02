@@ -14,7 +14,7 @@ MonoBehaviour:
   description: 'Evento Teste: um dinheiro apareceu misteriosamente na sua conta'
   image: {fileID: 0}
   actionDecline:
-    description: "Surpresa Agrad\xE1vel!"
+    description: "Algo est\xE1 errado!"
     resources:
       cash: 5
       corruption: 5
@@ -41,7 +41,7 @@ MonoBehaviour:
     nextEvent: {fileID: 0}
     specialConsequences: 
   actionAccept:
-    description: "Algo est\xE1 errado!"
+    description: "Surpresa Agrad\xE1vel!"
     resources:
       cash: 0
       corruption: 0
