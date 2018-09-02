@@ -46,6 +46,7 @@ public class GameManager : MonoBehaviour {
 	public int countDebateTurns = 0;
 	private bool isFirstDebateTurn;
 	private int indexAux;
+	private int credibilityBonus = 5;	// FIXME - bônus de credibilidade de boost
 
 	//Referência para os prefabs de cartas
 	public GameObject candidateCardPrefab;
@@ -271,6 +272,7 @@ public class GameManager : MonoBehaviour {
 		Debug.Log (uiCarousel.chosenList.Count);
 		Debug.Log ("prop: " + prop);
 		SetEventConsequences (prop.actionAccept, 0);
+		candidates [0].debateBoosts.Add (prop.debateBoost);
 		campProposals.Remove (prop);
 	}
 
@@ -372,10 +374,12 @@ public class GameManager : MonoBehaviour {
 	private void ReplyQuestion(){
 		// Exibe a tréplica da IA, se o player iniciou o debate, ou a réplica da IA, caso contrário.
 		// Pega a resposta do player
+		// FIXME
 		if (firstPlayer == 0) 
 			GetPlayerAnswer ();
 
 		IAChooseAnswer ();
+	
 		ShowUIAnswer ();
 	}
 
@@ -390,6 +394,7 @@ public class GameManager : MonoBehaviour {
 
 	private void DebateEnd(){
 		Debug.Log ("Count Cicles = " + countCicles);
+		DebateSimulation ();
 		if (countDebateTurns == 1) {	// Se volta pro início do debate
 			Debug.Log("Volta pro início");
 			state = STATE.ChooseOpponent;
@@ -410,6 +415,45 @@ public class GameManager : MonoBehaviour {
 		} 
 	}
 
+	// Função principal de simulação de outros confrontos
+	private void DebateSimulation(){
+		ArrayList debatedCandidates = new ArrayList ();
+		int oppa, oppb, lim;
+
+		debatedCandidates.Add (opponentIndex);
+
+		// Se o número de candidatos for par, a simulação é feita em n-1 candidatos.
+		// Se o número de candidatos for ímpar, a simulação é feita em n-2 candidatos.
+		if ((candidates.Count % 2) == 0)
+			lim = 1;
+		else
+			lim = 2;
+
+		while(debatedCandidates.Count < (candidates.Count - lim)){		// Enquanto não simulou todos os embates
+			// Sorteia oponente A
+			do{
+				oppa = Random.Range(1, candidates.Count);
+			} while(!debatedCandidates.Contains(oppa));
+			debatedCandidates.Add (oppa);
+			// Sorteia oponente B
+			do{
+				oppb = Random.Range(1, candidates.Count);
+			} while(!debatedCandidates.Contains(oppa));
+			debatedCandidates.Add (oppb);
+
+			currentQuestion = debateQuestions[Random.Range (0, debateQuestions.Count)];
+
+			opponentIndex = oppa;
+			IAChooseAnswer ();
+			opponentIndex = oppb;
+			IAChooseAnswer ();
+			opponentIndex = oppa;
+			IAChooseAnswer ();
+			opponentIndex = oppb;
+			IAChooseAnswer ();
+		}
+	}
+
 	/*
 	private void ShowRejoinder(){
 		// Cria evento pro player de acordo com a resposta - player só vê a resposta, joga pra qualquer um dos lados, sem consequencia
@@ -427,6 +471,25 @@ public class GameManager : MonoBehaviour {
 			Debug.Log ("Player aceitou.");// Consequências de positivo
 		}
 		else{
+			SetEventConsequences(currentQuestion.actionDecline, 0);
+			currentQuestion = (DebateQuestion_Data)currentQuestion.actionDecline.nextEvent;
+			Debug.Log ("Player recusou.");// Consequências de negativo
+		}
+	}
+
+	// Exclusivo para o evento de réplica
+	private void GetPlayerReply(){
+		if (uiBoolSlider.choice){	// Faz propaganda
+			if(candidates[0].HasBoosts(currentQuestion.actionAccept))	// Boost
+				candidates[0].resources.credibility += credibilityBonus;
+			SetEventConsequences(currentQuestion.actionAccept, 0);
+			currentQuestion = (DebateQuestion_Data)currentQuestion.actionAccept.nextEvent;
+			Debug.Log ("Player aceitou.");// Consequências de positivo
+		}
+		else{	// Faz ataque
+			// FIXME - o quanto de credibilidade deve ser diminuído com base na corrupção dele?
+			candidates[opponentIndex].resources.credibility -= (candidates[opponentIndex].resources.corruption)/2;
+			//
 			SetEventConsequences(currentQuestion.actionDecline, 0);
 			currentQuestion = (DebateQuestion_Data)currentQuestion.actionDecline.nextEvent;
 			Debug.Log ("Player recusou.");// Consequências de negativo
