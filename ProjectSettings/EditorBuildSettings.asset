@@ -15,5 +15,8 @@ EditorBuildSettings:
     path: Assets/Scenes/debate.unity
     guid: 36ee4f692091dd149b0f45987f177618
   - enabled: 1
+    path: Assets/Scenes/CE_Main Menu.unity
+    guid: fe154de4d8f1aa145bb1bc174c51917e
+  - enabled: 1
     path: Assets/Scenes/CE_Game.unity
     guid: 7146d7f38a9a4a94f9bf134ecabf6c95

@@ -17,7 +17,7 @@ public class MainMenuController : MonoBehaviour {
 	}
 
 	public void StartGame(){
-		SceneManager.LoadScene (gameConfig.scenePlay.name);
+		SceneManager.LoadScene (gameConfig.scenePlayName);
 	}
 
 	public void HelpMenu(){
