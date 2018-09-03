@@ -27,7 +27,8 @@ public class GameManager : MonoBehaviour {
 	public BoolAction uiBoolSlider;
 	public ResourcesBHV uiResources;
 
-	//Referência para animações de transição
+	//Referência para telas e animações de transição
+	public GameObject quitMenu;
 	public TransitionScreen debateStart;
 
 	//Candidatos - sempre em memória principal; leitura e escrita
@@ -93,6 +94,20 @@ public class GameManager : MonoBehaviour {
 		countDebateTurns = 0;*/
 		//isFirstDebateTurn = true;
 		//firstPlayer = -1;
+	}
+
+	// Update is called once per frame
+	void Update () {
+		if (Input.GetKeyDown (KeyCode.Escape)){
+			quitMenu.SetActive (true);
+		}
+	}
+
+	public void QuitGame(){
+		Application.Quit ();
+		#if UNITY_EDITOR
+		UnityEditor.EditorApplication.isPlaying = false;
+		#endif
 	}
 
 	//Método para receber o controle de volta para o Game Manager
@@ -547,10 +562,7 @@ public class GameManager : MonoBehaviour {
 	}
 
 
-	// Update is called once per frame
-	void Update () {
 
-	}
 
 
 

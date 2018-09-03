@@ -16,6 +16,9 @@ public class Carousel : MonoBehaviour {
 	public RectTransform center;	// CenterToCompare
 	public RectTransform prefabCardPanel;	// Prefab do Card Panel. Usado para instanciar de acordo com a quantidade de cartas.
 
+	public Image leftArrow;
+	public Image rightArrow;
+
 	private float[] distance;		// array de distâncias de cada panel
 	private bool dragging = false;
 	public int chooseCount;
@@ -31,6 +34,11 @@ public class Carousel : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		//SetCarouselActive (cardsToTest);
+	}
+
+	void OnEnable(){
+		leftArrow.enabled = false;
+		rightArrow.enabled = false;
 	}
 	
 	// Update is called once per frame
@@ -53,6 +61,19 @@ public class Carousel : MonoBehaviour {
 
 			if (!dragging) 	// Se não está mais puxando, faz a interpolação para a posição certa
 				LerpToSelectedPanel ((int)-offsetButtons * selected);
+
+
+			if (selected == 0) {
+				leftArrow.enabled = false;
+			} else {
+				leftArrow.enabled = true;
+			}
+
+			if (selected == panels.Count -1){
+				rightArrow.enabled = false;
+			} else {
+				rightArrow.enabled = true;
+			}
 		}
 	}
 
