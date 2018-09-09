@@ -11,10 +11,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf119fa67d484b94e8a48ddea04f83d9, type: 3}
   m_Name: avo_react_5
   m_EditorClassIdentifier: 
-  description: 
+  description: "\xC9 lan\xE7ado o primeiro cd com as melhores m\xFAsicas de funk chamado
+    \u201CFurac\xE3o Catarina 2000\u201D"
   image: {fileID: 0}
   actionDecline:
-    description: 
+    description: "Desabar de emo\xE7\xE3o"
     resources:
       cash: 0
       corruption: 0
@@ -41,7 +42,7 @@ MonoBehaviour:
     nextEvent: {fileID: 0}
     specialConsequences: 
   actionAccept:
-    description: 
+    description: "\xC9 o in\xEDcio do fim\u2026"
     resources:
       cash: 0
       corruption: 0

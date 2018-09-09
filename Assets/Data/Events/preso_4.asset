@@ -11,10 +11,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf119fa67d484b94e8a48ddea04f83d9, type: 3}
   m_Name: preso_4
   m_EditorClassIdentifier: 
-  description: 
+  description: Para te soltar precisei usar uma boa quantia de dinheiro para suborno.
   image: {fileID: 0}
   actionDecline:
-    description: 
+    description: Pelo menos estou solto
     resources:
       cash: 0
       corruption: 0
@@ -41,7 +41,7 @@ MonoBehaviour:
     nextEvent: {fileID: 0}
     specialConsequences: 
   actionAccept:
-    description: 
+    description: "In\xFAtil"
     resources:
       cash: 0
       corruption: 0

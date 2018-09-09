@@ -11,10 +11,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf119fa67d484b94e8a48ddea04f83d9, type: 3}
   m_Name: avo_react_4
   m_EditorClassIdentifier: 
-  description: 
+  description: "\xC9 criado o programa Bolsa Fam\xEDlia"
   image: {fileID: 0}
   actionDecline:
-    description: 
+    description: "Chorar de emo\xE7\xE3o"
     resources:
       cash: 0
       corruption: 0
@@ -38,10 +38,10 @@ MonoBehaviour:
         legalizacaoAborto: 0
         casamentoGay: 0
         legalizacaoDrogas: 0
-    nextEvent: {fileID: 0}
+    nextEvent: {fileID: 11400000, guid: 54967f4883e68ec40acbde7c89d93b99, type: 2}
     specialConsequences: 
   actionAccept:
-    description: 
+    description: Dizer palavras ofensivas
     resources:
       cash: 0
       corruption: 0
@@ -65,5 +65,5 @@ MonoBehaviour:
         legalizacaoAborto: 0
         casamentoGay: 0
         legalizacaoDrogas: 0
-    nextEvent: {fileID: 0}
+    nextEvent: {fileID: 11400000, guid: 54967f4883e68ec40acbde7c89d93b99, type: 2}
     specialConsequences: 

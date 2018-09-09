@@ -11,10 +11,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf119fa67d484b94e8a48ddea04f83d9, type: 3}
   m_Name: saopaulo_discurso_4
   m_EditorClassIdentifier: 
-  description: 
+  description: "Voc\xEA d\xE1 uma pausa, uma mulher te entrega um copo de \xE1gua
+    e um pacote de Trakinas."
   image: {fileID: 0}
   actionDecline:
-    description: 
+    description: Obrigado pelo biscoito.
     resources:
       cash: 0
       corruption: 0
@@ -38,10 +39,10 @@ MonoBehaviour:
         legalizacaoAborto: 0
         casamentoGay: 0
         legalizacaoDrogas: 0
-    nextEvent: {fileID: 0}
+    nextEvent: {fileID: 11400000, guid: d14c47ccd72d79f409f0e8535f558b53, type: 2}
     specialConsequences: 
   actionAccept:
-    description: 
+    description: Obrigado pela bolacha.
     resources:
       cash: 0
       corruption: 0
@@ -65,5 +66,5 @@ MonoBehaviour:
         legalizacaoAborto: 0
         casamentoGay: 0
         legalizacaoDrogas: 0
-    nextEvent: {fileID: 0}
+    nextEvent: {fileID: 11400000, guid: 94afc6edeadf84a48b34b39368fea07b, type: 2}
     specialConsequences: 

@@ -11,10 +11,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf119fa67d484b94e8a48ddea04f83d9, type: 3}
   m_Name: salvador_discurso_3
   m_EditorClassIdentifier: 
-  description: 
+  description: "Sobre a cria\xE7\xE3o de um toque de recolher\u2026"
   image: {fileID: 0}
   actionDecline:
-    description: 
+    description: acho uma ideia genial
     resources:
       cash: 0
       corruption: 0
@@ -38,10 +38,10 @@ MonoBehaviour:
         legalizacaoAborto: 0
         casamentoGay: 0
         legalizacaoDrogas: 0
-    nextEvent: {fileID: 0}
+    nextEvent: {fileID: 11400000, guid: f781c00d5afef7d49b3662bb183129cd, type: 2}
     specialConsequences: 
   actionAccept:
-    description: 
+    description: "n\xE3o \xE9 uma decis\xE3o do governo federal"
     resources:
       cash: 0
       corruption: 0
@@ -65,5 +65,5 @@ MonoBehaviour:
         legalizacaoAborto: 0
         casamentoGay: 0
         legalizacaoDrogas: 0
-    nextEvent: {fileID: 0}
+    nextEvent: {fileID: 11400000, guid: f781c00d5afef7d49b3662bb183129cd, type: 2}
     specialConsequences: 

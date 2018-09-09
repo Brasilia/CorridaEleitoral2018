@@ -11,10 +11,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf119fa67d484b94e8a48ddea04f83d9, type: 3}
   m_Name: avo_react_2
   m_EditorClassIdentifier: 
-  description: 
+  description: "J\xE3o Gouveia \xE9 deposto pelos militares e \xE9 iniciada a ditadura
+    militar."
   image: {fileID: 0}
   actionDecline:
-    description: 
+    description: Rir de felicidade
     resources:
       cash: 0
       corruption: 0
@@ -38,10 +39,10 @@ MonoBehaviour:
         legalizacaoAborto: 0
         casamentoGay: 0
         legalizacaoDrogas: 0
-    nextEvent: {fileID: 0}
+    nextEvent: {fileID: 11400000, guid: a1a700b7530c2ca47a2cb726614fa77b, type: 2}
     specialConsequences: 
   actionAccept:
-    description: 
+    description: "Derrubar uma l\xE1grima de tristeza"
     resources:
       cash: 0
       corruption: 0
@@ -65,5 +66,5 @@ MonoBehaviour:
         legalizacaoAborto: 0
         casamentoGay: 0
         legalizacaoDrogas: 0
-    nextEvent: {fileID: 0}
+    nextEvent: {fileID: 11400000, guid: a1a700b7530c2ca47a2cb726614fa77b, type: 2}
     specialConsequences: 

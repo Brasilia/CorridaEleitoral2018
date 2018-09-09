@@ -11,10 +11,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf119fa67d484b94e8a48ddea04f83d9, type: 3}
   m_Name: saopaulo_discurso_3
   m_EditorClassIdentifier: 
-  description: 
+  description: "Sobre as privatiza\xE7\xF5es\u2026"
   image: {fileID: 0}
   actionDecline:
-    description: 
+    description: "\xE9 necess\xE1rio para diminuir o tamanho do Estado."
     resources:
       cash: 0
       corruption: 0
@@ -38,10 +38,10 @@ MonoBehaviour:
         legalizacaoAborto: 0
         casamentoGay: 0
         legalizacaoDrogas: 0
-    nextEvent: {fileID: 0}
+    nextEvent: {fileID: 11400000, guid: b898b4a630823c1469572b22e807e084, type: 2}
     specialConsequences: 
   actionAccept:
-    description: 
+    description: "\xE9 uma estrat\xE9gia ruim que prejudica a soberania nacional."
     resources:
       cash: 0
       corruption: 0
@@ -65,5 +65,5 @@ MonoBehaviour:
         legalizacaoAborto: 0
         casamentoGay: 0
         legalizacaoDrogas: 0
-    nextEvent: {fileID: 0}
+    nextEvent: {fileID: 11400000, guid: b898b4a630823c1469572b22e807e084, type: 2}
     specialConsequences: 

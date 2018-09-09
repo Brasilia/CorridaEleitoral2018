@@ -11,10 +11,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf119fa67d484b94e8a48ddea04f83d9, type: 3}
   m_Name: preso_3
   m_EditorClassIdentifier: 
-  description: 
+  description: "Voc\xEA foi para a cadeia."
   image: {fileID: 0}
   actionDecline:
-    description: 
+    description: '...'
     resources:
       cash: 0
       corruption: 0
@@ -38,10 +38,10 @@ MonoBehaviour:
         legalizacaoAborto: 0
         casamentoGay: 0
         legalizacaoDrogas: 0
-    nextEvent: {fileID: 0}
+    nextEvent: {fileID: 11400000, guid: c9b3272105954a44c8054bde745e491c, type: 2}
     specialConsequences: 
   actionAccept:
-    description: 
+    description: '...'
     resources:
       cash: 0
       corruption: 0
@@ -65,5 +65,5 @@ MonoBehaviour:
         legalizacaoAborto: 0
         casamentoGay: 0
         legalizacaoDrogas: 0
-    nextEvent: {fileID: 0}
+    nextEvent: {fileID: 11400000, guid: c9b3272105954a44c8054bde745e491c, type: 2}
     specialConsequences: 

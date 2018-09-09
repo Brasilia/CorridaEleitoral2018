@@ -11,10 +11,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf119fa67d484b94e8a48ddea04f83d9, type: 3}
   m_Name: salvador_discurso_5
   m_EditorClassIdentifier: 
-  description: 
+  description: "Sobre o \xFAltimo show da Claudette de Leite\u2026"
   image: {fileID: 0}
   actionDecline:
-    description: 
+    description: "achei \xF3timo!"
     resources:
       cash: 0
       corruption: 0
@@ -41,7 +41,7 @@ MonoBehaviour:
     nextEvent: {fileID: 0}
     specialConsequences: 
   actionAccept:
-    description: 
+    description: "poderia ser melhor\u2026"
     resources:
       cash: 0
       corruption: 0

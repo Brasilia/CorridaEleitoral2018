@@ -11,10 +11,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf119fa67d484b94e8a48ddea04f83d9, type: 3}
   m_Name: avo_react_1
   m_EditorClassIdentifier: 
-  description: 
+  description: "Vamos fazer um video reagindo a momentos de um document\xE1rio sobre
+    a hist\xF3ria do Brasil."
   image: {fileID: 0}
   actionDecline:
-    description: 
+    description: "Aff, vamos l\xE1"
     resources:
       cash: 0
       corruption: 0
@@ -38,10 +39,10 @@ MonoBehaviour:
         legalizacaoAborto: 0
         casamentoGay: 0
         legalizacaoDrogas: 0
-    nextEvent: {fileID: 0}
+    nextEvent: {fileID: 11400000, guid: 82cc336263afde846a004440a19bdd31, type: 2}
     specialConsequences: 
   actionAccept:
-    description: 
+    description: "\xD3tima ideia!"
     resources:
       cash: 0
       corruption: 0
@@ -65,5 +66,5 @@ MonoBehaviour:
         legalizacaoAborto: 0
         casamentoGay: 0
         legalizacaoDrogas: 0
-    nextEvent: {fileID: 0}
+    nextEvent: {fileID: 11400000, guid: 82cc336263afde846a004440a19bdd31, type: 2}
     specialConsequences: 

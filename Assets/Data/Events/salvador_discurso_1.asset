@@ -11,10 +11,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf119fa67d484b94e8a48ddea04f83d9, type: 3}
   m_Name: salvador_discurso_1
   m_EditorClassIdentifier: 
-  description: 
+  description: "Nosso pr\xF3ximo discurso ser\xE1 em Salvador."
   image: {fileID: 0}
   actionDecline:
-    description: 
+    description: '...'
     resources:
       cash: 0
       corruption: 0
@@ -38,10 +38,10 @@ MonoBehaviour:
         legalizacaoAborto: 0
         casamentoGay: 0
         legalizacaoDrogas: 0
-    nextEvent: {fileID: 0}
+    nextEvent: {fileID: 11400000, guid: 3a2952b46811c2249a5ccec7680232ac, type: 2}
     specialConsequences: 
   actionAccept:
-    description: 
+    description: '...'
     resources:
       cash: 0
       corruption: 0
@@ -65,5 +65,5 @@ MonoBehaviour:
         legalizacaoAborto: 0
         casamentoGay: 0
         legalizacaoDrogas: 0
-    nextEvent: {fileID: 0}
+    nextEvent: {fileID: 11400000, guid: 3a2952b46811c2249a5ccec7680232ac, type: 2}
     specialConsequences: 

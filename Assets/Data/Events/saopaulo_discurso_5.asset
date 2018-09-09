@@ -11,10 +11,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf119fa67d484b94e8a48ddea04f83d9, type: 3}
   m_Name: saopaulo_discurso_5
   m_EditorClassIdentifier: 
-  description: 
+  description: "As pessoas come\xE7ar a vaiar voc\xEA fortemente. Depois gritam em
+    coro \u201CBiscoito \xE9 o caramba\u201D"
   image: {fileID: 0}
   actionDecline:
-    description: 
+    description: '...'
     resources:
       cash: 0
       corruption: 0
@@ -41,7 +42,7 @@ MonoBehaviour:
     nextEvent: {fileID: 0}
     specialConsequences: 
   actionAccept:
-    description: 
+    description: '...'
     resources:
       cash: 0
       corruption: 0

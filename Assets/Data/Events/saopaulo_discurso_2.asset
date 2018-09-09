@@ -11,10 +11,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf119fa67d484b94e8a48ddea04f83d9, type: 3}
   m_Name: saopaulo_discurso_2
   m_EditorClassIdentifier: 
-  description: 
+  description: "Sobre a legaliza\xE7\xE3o do aborto para fetos de at\xE9 12 semanas\u2026"
   image: {fileID: 0}
   actionDecline:
-    description: 
+    description: precisamos legalizar!
     resources:
       cash: 0
       corruption: 0
@@ -38,10 +38,10 @@ MonoBehaviour:
         legalizacaoAborto: 0
         casamentoGay: 0
         legalizacaoDrogas: 0
-    nextEvent: {fileID: 0}
+    nextEvent: {fileID: 11400000, guid: 8a464b1e93ed76b47bd4c446c0fe7819, type: 2}
     specialConsequences: 
   actionAccept:
-    description: 
+    description: nunca!
     resources:
       cash: 0
       corruption: 0
@@ -65,5 +65,5 @@ MonoBehaviour:
         legalizacaoAborto: 0
         casamentoGay: 0
         legalizacaoDrogas: 0
-    nextEvent: {fileID: 0}
+    nextEvent: {fileID: 11400000, guid: 8a464b1e93ed76b47bd4c446c0fe7819, type: 2}
     specialConsequences: 

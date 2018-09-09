@@ -14,7 +14,7 @@ MonoBehaviour:
   description: 'Pensou que iria escapar? '
   image: {fileID: 0}
   actionDecline:
-    description: 
+    description: Eu posso te subornar
     resources:
       cash: 0
       corruption: 0
@@ -38,10 +38,10 @@ MonoBehaviour:
         legalizacaoAborto: 0
         casamentoGay: 0
         legalizacaoDrogas: 0
-    nextEvent: {fileID: 0}
+    nextEvent: {fileID: 11400000, guid: 26061f14104e76b4ca7b9b8b30ef57a6, type: 2}
     specialConsequences: 
   actionAccept:
-    description: 
+    description: Sou inocente!
     resources:
       cash: 0
       corruption: 0
@@ -65,5 +65,5 @@ MonoBehaviour:
         legalizacaoAborto: 0
         casamentoGay: 0
         legalizacaoDrogas: 0
-    nextEvent: {fileID: 0}
+    nextEvent: {fileID: 11400000, guid: 7c3bc21a864e9af429d2676f515d7586, type: 2}
     specialConsequences: 

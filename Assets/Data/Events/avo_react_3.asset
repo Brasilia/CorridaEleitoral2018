@@ -11,10 +11,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf119fa67d484b94e8a48ddea04f83d9, type: 3}
   m_Name: avo_react_3
   m_EditorClassIdentifier: 
-  description: 
+  description: "Nando Colorido \xE9 eleito por voto direto. "
   image: {fileID: 0}
   actionDecline:
-    description: 
+    description: "Esse \xE9 minha inspira\xE7\xE3o"
     resources:
       cash: 0
       corruption: 0
@@ -38,10 +38,10 @@ MonoBehaviour:
         legalizacaoAborto: 0
         casamentoGay: 0
         legalizacaoDrogas: 0
-    nextEvent: {fileID: 0}
+    nextEvent: {fileID: 11400000, guid: 67442f484bf3cd3458aa104dce3301ca, type: 2}
     specialConsequences: 
   actionAccept:
-    description: 
+    description: "Tempos sombrios\u2026"
     resources:
       cash: 0
       corruption: 0
@@ -65,5 +65,5 @@ MonoBehaviour:
         legalizacaoAborto: 0
         casamentoGay: 0
         legalizacaoDrogas: 0
-    nextEvent: {fileID: 0}
+    nextEvent: {fileID: 11400000, guid: 67442f484bf3cd3458aa104dce3301ca, type: 2}
     specialConsequences: 
