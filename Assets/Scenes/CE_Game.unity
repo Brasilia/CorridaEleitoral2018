@@ -738,10 +738,16 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2b62f429d880e5a4d94728e87dcddf76, type: 2}
   - {fileID: 11400000, guid: c5250a5ad366f2148bcd909d573c8f9f, type: 2}
   - {fileID: 11400000, guid: 28f63e7faeb94d842a8dcdf752abb589, type: 2}
+  - {fileID: 11400000, guid: 5f805cc64dd10b1418f0f7f814373ccf, type: 2}
+  - {fileID: 11400000, guid: bdfcc8fd97502df41958ea9cbab2f132, type: 2}
+  - {fileID: 11400000, guid: f45f587b9d2ef0f4f9eb385e2ae1a12e, type: 2}
   debateQuestions:
   - {fileID: 11400000, guid: b3c4f939ad8a09e40802e5a09136b62b, type: 2}
   - {fileID: 11400000, guid: b3c4f939ad8a09e40802e5a09136b62b, type: 2}
   - {fileID: 11400000, guid: b3c4f939ad8a09e40802e5a09136b62b, type: 2}
+  - {fileID: 11400000, guid: c3d0247959a7d914e83a894e19de95e2, type: 2}
+  - {fileID: 11400000, guid: 1d427307a5e6b9f44b8ff396154ddd53, type: 2}
+  - {fileID: 11400000, guid: 1d427307a5e6b9f44b8ff396154ddd53, type: 2}
   eventsPerCicle: 2
   countCicles: 0
   countDebateTurns: 0
