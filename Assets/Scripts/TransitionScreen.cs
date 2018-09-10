@@ -22,13 +22,20 @@ public class TransitionScreen : MonoBehaviour {
 //		}
 	}
 
-	public void SetAndMakeTransition (Action a) {
+	public void SetAndMakeTransition (Action a, string animationName) {
 		Debug.Log ("Should Play");
 		gameObject.SetActive (true);
 		MakeTransition += a;
+		Animator anim = GetComponent<Animator> ();
+		if (anim == null){
+			Debug.Log ("Animator is null");
+		}
+		anim.Play (animationName);
+		Debug.Log ("Should Play(2) " + animationName);
 	}
 
 	private void RunAndUnsubscribeTransition (){
+		Debug.Log ("Unsubscribing");
 		if (MakeTransition != null){
 			MakeTransition ();
 			MakeTransition = null;

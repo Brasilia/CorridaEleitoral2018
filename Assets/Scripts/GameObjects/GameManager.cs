@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
 
@@ -28,8 +29,12 @@ public class GameManager : MonoBehaviour {
 	public ResourcesBHV uiResources;
 
 	//Referência para telas e animações de transição
+	public Text fpsDisplay;
 	public GameObject quitMenu;
-	public TransitionScreen debateStart;
+	//public GameObject debateStart;
+	public TransitionScreen debateQuestion;
+	public GameObject chooseStaffScreen;
+	public GameObject chooseProposalScreen;
 
 	//Candidatos - sempre em memória principal; leitura e escrita
 	public List<Candidate> candidates = new List<Candidate>();	
@@ -60,8 +65,8 @@ public class GameManager : MonoBehaviour {
 	public GameObject debateQuestionPrefab;
 
 	//Atributos para controle do debate
-	private int opponentIndex;
-	private int firstPlayer;
+	public int opponentIndex {get; private set;} // índice do oponente do jogador no debate
+	public int firstPlayer {get; private set;} // índice do primeiro jogador a debater
 	private DebateQuestion_Data currentQuestion;
 	//private DebateQuestion_Data chosenQuestion;
 	private List<int> questionsIndex = new List<int>();
@@ -86,8 +91,10 @@ public class GameManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		//Application.targetFrameRate = 30; //TODO colocar no início (menu inicial)
 		state = STATE.ChooseCandidate;
 		ChooseCandidate ();
+
 		/*
 		countEvents = 0;
 		countCicles = 0;
@@ -101,6 +108,7 @@ public class GameManager : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.Escape)){
 			quitMenu.SetActive (true);
 		}
+		fpsDisplay.text = (1.0f / Time.deltaTime).ToString ("00") + " fps";
 	}
 
 	public void QuitGame(){
@@ -145,13 +153,13 @@ public class GameManager : MonoBehaviour {
 			state = STATE.ChooseOpponent;
 			Debug.Log ("ChooseOpponent");
 			uiResources.gameObject.SetActive (false);
-			ChooseOpponent ();
+			debateQuestion.SetAndMakeTransition (ChooseOpponent, "screen_debate_start");
 			break;
 		case STATE.ChooseOpponent:
-			OpponentChosen ();
+			OpponentChosen();
 			state = STATE.DebateQuestion;
 			Debug.Log ("AskQuestion");
-			AskQuestion ();
+			debateQuestion.SetAndMakeTransition (AskQuestion, "Screen Debate");
 			break;
 		case STATE.DebateQuestion:
 			state = STATE.DebateReply;
@@ -229,6 +237,7 @@ public class GameManager : MonoBehaviour {
 			staff.Add (staffCard.gameObject);
 		}
 		uiCarousel.SetCarouselActive (staff, 2);
+		chooseStaffScreen.SetActive (true);
 	}
 
 	private void StaffChosen (){
@@ -283,6 +292,7 @@ public class GameManager : MonoBehaviour {
 			}
 		}
 		uiCarousel.SetCarouselActive (proposals, 1);
+		chooseProposalScreen.SetActive (true);
 	}
 
 	private void ProposalChosen(){
@@ -296,22 +306,23 @@ public class GameManager : MonoBehaviour {
 
 
 	private void ChooseOpponent(){
+		//debateStart.SetActive (true);
 		if (countDebateTurns == 0) {	// Se é a primeira jogada do debate
 			countDebateTurns++;
 			firstPlayer = Random.Range (0, 2);
 			if (firstPlayer == 0) {	// Jogador inicia a jogada
-				debateStart.SetAndMakeTransition (PlayerChooseOpponent);
+				PlayerChooseOpponent();
 			} else { 	// IA inicia a jogada => sorteia o oponente
-				debateStart.SetAndMakeTransition (IAChooseOpponent);
+				IAChooseOpponent();
 			}
 		} else { // Se é a segunda rodada do debate => inverte quem pergunta
 			countDebateTurns++;
 			if (firstPlayer == 0) {	// Agora a IA pergunta
 				firstPlayer++;
-				debateStart.SetAndMakeTransition (IAChooseOpponent);
+				IAChooseOpponent();
 			} else {				// Agora o player pergunta
 				firstPlayer--;
-				debateStart.SetAndMakeTransition (PlayerChooseOpponent);
+				PlayerChooseOpponent();
 			}
 		}
 	}
@@ -337,13 +348,14 @@ public class GameManager : MonoBehaviour {
 
 	private void IAChooseOpponent(){
 		opponentIndex = Random.Range (1, candidates.Count);
-		ReturnControl ();
+		Invoke ("ReturnControl", 0.1f); // necessário usar Invoke para não conflitar com o SetActive(false) da animação
 	}
 
 	private void OpponentChosen(){
 		if (firstPlayer == 0) {
-			opponentIndex = uiChoiceTable.candidateSelected;
+			opponentIndex = uiChoiceTable.candidateSelected + 1;
 			uiChoiceTable.gameObject.SetActive (false);
+			Debug.Log ("Opponent Chosen: " + opponentIndex);
 		} 
 	}
 

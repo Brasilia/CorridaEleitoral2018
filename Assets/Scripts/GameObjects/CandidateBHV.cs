@@ -35,7 +35,13 @@ public class CandidateBHV : PersonBHV {
 	}
 
 	public void Load(Candidate cand){
+		description.text = cand.description;
 		image.sprite = cand.image;
+		personName.text = cand.personName;
+		resources [0].text = cand.resources.cash.ToString();
+		resources [1].text = cand.resources.corruption.ToString();
+		resources [2].text = cand.resources.credibility.ToString();
+		resources [3].text = cand.resources.visibility.ToString();
 		economical.value = cand.alignment.economic.value;
 		civil.value = cand.alignment.civil.value;
 		societal.value = cand.alignment.societal.value;

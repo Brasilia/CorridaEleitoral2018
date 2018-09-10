@@ -112,7 +112,7 @@ public class Carousel : MonoBehaviour {
 
 	// Suaviza o panel selecionado para a posição certa.
 	void LerpToSelectedPanel(int position){
-		float newX = Mathf.Lerp (scrollPanel.anchoredPosition.x, position, Time.deltaTime * 10f);	// Suaviza o panel pra posição certa
+		float newX = Mathf.Lerp (scrollPanel.anchoredPosition.x, position, 0.1f);	// Suaviza o panel pra posição certa
 		Vector2 newPosition = new Vector2(newX, scrollPanel.anchoredPosition.y);	// Nova posição do panel
 		scrollPanel.anchoredPosition = newPosition;		// Seta a posição
 	}

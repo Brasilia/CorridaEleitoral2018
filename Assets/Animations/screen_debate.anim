@@ -349,7 +349,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 2
         time: 0
-        value: 1
+        value: 0
         inSlope: Infinity
         outSlope: Infinity
         tangentMode: 103
@@ -1103,7 +1103,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 2
         time: 0
-        value: 1
+        value: 0
         inSlope: Infinity
         outSlope: Infinity
         tangentMode: 103
@@ -1359,7 +1359,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_GenerateMotionCurves: 0
   m_Events:
-  - time: 2.0833333
+  - time: 2.1666667
     functionName: RunAndUnsubscribeTransition
     data: 
     objectReferenceParameter: {fileID: 0}

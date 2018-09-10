@@ -36,6 +36,9 @@ public class CardTable : MonoBehaviour {
 
 	// Identifica o candidato escolhido.
 	public void OnClickCandidate(int candidateSelected){
+		if (candidateSelected >= candidates.Count) {
+			return;
+		}
 		this.candidateSelected = candidateSelected;
 		foreach (GameObject g in this.candidates)
 			Destroy (g);
