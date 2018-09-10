@@ -13,3 +13,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneMenu: {fileID: 102900000, guid: fe154de4d8f1aa145bb1bc174c51917e, type: 3}
   scenePlay: {fileID: 102900000, guid: 7146d7f38a9a4a94f9bf134ecabf6c95, type: 3}
+  sceneMenuName: CE_Main Menu
+  scenePlayName: CE_Game
+  gameTurns: 0
+  candidatesCount: 0
+  eventsPerTurn: 0
+  staffCount: 0
+  proposalWheelCount: 0
+  debateQuestionWheelCount: 0

@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour {
 	public List<DebateQuestion_Data> debateQuestions;
 
 	//Gerenciamento do ciclo de eventos
-	public int countEvents = 0;
+	private int countEvents;
 	public int eventsPerCicle = 2;
 
 
@@ -94,9 +94,8 @@ public class GameManager : MonoBehaviour {
 		//Application.targetFrameRate = 30; //TODO colocar no início (menu inicial)
 		state = STATE.ChooseCandidate;
 		ChooseCandidate ();
-
+		countEvents = -1;
 		/*
-		countEvents = 0;
 		countCicles = 0;
 		countDebateTurns = 0;*/
 		//isFirstDebateTurn = true;
@@ -133,19 +132,29 @@ public class GameManager : MonoBehaviour {
 			state = STATE.Event;
 			Debug.Log ("ah, mlk");
 			uiResources.SetResourcesActive ();
-			ChooseEvent (eventsData);
+			if (countEvents == -1){
+				countEvents = 0;
+				Debug.Log ("First Event");
+				ChooseEvent (eventsData.GetRange (0, 1)); // Pega o primeiro evento na lista (tutorial)
+				eventsData.RemoveAt (0); // Remove o primeiro, para evitar repetição
+			} else {
+				ChooseEvent (eventsData);
+			}
 			break;
 		case STATE.Event:
 			Debug.Log ("countEvents: " + countEvents);
-			EventAnswerChosen ();
-			countEvents++;
+			List<Event_Data> ev = EventAnswerChosen ();
+			if (ev == null) {
+				countEvents++;
+				ev = eventsData;
+			}
 			if (countEvents >= eventsPerCicle){
 				countEvents = 0;
 				state = STATE.Proposal;
 				Debug.Log ("ChooseProposal");
 				ChooseProposal ();
 			} else {
-				ChooseEvent (eventsData);
+				ChooseEvent (ev);
 			}
 			break;
 		case STATE.Proposal:
@@ -254,11 +263,11 @@ public class GameManager : MonoBehaviour {
 		indexAux = Random.Range (0, events.Count); //params are min(inclusive), max(exclusive)
 		GameObject ev = Instantiate(eventPrefab);
 		ev.GetComponent<EventBHV> ().Load (events[indexAux]); //Carregar atributos da carta - de índice rand
+		events.RemoveAt (indexAux);
 		uiBoolSlider.SetActiveBoolAction (ev);
-		//events.RemoveAt (indexAux);
 	}
 
-	private void EventAnswerChosen(){
+	private List<Event_Data> EventAnswerChosen(){
 		Event_Data evData = (Event_Data)(uiBoolSlider.card.GetComponent<EventBHV> ().cardData);
 		EventAction_Data chosenAction;
 		if(uiBoolSlider.choice == false){
@@ -267,12 +276,14 @@ public class GameManager : MonoBehaviour {
 			chosenAction = evData.actionAccept;
 		}
 		SetEventConsequences(chosenAction, 0);
+		//eventsData.RemoveAt (indexAux);
 		if(chosenAction.nextEvent != null){
-			GameObject ev = Instantiate(eventPrefab);
-			ev.GetComponent<EventBHV> ().Load (chosenAction.nextEvent); //Carregar atributos da carta - apontada por chosenAction.nextEvent
-			uiBoolSlider.SetActiveBoolAction (ev);
+			List<Event_Data> evs = new List<Event_Data> ();
+			evs.Add (chosenAction.nextEvent);
+			return (evs);
+		} else {
+			return null;
 		}
-		eventsData.RemoveAt (indexAux);
 	}
 
 	private void ChooseProposal(){

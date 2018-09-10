@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: TempLula
   m_EditorClassIdentifier: 
   description: Preso
-  image: {fileID: 21300000, guid: 1d19ad690989a8542b5614cee201affc, type: 3}
+  image: {fileID: 21300010, guid: de4289e7289e78e4ca4ff82f50e4ff7b, type: 3}
   personName: Lula
   resources:
     cash: -8
