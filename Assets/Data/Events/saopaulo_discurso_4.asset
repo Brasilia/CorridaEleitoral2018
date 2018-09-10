@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf119fa67d484b94e8a48ddea04f83d9, type: 3}
+  m_Name: saopaulo_discurso_4
+  m_EditorClassIdentifier: 
+  description: "Voc\xEA d\xE1 uma pausa, uma mulher te entrega um copo de \xE1gua
+    e um pacote de Trakinas."
+  image: {fileID: 0}
+  actionDecline:
+    description: Obrigado pelo biscoito.
+    resources:
+      cash: 0
+      corruption: 0
+      credibility: 0
+      visibility: 0
+    alignment:
+      economic:
+        value: 0
+        bolsaFamilia: 0
+        salarioMinimo: 0
+        impostoDeRenda: 0
+        privatizacao: 0
+        previdencia: 0
+      civil:
+        value: 0
+        servicoMilitarObrigatorio: 0
+        escolasMilitares: 0
+      societal:
+        value: 0
+        ensinoReligiosoEscolas: 0
+        legalizacaoAborto: 0
+        casamentoGay: 0
+        legalizacaoDrogas: 0
+    nextEvent: {fileID: 11400000, guid: d14c47ccd72d79f409f0e8535f558b53, type: 2}
+    specialConsequences: 
+  actionAccept:
+    description: Obrigado pela bolacha.
+    resources:
+      cash: 0
+      corruption: 0
+      credibility: 0
+      visibility: 0
+    alignment:
+      economic:
+        value: 0
+        bolsaFamilia: 0
+        salarioMinimo: 0
+        impostoDeRenda: 0
+        privatizacao: 0
+        previdencia: 0
+      civil:
+        value: 0
+        servicoMilitarObrigatorio: 0
+        escolasMilitares: 0
+      societal:
+        value: 0
+        ensinoReligiosoEscolas: 0
+        legalizacaoAborto: 0
+        casamentoGay: 0
+        legalizacaoDrogas: 0
+    nextEvent: {fileID: 11400000, guid: 94afc6edeadf84a48b34b39368fea07b, type: 2}
+    specialConsequences: 
