@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class QuitMenu : MonoBehaviour {
 
+	public AudioSource audioSource;
+	public AudioClip audioAccept;
+	public AudioClip audioDecline;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -14,6 +18,18 @@ public class QuitMenu : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.Escape)){
 			GameManager.instance.QuitGame ();
 		}
+	}
+
+	public void Accept () {
+		audioSource.clip = audioAccept;
+		audioSource.Play ();
+		GameManager.instance.QuitGame ();
+	}
+
+	public void Decline () {
+		audioSource.clip = audioDecline;
+		audioSource.Play ();
+		gameObject.SetActive (false);
 	}
 
 

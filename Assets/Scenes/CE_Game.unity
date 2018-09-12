@@ -682,6 +682,7 @@ GameObject:
   m_Component:
   - component: {fileID: 97954278}
   - component: {fileID: 97954277}
+  - component: {fileID: 97954279}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -700,6 +701,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12b45f7fc9a36b145861df7204fc886a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  eventSystem: {fileID: 862561717}
   uiCarousel: {fileID: 1627684552}
   uiChoiceTable: {fileID: 1567471282}
   uiBoolSlider: {fileID: 1065605541}
@@ -774,6 +776,86 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &97954279
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 97954276}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: c75e87fc1a41292499af9a8fee9a658e, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.2
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!1 &104115666
 GameObject:
   m_ObjectHideFlags: 0
@@ -1456,8 +1538,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 97954277}
-        m_MethodName: QuitGame
+      - m_Target: {fileID: 1258195477}
+        m_MethodName: Accept
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6402,6 +6484,9 @@ MonoBehaviour:
   panelAccept: {fileID: 772080948}
   arrows: {fileID: 1693805911}
   choice: 0
+  audioSource: {fileID: 1257019352}
+  audioAccept: {fileID: 8300000, guid: 62515265d3dd0d9478972143e536734c, type: 3}
+  audioDecline: {fileID: 8300000, guid: 1c43ab7e88ba4504cad950ec61b92c02, type: 3}
 --- !u!1 &1071609522
 GameObject:
   m_ObjectHideFlags: 0
@@ -7737,6 +7822,7 @@ GameObject:
   - component: {fileID: 1257019350}
   - component: {fileID: 1257019349}
   - component: {fileID: 1257019348}
+  - component: {fileID: 1257019352}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -7826,6 +7912,86 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!82 &1257019352
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1257019347}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!1 &1258195475
 GameObject:
   m_ObjectHideFlags: 0
@@ -7873,6 +8039,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1222866fea3c67544ba7d4f1199a3f37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 1257019352}
+  audioAccept: {fileID: 8300000, guid: 62515265d3dd0d9478972143e536734c, type: 3}
+  audioDecline: {fileID: 8300000, guid: 1c43ab7e88ba4504cad950ec61b92c02, type: 3}
 --- !u!1 &1268359727
 GameObject:
   m_ObjectHideFlags: 0
@@ -9910,6 +10079,8 @@ MonoBehaviour:
   - {fileID: 1694135759}
   - {fileID: 1211263363}
   candidateSelected: 0
+  audioSource: {fileID: 1257019352}
+  click: {fileID: 8300000, guid: d8c69a94ad2923b4f8205421f3358a46, type: 3}
 --- !u!114 &1567471283
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10350,6 +10521,8 @@ MonoBehaviour:
   selected: 0
   panels: []
   offsetButtons: 740
+  audioSource: {fileID: 1257019352}
+  click: {fileID: 8300000, guid: d8c69a94ad2923b4f8205421f3358a46, type: 3}
 --- !u!1 &1639205986
 GameObject:
   m_ObjectHideFlags: 0
@@ -13287,9 +13460,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1258195475}
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 1258195477}
+        m_MethodName: Decline
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -13527,7 +13700,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2089618848
 RectTransform:
   m_ObjectHideFlags: 0

@@ -31,6 +31,9 @@ public class Carousel : MonoBehaviour {
 
 	private GameManager gameManager;
 
+	public AudioSource audioSource;
+	public AudioClip click;
+
 	// Use this for initialization
 	void Start () {
 		//SetCarouselActive (cardsToTest);
@@ -148,6 +151,8 @@ public class Carousel : MonoBehaviour {
 				panels.RemoveAt (selected);
 				Debug.Log ("Click!");
 				chooseCount--;
+				audioSource.clip = click;
+				audioSource.Play ();
 				if(chooseCount == 0){
 					movesAfterSelecion = 0;
 					foreach (RectTransform p in panels){

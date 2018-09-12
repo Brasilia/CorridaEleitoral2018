@@ -13,7 +13,9 @@ public class MainMenuController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if (Input.GetKeyDown (KeyCode.Escape)){
+			ExitGame ();
+		}
 	}
 
 	public void StartGame(){
@@ -22,5 +24,12 @@ public class MainMenuController : MonoBehaviour {
 
 	public void HelpMenu(){
 		
+	}
+
+	public void ExitGame() {
+		Application.Quit ();
+		#if UNITY_EDITOR
+		UnityEditor.EditorApplication.isPlaying = false;
+		#endif
 	}
 }

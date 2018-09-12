@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour {
 
 	public static GameManager instance = null;
 
+	public GameObject eventSystem; // para desativar clicks enquanto finaliza o jogo
+
 	//Referência para os widgets
 	public Carousel uiCarousel;
 	public CardTable uiChoiceTable;
@@ -72,6 +74,9 @@ public class GameManager : MonoBehaviour {
 	private List<int> questionsIndex = new List<int>();
 
 
+
+
+
 //	public STATE State {
 //		get {
 //			return state;
@@ -111,6 +116,11 @@ public class GameManager : MonoBehaviour {
 	}
 
 	public void QuitGame(){
+		eventSystem.SetActive (false);
+		Invoke ("TerminateGame", 0.5f);
+	}
+
+	private void TerminateGame() {
 		Application.Quit ();
 		#if UNITY_EDITOR
 		UnityEditor.EditorApplication.isPlaying = false;

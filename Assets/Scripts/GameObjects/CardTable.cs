@@ -10,6 +10,9 @@ public class CardTable : MonoBehaviour {
 	public int candidateSelected;
 	private List<GameObject> candidates;
 
+	public AudioSource audioSource;
+	public AudioClip click;
+
 	// Use this for initialization
 	void Start () {
 		gameManager = GameManager.instance;
@@ -39,6 +42,8 @@ public class CardTable : MonoBehaviour {
 		if (candidateSelected >= candidates.Count) {
 			return;
 		}
+		audioSource.clip = click;
+		audioSource.Play ();
 		this.candidateSelected = candidateSelected;
 		foreach (GameObject g in this.candidates)
 			Destroy (g);

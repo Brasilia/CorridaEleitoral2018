@@ -22,6 +22,11 @@ public class BoolAction : MonoBehaviour {
 
 	public bool choice;
 
+	//Audio
+	public AudioSource audioSource;
+	public AudioClip audioAccept;
+	public AudioClip audioDecline;
+
 	// Use this for initialization
 	void Start () {
 		//card = panelCard.GetComponent<CardBHV> ();
@@ -65,6 +70,8 @@ public class BoolAction : MonoBehaviour {
 		Vector2 offset = (Vector2)Input.mousePosition - clickPoint;
 		SetCardTransform (offset);
 		if (offset.x < -400) {
+			audioSource.clip = audioDecline;
+			audioSource.Play ();
 			//x = 0.0f;
 			gameObject.SetActive (false);
 			Destroy (this.card);
@@ -77,6 +84,8 @@ public class BoolAction : MonoBehaviour {
 			isDragging = false;
 		}
 		if (offset.x > 400) {
+			audioSource.clip = audioAccept;
+			audioSource.Play ();
 			//x = 900f;
 			//card.ActionYes();
 			gameObject.SetActive (false);
