@@ -30,7 +30,8 @@ public class Candidate{
 
 	//Execution ----------------
 	public List<CandidateBHV> candidates; //Base de conhecimento sobre os outros candidatos
-	public float voteIntentions;
+	public float voteIntention;
+	public List<float> voteIntentions = new List<float> ();
 	public List<Alignment> debateBoosts = new List<Alignment>();
 
 	public Candidate(Candidate_Data card){

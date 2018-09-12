@@ -15,10 +15,10 @@ MonoBehaviour:
   image: {fileID: 21300008, guid: de4289e7289e78e4ca4ff82f50e4ff7b, type: 3}
   personName: Bolsonaro
   resources:
-    cash: 177
-    corruption: 176
-    credibility: 240
-    visibility: 144
+    cash: 20
+    corruption: 10
+    credibility: 60
+    visibility: 60
   alignment:
     economic:
       value: 20
@@ -28,7 +28,7 @@ MonoBehaviour:
       privatizacao: 0
       previdencia: 0
     civil:
-      value: 35
+      value: -39
       servicoMilitarObrigatorio: 0
       escolasMilitares: 0
     societal:

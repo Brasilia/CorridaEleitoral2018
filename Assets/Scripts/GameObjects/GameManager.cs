@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour {
 	public CardTable uiChoiceTable;
 	public BoolAction uiBoolSlider;
 	public ResourcesBHV uiResources;
+	public GraphControl votesGraph;
 
 	//Referência para telas e animações de transição
 	public Text fpsDisplay;
@@ -100,6 +101,7 @@ public class GameManager : MonoBehaviour {
 		state = STATE.ChooseCandidate;
 		ChooseCandidate ();
 		countEvents = -1;
+		//votesGraph.SetGraphActive ();
 		/*
 		countCicles = 0;
 		countDebateTurns = 0;*/
@@ -129,7 +131,6 @@ public class GameManager : MonoBehaviour {
 
 	//Método para receber o controle de volta para o Game Manager
 	public void ReturnControl(){
-		UpdateIntentions (); // FIXME - local temporário para teste
 		switch (state) {
 		case STATE.ChooseCandidate:
 			CandidateChosen ();
@@ -243,6 +244,7 @@ public class GameManager : MonoBehaviour {
 					candidates.Add (cand);
 				}
 			}
+			UpdateIntentionsLists ();
 		}
 	}
 
@@ -452,7 +454,7 @@ public class GameManager : MonoBehaviour {
 			uiResources.gameObject.SetActive (false);
 			ChooseOpponent();
 			//ReturnControl ();
-		} else {	// Se volta pros eventos
+		} else {	// Se volta pros eventos (ou fim)
 			countCicles++;
 			if (countCicles < 2) {	// Se o loop do jogo ainda não acabou
 				Debug.Log("Volta pros eventos");
@@ -460,9 +462,16 @@ public class GameManager : MonoBehaviour {
 				state = STATE.Event;
 				uiResources.SetResourcesActive ();
 				ChooseEvent (eventsData);
-			}
-			else
+				// Grafico
+				UpdateIntentionsLists ();
+				votesGraph.SetGraphActive ();
+			} else {
 				Debug.Log ("Fim de jogo!");
+				// Grafico
+				UpdateIntentionsLists ();
+				votesGraph.SetGraphActive ();
+				// end game
+			}
 		} 
 	}
 
@@ -603,10 +612,17 @@ public class GameManager : MonoBehaviour {
 
 
 	// Métodos de cálculo de inteções de votos...
+	public void UpdateIntentionsLists() {
+		UpdateIntentions ();
+		foreach (Candidate cand in candidates) {
+			cand.voteIntentions.Add (cand.voteIntention);
+		}
+	}
+
 	public void UpdateIntentions(){
 		//Reseta intenções de voto
 		foreach(Candidate cand in candidates){
-			cand.voteIntentions = 0;
+			cand.voteIntention = 0;
 		}
 		//Recalcula intenções
 		foreach (ElectoralGroup_Data elec in electorGroups){
@@ -623,7 +639,7 @@ public class GameManager : MonoBehaviour {
 				float partialIntentions = 
 					(float)elec.weight * attractionFactors[candidates.IndexOf(cand)] / totalAttraction;
 				//Debug.Log ("total Attraction " + totalAttraction);
-				cand.voteIntentions += partialIntentions; 
+				cand.voteIntention += partialIntentions; 
 			}
 		}
 		//mainScreen.UpdateVoteIntentionsDisplay ();

@@ -15,24 +15,24 @@ MonoBehaviour:
   image: {fileID: 21300010, guid: de4289e7289e78e4ca4ff82f50e4ff7b, type: 3}
   personName: Lula
   resources:
-    cash: -8
-    corruption: 0
-    credibility: -10
-    visibility: 4
+    cash: 30
+    corruption: 30
+    credibility: 10
+    visibility: 60
   alignment:
     economic:
-      value: 0
+      value: -38
       bolsaFamilia: 0
       salarioMinimo: 0
       impostoDeRenda: 0
       privatizacao: 0
       previdencia: 0
     civil:
-      value: 0
+      value: -21
       servicoMilitarObrigatorio: 0
       escolasMilitares: 0
     societal:
-      value: 0
+      value: 33
       ensinoReligiosoEscolas: 0
       legalizacaoAborto: 0
       casamentoGay: 0
