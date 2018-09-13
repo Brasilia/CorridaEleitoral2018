@@ -34,7 +34,7 @@ public class TransitionScreen : MonoBehaviour {
 		Debug.Log ("Should Play(2) " + animationName);
 	}
 
-	private void RunAndUnsubscribeTransition (){
+	public void RunAndUnsubscribeTransition (){
 		Debug.Log ("Unsubscribing");
 		if (MakeTransition != null){
 			MakeTransition ();

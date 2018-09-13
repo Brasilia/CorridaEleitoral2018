@@ -2,10 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenuController : MonoBehaviour {
 
 	public GameConfig gameConfig;
+	private AsyncOperation sceneLoading = null;
+	public Slider loadingProgress;
+	public List<Button> buttonsToDeactivate;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -16,10 +21,18 @@ public class MainMenuController : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.Escape)){
 			ExitGame ();
 		}
+		if (sceneLoading != null) {
+			loadingProgress.value = sceneLoading.progress + 0.1f; // 0.1 gambiarra
+		}
 	}
 
 	public void StartGame(){
-		SceneManager.LoadScene (gameConfig.scenePlayName);
+		sceneLoading = SceneManager.LoadSceneAsync (gameConfig.scenePlayName);
+		foreach (Button b in buttonsToDeactivate) {
+			b.interactable = false;
+			b.gameObject.SetActive (false);
+		}
+		loadingProgress.gameObject.SetActive (true);
 	}
 
 	public void HelpMenu(){

@@ -110,6 +110,10 @@ public class GraphControl : MonoBehaviour {
 			color++;
 		}
 	}
+
+	void OnDisable () {
+		// Destruir linhas
+	}
 	
 	// Update is called once per frame
 	void Update () {

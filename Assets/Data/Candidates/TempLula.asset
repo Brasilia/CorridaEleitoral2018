@@ -15,8 +15,8 @@ MonoBehaviour:
   image: {fileID: 21300010, guid: de4289e7289e78e4ca4ff82f50e4ff7b, type: 3}
   personName: Lula
   resources:
-    cash: 30
-    corruption: 30
+    cash: 40
+    corruption: 20
     credibility: 10
     visibility: 60
   alignment:

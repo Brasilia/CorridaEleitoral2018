@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour {
 	public CardTable uiChoiceTable;
 	public BoolAction uiBoolSlider;
 	public ResourcesBHV uiResources;
-	public GraphControl votesGraph;
+	public TransitionScreen votesChart;
 
 	//Referência para telas e animações de transição
 	public Text fpsDisplay;
@@ -460,19 +460,25 @@ public class GameManager : MonoBehaviour {
 				Debug.Log("Volta pros eventos");
 				countDebateTurns = 0;
 				state = STATE.Event;
-				uiResources.SetResourcesActive ();
-				ChooseEvent (eventsData);
 				// Grafico
 				UpdateIntentionsLists ();
-				votesGraph.SetGraphActive ();
+				votesChart.SetAndMakeTransition (StartNewCicle, "chartCicleEnd");
 			} else {
-				Debug.Log ("Fim de jogo!");
 				// Grafico
 				UpdateIntentionsLists ();
-				votesGraph.SetGraphActive ();
+				votesChart.SetAndMakeTransition (EndGame, "chartCicleEnd");
 				// end game
 			}
 		} 
+	}
+
+	private void StartNewCicle() {
+		uiResources.SetResourcesActive ();
+		ChooseEvent (eventsData);
+	}
+
+	private void EndGame() {
+		Debug.Log ("Fim de jogo!");
 	}
 
 	// Função principal de simulação de outros confrontos

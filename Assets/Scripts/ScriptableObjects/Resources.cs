@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class Resources {
+public struct Resources {
 	public int cash;
 	public int corruption;
 	public int credibility;

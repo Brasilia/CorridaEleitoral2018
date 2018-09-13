@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class Alignment {
+public struct Alignment {
 
 	[System.Serializable]
 	public struct EconomicAxis {
