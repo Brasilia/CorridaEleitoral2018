@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-[ExecuteInEditMode]
+//[ExecuteInEditMode]
 public class GraphControl : MonoBehaviour {
 	public GameObject graph;		 //referencia para o grafico
 	public LineRenderer baseX;		 //eixo x

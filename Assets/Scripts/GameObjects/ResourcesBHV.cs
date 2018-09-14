@@ -14,6 +14,8 @@ public class ResourcesBHV : MonoBehaviour {
 	public Slider civilSlider;
 	public Slider societalSlider;
 
+	public Image candidateImage;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -30,13 +32,17 @@ public class ResourcesBHV : MonoBehaviour {
 	}
 
 	public void UpdateValues(){
-		cashTxt.text = GameManager.instance.candidates [0].resources.cash.ToString();
-		corruptionTxt.text = GameManager.instance.candidates [0].resources.corruption.ToString();
-		credibilityTxt.text = GameManager.instance.candidates [0].resources.credibility.ToString();
-		visibilityTxt.text = GameManager.instance.candidates [0].resources.visibility.ToString();
-
-		economicSlider.value = GameManager.instance.candidates [0].alignment.economic.value;
-		civilSlider.value = GameManager.instance.candidates [0].alignment.civil.value;
-		societalSlider.value = GameManager.instance.candidates [0].alignment.societal.value;
+		Candidate player = GameManager.instance.candidates [0];
+		// Resources
+		cashTxt.text = player.resources.cash.ToString();
+		corruptionTxt.text = player.resources.corruption.ToString();
+		credibilityTxt.text = player.resources.credibility.ToString();
+		visibilityTxt.text = player.resources.visibility.ToString();
+		// Alignment
+		economicSlider.value = player.alignment.economic.value;
+		civilSlider.value = player.alignment.civil.value;
+		societalSlider.value = player.alignment.societal.value;
+		// Image
+		candidateImage.sprite = player.image;
 	}
 }
