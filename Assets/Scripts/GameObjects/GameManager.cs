@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
@@ -22,6 +23,7 @@ public class GameManager : MonoBehaviour {
 
 	public static GameManager instance = null;
 
+	public GameConfig gameConfig;
 	public GameObject eventSystem; // para desativar clicks enquanto finaliza o jogo
 
 	//Referência para os widgets
@@ -36,11 +38,13 @@ public class GameManager : MonoBehaviour {
 	public GameObject quitMenu;
 	//public GameObject debateStart;
 	public TransitionScreen debateQuestion;
+	public TransitionScreen gameOver;
 	public GameObject chooseStaffScreen;
 	public GameObject chooseProposalScreen;
 
 	//Candidatos - sempre em memória principal; leitura e escrita
 	public List<Candidate> candidates = new List<Candidate>();	
+	public Candidate leadingCandidate;
 	//Data: apenas leitura
 	public List<Candidate_Data> availableCandidates;	// Lista de scriptable objects de candidatos
 	public List<ElectoralGroup_Data> electorGroups; // Lista de scriptable objects de grupos eleitorais (para cálculo de votos)
@@ -92,7 +96,7 @@ public class GameManager : MonoBehaviour {
 			instance = this;
 		else if (instance != this)
 			Destroy (gameObject);
-		DontDestroyOnLoad (gameObject);
+		//DontDestroyOnLoad (gameObject);
 	}
 
 	// Use this for initialization
@@ -478,8 +482,27 @@ public class GameManager : MonoBehaviour {
 	}
 
 	private void EndGame() {
-		Debug.Log ("Fim de jogo!");
+		float maxVotes = 0;
+		foreach (Candidate cand in candidates) {
+			if (cand.voteIntention > maxVotes) {
+				maxVotes = cand.voteIntention;
+				leadingCandidate = cand;
+			}
+		}
+		if (leadingCandidate == candidates[0]) { // player won
+			gameOver.SetAndMakeTransition (BackToMainMenu, "EndGame");
+		} else { // player lost
+			gameOver.SetAndMakeTransition (BackToMainMenu, "EndGame");
+		}
 	}
+
+	private void BackToMainMenu() {
+		SceneManager.LoadSceneAsync (gameConfig.sceneMenuName);
+	}
+
+
+
+
 
 	// Função principal de simulação de outros confrontos
 	private void DebateSimulation(){
