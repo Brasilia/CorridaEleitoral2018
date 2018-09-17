@@ -9,12 +9,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bf119fa67d484b94e8a48ddea04f83d9, type: 3}
-  m_Name: Event
+  m_Name: discurso_armamento
   m_EditorClassIdentifier: 
-  description: 
+  description: "Nesta semana, um policial \xE0 paisana foi morto, enquanto outro assassinou
+    um colega ap\xF3s uma discuss\xE3o. A quest\xE3o do armamento est\xE1 em evid\xEAncia.
+    Qual a sua posi\xE7\xE3o?"
   image: {fileID: 0}
   actionDecline:
-    description: 
+    description: Manteremos o desarmamento
     resources:
       cash: 0
       corruption: 0
@@ -29,7 +31,7 @@ MonoBehaviour:
         privatizacao: 0
         previdencia: 0
       civil:
-        value: 0
+        value: -10
         servicoMilitarObrigatorio: 0
         escolasMilitares: 0
       societal:
@@ -41,7 +43,7 @@ MonoBehaviour:
     nextEvent: {fileID: 0}
     specialConsequences: 
   actionAccept:
-    description: 
+    description: "O cidad\xE3o de bem poder\xE1 ser armado"
     resources:
       cash: 0
       corruption: 0
@@ -56,7 +58,7 @@ MonoBehaviour:
         privatizacao: 0
         previdencia: 0
       civil:
-        value: 0
+        value: 10
         servicoMilitarObrigatorio: 0
         escolasMilitares: 0
       societal:
