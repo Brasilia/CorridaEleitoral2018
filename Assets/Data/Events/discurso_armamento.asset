@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf119fa67d484b94e8a48ddea04f83d9, type: 3}
+  m_Name: discurso_armamento
+  m_EditorClassIdentifier: 
+  description: "Nesta semana, um policial \xE0 paisana foi morto, enquanto outro assassinou
+    um colega ap\xF3s uma discuss\xE3o. A quest\xE3o do armamento est\xE1 em evid\xEAncia.
+    Qual a sua posi\xE7\xE3o?"
+  image: {fileID: 0}
+  actionDecline:
+    description: Manteremos o desarmamento
+    resources:
+      cash: 0
+      corruption: 0
+      credibility: 0
+      visibility: 0
+    alignment:
+      economic:
+        value: 0
+        bolsaFamilia: 0
+        salarioMinimo: 0
+        impostoDeRenda: 0
+        privatizacao: 0
+        previdencia: 0
+      civil:
+        value: -10
+        servicoMilitarObrigatorio: 0
+        escolasMilitares: 0
+      societal:
+        value: 0
+        ensinoReligiosoEscolas: 0
+        legalizacaoAborto: 0
+        casamentoGay: 0
+        legalizacaoDrogas: 0
+    nextEvent: {fileID: 0}
+    specialConsequences: 
+  actionAccept:
+    description: "O cidad\xE3o de bem poder\xE1 ser armado"
+    resources:
+      cash: 0
+      corruption: 0
+      credibility: 0
+      visibility: 0
+    alignment:
+      economic:
+        value: 0
+        bolsaFamilia: 0
+        salarioMinimo: 0
+        impostoDeRenda: 0
+        privatizacao: 0
+        previdencia: 0
+      civil:
+        value: 10
+        servicoMilitarObrigatorio: 0
+        escolasMilitares: 0
+      societal:
+        value: 0
+        ensinoReligiosoEscolas: 0
+        legalizacaoAborto: 0
+        casamentoGay: 0
+        legalizacaoDrogas: 0
+    nextEvent: {fileID: 0}
+    specialConsequences: 
