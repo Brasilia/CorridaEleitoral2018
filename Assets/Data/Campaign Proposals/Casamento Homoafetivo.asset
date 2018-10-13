@@ -9,10 +9,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7c78c4f219a1de740ba5ecddeee4fa80, type: 3}
-  m_Name: CampaignProposal 1
+  m_Name: Casamento Homoafetivo
   m_EditorClassIdentifier: 
-  description: "Aumentar Impostos sobre heran\xE7a"
-  image: {fileID: 0}
+  description: Facilitar Casamento Homoafetivo
+  image: {fileID: 21300000, guid: 95e1ed5094facc34595d1885882e33e4, type: 3}
   actionDecline:
     description: 
     resources:
@@ -41,7 +41,7 @@ MonoBehaviour:
     nextEvent: {fileID: 0}
     specialConsequences: 
   actionAccept:
-    description: "Impostos de 50% pra heran\xE7a"
+    description: 
     resources:
       cash: 0
       corruption: 0
@@ -49,10 +49,10 @@ MonoBehaviour:
       visibility: 0
     alignment:
       economic:
-        value: -5
+        value: 0
         bolsaFamilia: 0
         salarioMinimo: 0
-        impostoDeRenda: 1
+        impostoDeRenda: 0
         privatizacao: 0
         previdencia: 0
       civil:
@@ -60,10 +60,10 @@ MonoBehaviour:
         servicoMilitarObrigatorio: 0
         escolasMilitares: 0
       societal:
-        value: 0
+        value: 5
         ensinoReligiosoEscolas: 0
         legalizacaoAborto: 0
-        casamentoGay: 0
+        casamentoGay: 1
         legalizacaoDrogas: 0
     nextEvent: {fileID: 0}
     specialConsequences: 

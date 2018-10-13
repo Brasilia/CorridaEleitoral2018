@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Linq;
 
 public class GameManager : MonoBehaviour {
 
@@ -390,9 +391,14 @@ public class GameManager : MonoBehaviour {
 		if (firstPlayer == 0) {	// Se o player faz a pergunta
 			//Sorteia 3 debate questions
 			List<GameObject> questions = new List<GameObject>();
+            //debateQuestions = debateQuestions.OrderBy(a => Random.Range(0f, 1000f)).ToList();
 			for (int i = 0; i < 3; i++) {
 				// FIXME - tirar repetição
 				int index = Random.Range (0, debateQuestions.Count);
+                while (questionsIndex.Contains(index) && debateQuestions.Count >=3)
+                {
+                    index = Random.Range(0, debateQuestions.Count);
+                }
 				questionsIndex.Add (index);
 				GameObject questionCard = (GameObject)Instantiate (debateQuestionPrefab);
 				questionCard.GetComponent<EventBHV> ().Load (debateQuestions [index]);
@@ -407,8 +413,8 @@ public class GameManager : MonoBehaviour {
 			currentQuestion = debateQuestions [indexAux];
 			GameObject questionCard = (GameObject)Instantiate (debateQuestionPrefab);
 			questionCard.GetComponent<EventBHV> ().Load (currentQuestion);
-
-			Debug.Log ("IA fez primeira pergunta.");
+            debateQuestions.RemoveAt(indexAux);
+            Debug.Log ("IA fez primeira pergunta.");
 			// Envia o card para o Bool Action.
 			uiBoolSlider.SetActiveBoolAction(questionCard);
 		}
@@ -417,9 +423,10 @@ public class GameManager : MonoBehaviour {
 	private void QuestionAsked(){
 		if (firstPlayer == 0) {		// Se o player perguntou
 			indexAux = uiCarousel.chosenList[0];
-			currentQuestion = debateQuestions[indexAux];	// Pergunta escolhida no carousel.
-			// IA escolhe resposta e exibe
-			IAChooseAnswer ();
+			currentQuestion = debateQuestions[questionsIndex[indexAux]];	// Pergunta escolhida no carousel.
+            debateQuestions.RemoveAt(questionsIndex[indexAux]);
+            // IA escolhe resposta e exibe
+            IAChooseAnswer ();
 			ShowUIAnswer ();
 		} else {	// Pega a resposta do player
 			GetPlayerAnswer();
@@ -442,10 +449,9 @@ public class GameManager : MonoBehaviour {
 
 	private void RejoinderQuestion(){
 		// Consequências da tréplica do player
-		if (firstPlayer == 1) 
+		if (firstPlayer == 1)
 			GetPlayerAnswer ();
-		questionsIndex.Clear ();
-		debateQuestions.RemoveAt (indexAux);
+        questionsIndex.Clear ();
 		ReturnControl ();
 	}
 

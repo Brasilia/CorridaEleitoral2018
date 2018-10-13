@@ -8,14 +8,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf119fa67d484b94e8a48ddea04f83d9, type: 3}
-  m_Name: Tutorial 3
+  m_Script: {fileID: 11500000, guid: 7c78c4f219a1de740ba5ecddeee4fa80, type: 3}
+  m_Name: Bolsa Familia
   m_EditorClassIdentifier: 
-  description: "\xC9 importante estar sempre nas m\xEDdias e com a sua credibilidade
-    alta. Dinheiro sempre ajuda. "
-  image: {fileID: 21300004, guid: 5f401c70275fee94aae470819456fd99, type: 3}
+  description: "Expandir Bolsa Fam\xEDlia"
+  image: {fileID: 21300000, guid: 95e1ed5094facc34595d1885882e33e4, type: 3}
   actionDecline:
-    description: "Obrigado, j\xE1 pode ir"
+    description: 
     resources:
       cash: 0
       corruption: 0
@@ -39,10 +38,10 @@ MonoBehaviour:
         legalizacaoAborto: 0
         casamentoGay: 0
         legalizacaoDrogas: 0
-    nextEvent: {fileID: 11400000, guid: f8e8d145fe767ef4880ff417372f5107, type: 2}
+    nextEvent: {fileID: 0}
     specialConsequences: 
   actionAccept:
-    description: "Quem \xE9 o senhor?"
+    description: 
     resources:
       cash: 0
       corruption: 0
@@ -50,8 +49,8 @@ MonoBehaviour:
       visibility: 0
     alignment:
       economic:
-        value: 0
-        bolsaFamilia: 0
+        value: -5
+        bolsaFamilia: 1
         salarioMinimo: 0
         impostoDeRenda: 0
         privatizacao: 0
@@ -66,5 +65,23 @@ MonoBehaviour:
         legalizacaoAborto: 0
         casamentoGay: 0
         legalizacaoDrogas: 0
-    nextEvent: {fileID: 11400000, guid: 6465c99bc888e1443a76f3537ac0e088, type: 2}
+    nextEvent: {fileID: 0}
     specialConsequences: 
+  debateBoost:
+    economic:
+      value: 0
+      bolsaFamilia: 1
+      salarioMinimo: 0
+      impostoDeRenda: 0
+      privatizacao: 0
+      previdencia: 0
+    civil:
+      value: 0
+      servicoMilitarObrigatorio: 0
+      escolasMilitares: 0
+    societal:
+      value: 0
+      ensinoReligiosoEscolas: 0
+      legalizacaoAborto: 0
+      casamentoGay: 0
+      legalizacaoDrogas: 0

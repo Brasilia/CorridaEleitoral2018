@@ -9,10 +9,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7c78c4f219a1de740ba5ecddeee4fa80, type: 3}
-  m_Name: CampaignProposal 4
+  m_Name: Aborto
   m_EditorClassIdentifier: 
-  description: "Proposta gen\xE9rica 2"
-  image: {fileID: 0}
+  description: Legalizar Aborto
+  image: {fileID: 21300000, guid: 95e1ed5094facc34595d1885882e33e4, type: 3}
   actionDecline:
     description: 
     resources:
@@ -41,7 +41,7 @@ MonoBehaviour:
     nextEvent: {fileID: 0}
     specialConsequences: 
   actionAccept:
-    description: 
+    description: "Descri\xE7\xE3o Gen\xE9rica"
     resources:
       cash: 0
       corruption: 0
@@ -60,9 +60,9 @@ MonoBehaviour:
         servicoMilitarObrigatorio: 0
         escolasMilitares: 0
       societal:
-        value: 0
+        value: 5
         ensinoReligiosoEscolas: 0
-        legalizacaoAborto: 0
+        legalizacaoAborto: 1
         casamentoGay: 0
         legalizacaoDrogas: 0
     nextEvent: {fileID: 0}
