@@ -9,11 +9,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1d3dda57d0467cd418554220c8f1f6a6, type: 3}
-  m_Name: Staff3
+  m_Name: Mamilo Gentil
   m_EditorClassIdentifier: 
-  description: 
-  image: {fileID: 0}
-  personName: 
+  description: "Bastante pol\xEAmico!"
+  image: {fileID: 21300022, guid: de4289e7289e78e4ca4ff82f50e4ff7b, type: 3}
+  personName: Mamilo Gentil
   resources:
     cash: 0
     corruption: 0

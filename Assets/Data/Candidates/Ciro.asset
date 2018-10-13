@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9493707cc2e8eb4aa3c2884998b1546, type: 3}
+  m_Name: Ciro
+  m_EditorClassIdentifier: 
+  description: "Ai, que del\xEDcia... de democracia"
+  image: {fileID: 21300000, guid: 5f401c70275fee94aae470819456fd99, type: 3}
+  personName: "Cid\xE3o"
+  resources:
+    cash: 15
+    corruption: 5
+    credibility: 15
+    visibility: 15
+  alignment:
+    economic:
+      value: -20
+      bolsaFamilia: 0
+      salarioMinimo: 0
+      impostoDeRenda: 0
+      privatizacao: 0
+      previdencia: 0
+    civil:
+      value: 30
+      servicoMilitarObrigatorio: 0
+      escolasMilitares: 0
+    societal:
+      value: 10
+      ensinoReligiosoEscolas: 0
+      legalizacaoAborto: 0
+      casamentoGay: 0
+      legalizacaoDrogas: 0
+  events:
+  - {fileID: 0}
+  - {fileID: 0}
+  avaiableStaff:
+  - {fileID: 11400000, guid: 66088cc9c067b6142b1afcc5920b1f34, type: 2}
+  - {fileID: 11400000, guid: 3b89323f483a77d4cbe6d5d4ed74d5ba, type: 2}
+  - {fileID: 11400000, guid: b9d2a034a4ac99d4cb6ba79798d68d2f, type: 2}
+  - {fileID: 11400000, guid: 990ef7ad9b26d144294a87b5af0ce159, type: 2}
+  - {fileID: 11400000, guid: 5bb511f3a112b2c4082f4fe03ec9b587, type: 2}

@@ -14,7 +14,7 @@ MonoBehaviour:
   description: "Posso postar uma foto minha com voc\xEA, mas vai te custar muito dinheiro"
   image: {fileID: 0}
   actionDecline:
-    description: Vamos
+    description: "Melhor n\xE3o"
     resources:
       cash: 0
       corruption: 0
@@ -41,7 +41,7 @@ MonoBehaviour:
     nextEvent: {fileID: 0}
     specialConsequences: 
   actionAccept:
-    description: "Melhor n\xE3o"
+    description: Vamos
     resources:
       cash: 0
       corruption: 0

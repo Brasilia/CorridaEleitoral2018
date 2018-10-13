@@ -15,7 +15,7 @@ MonoBehaviour:
     um."
   image: {fileID: 0}
   actionDecline:
-    description: Pode fazer
+    description: Comprar um pela internet
     resources:
       cash: 0
       corruption: 0
@@ -42,7 +42,7 @@ MonoBehaviour:
     nextEvent: {fileID: 0}
     specialConsequences: 
   actionAccept:
-    description: Comprar um pela internet
+    description: Pode fazer
     resources:
       cash: 0
       corruption: 0

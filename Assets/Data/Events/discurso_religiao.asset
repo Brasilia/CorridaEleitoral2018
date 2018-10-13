@@ -14,7 +14,7 @@ MonoBehaviour:
   description: Precisamos definir nosso discurso religioso.
   image: {fileID: 0}
   actionDecline:
-    description: "Gl\xF3ria a Deus!"
+    description: "O estado \xE9 laico..."
     resources:
       cash: 0
       corruption: 0
@@ -41,7 +41,7 @@ MonoBehaviour:
     nextEvent: {fileID: 0}
     specialConsequences: 
   actionAccept:
-    description: "O estado \xE9 laico..."
+    description: "Gl\xF3ria a Deus!"
     resources:
       cash: 0
       corruption: 0

@@ -709,7 +709,7 @@ public class GameManager : MonoBehaviour {
 	private float GetAttractionFactor(Candidate p1, ElectoralGroup_Data elec){
 		float af = (float)(p1.resources.visibility+100) / GetDistance (p1, elec);
 		//Debug.Log ("Attraction Factor " + af);
-		return af;
+		return af*af;
 	}
 
 

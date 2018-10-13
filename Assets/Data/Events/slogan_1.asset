@@ -14,7 +14,7 @@ MonoBehaviour:
   description: "Precisamos decidir qual ser\xE1 o slogan da sua campanha."
   image: {fileID: 0}
   actionDecline:
-    description: Diga-me alguns
+    description: Espero que tenha algo bom.
     resources:
       cash: 0
       corruption: 0
@@ -41,7 +41,7 @@ MonoBehaviour:
     nextEvent: {fileID: 11400000, guid: cc85b0cf34c31c54cb620e9fb02776a9, type: 2}
     specialConsequences: 
   actionAccept:
-    description: Espero que tenha algo bom.
+    description: Diga-me alguns
     resources:
       cash: 0
       corruption: 0

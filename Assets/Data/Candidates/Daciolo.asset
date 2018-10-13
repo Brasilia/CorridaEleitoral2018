@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9493707cc2e8eb4aa3c2884998b1546, type: 3}
+  m_Name: Daciolo
+  m_EditorClassIdentifier: 
+  description: "Gl\xF3ria a Deus!"
+  image: {fileID: 21300004, guid: de4289e7289e78e4ca4ff82f50e4ff7b, type: 3}
+  personName: Dacidodio
+  resources:
+    cash: 5
+    corruption: 0
+    credibility: 5
+    visibility: 10
+  alignment:
+    economic:
+      value: 0
+      bolsaFamilia: 0
+      salarioMinimo: 0
+      impostoDeRenda: 0
+      privatizacao: 0
+      previdencia: 0
+    civil:
+      value: -30
+      servicoMilitarObrigatorio: 0
+      escolasMilitares: 0
+    societal:
+      value: -80
+      ensinoReligiosoEscolas: 0
+      legalizacaoAborto: 0
+      casamentoGay: 0
+      legalizacaoDrogas: 0
+  events:
+  - {fileID: 0}
+  - {fileID: 0}
+  avaiableStaff:
+  - {fileID: 11400000, guid: 4f67dafefe2d3f24e98dc664b2cf05ad, type: 2}
+  - {fileID: 11400000, guid: a8735e7313ff15c498471bdf31ad39a2, type: 2}
+  - {fileID: 11400000, guid: 990ef7ad9b26d144294a87b5af0ce159, type: 2}
+  - {fileID: 11400000, guid: 85c6970dfff408540a90d4616281611e, type: 2}

@@ -18,7 +18,7 @@ MonoBehaviour:
     cash: 0
     corruption: 0
     credibility: 0
-    visibility: 0
+    visibility: 100
   alignment:
     economic:
       value: 100
@@ -38,4 +38,4 @@ MonoBehaviour:
       casamentoGay: 0
       legalizacaoDrogas: 0
   events: []
-  weight: 25
+  weight: 10

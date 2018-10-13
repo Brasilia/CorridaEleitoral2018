@@ -8,34 +8,33 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a99fd54ab33692349b79c982bec28f32, type: 3}
-  m_Name: Electoral Group 3
+  m_Script: {fileID: 11500000, guid: 1d3dda57d0467cd418554220c8f1f6a6, type: 3}
+  m_Name: Gaviao Boemio
   m_EditorClassIdentifier: 
-  description: 
-  image: {fileID: 0}
-  personName: 
+  description: A Voz do Futebol
+  image: {fileID: 21300006, guid: 5f401c70275fee94aae470819456fd99, type: 3}
+  personName: "Gavi\xE3o Bo\xEAmio"
   resources:
     cash: 0
     corruption: 0
-    credibility: 0
-    visibility: 200
+    credibility: -1
+    visibility: 5
   alignment:
     economic:
-      value: -50
+      value: 0
       bolsaFamilia: 0
       salarioMinimo: 0
       impostoDeRenda: 0
       privatizacao: 0
       previdencia: 0
     civil:
-      value: 10
+      value: 0
       servicoMilitarObrigatorio: 0
       escolasMilitares: 0
     societal:
-      value: 40
+      value: 0
       ensinoReligiosoEscolas: 0
       legalizacaoAborto: 0
       casamentoGay: 0
       legalizacaoDrogas: 0
   events: []
-  weight: 30

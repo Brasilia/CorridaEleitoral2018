@@ -14,7 +14,7 @@ MonoBehaviour:
   description: "Voc\xEA foi convidado para o programa do Fabiano Pochete!"
   image: {fileID: 0}
   actionDecline:
-    description: Uau!
+    description: "Aquele chato\u2026"
     resources:
       cash: 0
       corruption: 0
@@ -41,7 +41,7 @@ MonoBehaviour:
     nextEvent: {fileID: 11400000, guid: de1e424050a189040b1bdd123eecbfe0, type: 2}
     specialConsequences: 
   actionAccept:
-    description: "Aquele chato\u2026"
+    description: Uau!
     resources:
       cash: 0
       corruption: 0

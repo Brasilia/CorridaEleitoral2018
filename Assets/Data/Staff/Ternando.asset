@@ -9,16 +9,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1d3dda57d0467cd418554220c8f1f6a6, type: 3}
-  m_Name: Temp Wellington Balnner
+  m_Name: Ternando
   m_EditorClassIdentifier: 
-  description: O Rosto do JN
-  image: {fileID: 21300000, guid: de4289e7289e78e4ca4ff82f50e4ff7b, type: 3}
-  personName: Wellington Balnner
+  description: T.H.C.
+  image: {fileID: 21300020, guid: de4289e7289e78e4ca4ff82f50e4ff7b, type: 3}
+  personName: Ternaldo H. C.
   resources:
     cash: 0
     corruption: 0
-    credibility: 2
-    visibility: 2
+    credibility: 0
+    visibility: 0
   alignment:
     economic:
       value: 0

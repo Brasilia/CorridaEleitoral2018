@@ -15,7 +15,7 @@ MonoBehaviour:
     para te eleger."
   image: {fileID: 0}
   actionDecline:
-    description: Eu quero
+    description: "Esse tipo de coisa n\xE3o"
     resources:
       cash: 0
       corruption: 0
@@ -42,7 +42,7 @@ MonoBehaviour:
     nextEvent: {fileID: 0}
     specialConsequences: 
   actionAccept:
-    description: "Esse tipo de coisa n\xE3o"
+    description: Quero
     resources:
       cash: 0
       corruption: 0

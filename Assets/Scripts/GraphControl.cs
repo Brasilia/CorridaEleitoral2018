@@ -85,9 +85,10 @@ public class GraphControl : MonoBehaviour {
 	void OnEnable() {
 		// Desenha linhas de cada candidato
 		int color = 0;
+        float z = 0.0f;
 		foreach (Candidate cand in gm.candidates) {
 			List<float> voteIntentions = cand.voteIntentions;
-
+            z += 0.01f;
 			Vector3[] positionGraph = new Vector3[voteIntentions.Count];
 			int i = 0;
 			foreach (float f in voteIntentions)
@@ -99,7 +100,7 @@ public class GraphControl : MonoBehaviour {
 			GameObject inst = Instantiate(lines);
 			//add instancia como filho do grafico
 			inst.transform.parent = graph.transform;
-			inst.transform.localPosition = new Vector3(0f, 0f, 0f);
+			inst.transform.localPosition = new Vector3(0f, 0f, z);
 			inst.transform.localScale = new Vector3(1f, 1f, 1f);
 
 			LineRenderer line = inst.GetComponent<LineRenderer>();

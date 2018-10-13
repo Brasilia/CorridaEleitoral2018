@@ -15,7 +15,7 @@ MonoBehaviour:
     fazer sucesso na internet!"
   image: {fileID: 0}
   actionDecline:
-    description: "Vamos l\xE1!"
+    description: "Talvez numa situa\xE7\xE3o mais dr\xE1stica\u2026"
     resources:
       cash: 0
       corruption: 0
@@ -42,7 +42,7 @@ MonoBehaviour:
     nextEvent: {fileID: 0}
     specialConsequences: 
   actionAccept:
-    description: "Talvez numa situa\xE7\xE3o mais dr\xE1stica\u2026"
+    description: "Vamos l\xE1!"
     resources:
       cash: 0
       corruption: 0

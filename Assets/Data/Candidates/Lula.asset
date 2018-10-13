@@ -9,35 +9,38 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d9493707cc2e8eb4aa3c2884998b1546, type: 3}
-  m_Name: TempLula
+  m_Name: Lula
   m_EditorClassIdentifier: 
-  description: Preso
+  description: Somos todos Molusco
   image: {fileID: 21300010, guid: de4289e7289e78e4ca4ff82f50e4ff7b, type: 3}
-  personName: Lula
+  personName: Nando Molusco
   resources:
     cash: 40
     corruption: 20
     credibility: 10
-    visibility: 60
+    visibility: 55
   alignment:
     economic:
-      value: -38
+      value: -40
       bolsaFamilia: 0
       salarioMinimo: 0
       impostoDeRenda: 0
       privatizacao: 0
       previdencia: 0
     civil:
-      value: -21
+      value: -20
       servicoMilitarObrigatorio: 0
       escolasMilitares: 0
     societal:
-      value: 33
+      value: 35
       ensinoReligiosoEscolas: 0
       legalizacaoAborto: 0
       casamentoGay: 0
       legalizacaoDrogas: 0
   events: []
   avaiableStaff:
-  - {fileID: 11400000, guid: 85c6970dfff408540a90d4616281611e, type: 2}
+  - {fileID: 11400000, guid: 3b89323f483a77d4cbe6d5d4ed74d5ba, type: 2}
+  - {fileID: 11400000, guid: 053cbd3a80695e94fb69fa5ad99eb292, type: 2}
+  - {fileID: 11400000, guid: 66088cc9c067b6142b1afcc5920b1f34, type: 2}
   - {fileID: 11400000, guid: 5bb511f3a112b2c4082f4fe03ec9b587, type: 2}
+  - {fileID: 11400000, guid: 4f67dafefe2d3f24e98dc664b2cf05ad, type: 2}

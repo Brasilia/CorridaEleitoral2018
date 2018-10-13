@@ -18,24 +18,24 @@ MonoBehaviour:
     cash: 0
     corruption: 0
     credibility: 0
-    visibility: 0
+    visibility: 180
   alignment:
     economic:
-      value: 100
+      value: 60
       bolsaFamilia: 0
       salarioMinimo: 0
       impostoDeRenda: 0
       privatizacao: 0
       previdencia: 0
     civil:
-      value: 10
+      value: -60
       servicoMilitarObrigatorio: 0
       escolasMilitares: 0
     societal:
-      value: 0
+      value: -70
       ensinoReligiosoEscolas: 0
       legalizacaoAborto: 0
       casamentoGay: 0
       legalizacaoDrogas: 0
   events: []
-  weight: 15
+  weight: 30

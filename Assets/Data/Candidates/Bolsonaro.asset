@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9493707cc2e8eb4aa3c2884998b1546, type: 3}
+  m_Name: Bolsonaro
+  m_EditorClassIdentifier: 
+  description: Era tudo brincadeira!
+  image: {fileID: 21300008, guid: de4289e7289e78e4ca4ff82f50e4ff7b, type: 3}
+  personName: Bobonalro
+  resources:
+    cash: 20
+    corruption: 10
+    credibility: 40
+    visibility: 70
+  alignment:
+    economic:
+      value: 20
+      bolsaFamilia: 0
+      salarioMinimo: 0
+      impostoDeRenda: 0
+      privatizacao: 0
+      previdencia: 0
+    civil:
+      value: -40
+      servicoMilitarObrigatorio: 0
+      escolasMilitares: 0
+    societal:
+      value: -50
+      ensinoReligiosoEscolas: 0
+      legalizacaoAborto: 0
+      casamentoGay: 0
+      legalizacaoDrogas: 0
+  events: []
+  avaiableStaff:
+  - {fileID: 11400000, guid: 4f67dafefe2d3f24e98dc664b2cf05ad, type: 2}
+  - {fileID: 11400000, guid: 5bb511f3a112b2c4082f4fe03ec9b587, type: 2}
+  - {fileID: 11400000, guid: b9d2a034a4ac99d4cb6ba79798d68d2f, type: 2}
+  - {fileID: 11400000, guid: 85c6970dfff408540a90d4616281611e, type: 2}
+  - {fileID: 11400000, guid: 3b89323f483a77d4cbe6d5d4ed74d5ba, type: 2}
