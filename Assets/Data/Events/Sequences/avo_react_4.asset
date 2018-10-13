@@ -14,7 +14,7 @@ MonoBehaviour:
   description: "\xC9 criado o programa Bolsa Fam\xEDlia"
   image: {fileID: 0}
   actionDecline:
-    description: "Chorar de emo\xE7\xE3o"
+    description: Dizer palavras ofensivas
     resources:
       cash: 0
       corruption: 0
@@ -22,7 +22,7 @@ MonoBehaviour:
       visibility: 0
     alignment:
       economic:
-        value: 0
+        value: 10
         bolsaFamilia: 0
         salarioMinimo: 0
         impostoDeRenda: 0
@@ -41,7 +41,7 @@ MonoBehaviour:
     nextEvent: {fileID: 11400000, guid: 54967f4883e68ec40acbde7c89d93b99, type: 2}
     specialConsequences: 
   actionAccept:
-    description: Dizer palavras ofensivas
+    description: "Chorar de emo\xE7\xE3o"
     resources:
       cash: 0
       corruption: 0
@@ -49,7 +49,7 @@ MonoBehaviour:
       visibility: 0
     alignment:
       economic:
-        value: 0
+        value: -10
         bolsaFamilia: 0
         salarioMinimo: 0
         impostoDeRenda: 0

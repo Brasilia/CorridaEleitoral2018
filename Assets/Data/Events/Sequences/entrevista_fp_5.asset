@@ -29,7 +29,7 @@ MonoBehaviour:
         privatizacao: 0
         previdencia: 0
       civil:
-        value: 0
+        value: -5
         servicoMilitarObrigatorio: 0
         escolasMilitares: 0
       societal:
@@ -56,7 +56,7 @@ MonoBehaviour:
         privatizacao: 0
         previdencia: 0
       civil:
-        value: 0
+        value: 5
         servicoMilitarObrigatorio: 0
         escolasMilitares: 0
       societal:

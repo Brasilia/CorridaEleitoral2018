@@ -15,33 +15,6 @@ MonoBehaviour:
     militar."
   image: {fileID: 0}
   actionDecline:
-    description: Rir de felicidade
-    resources:
-      cash: 0
-      corruption: 0
-      credibility: 0
-      visibility: 0
-    alignment:
-      economic:
-        value: 0
-        bolsaFamilia: 0
-        salarioMinimo: 0
-        impostoDeRenda: 0
-        privatizacao: 0
-        previdencia: 0
-      civil:
-        value: 0
-        servicoMilitarObrigatorio: 0
-        escolasMilitares: 0
-      societal:
-        value: 0
-        ensinoReligiosoEscolas: 0
-        legalizacaoAborto: 0
-        casamentoGay: 0
-        legalizacaoDrogas: 0
-    nextEvent: {fileID: 11400000, guid: a1a700b7530c2ca47a2cb726614fa77b, type: 2}
-    specialConsequences: 
-  actionAccept:
     description: "Derrubar uma l\xE1grima de tristeza"
     resources:
       cash: 0
@@ -57,7 +30,34 @@ MonoBehaviour:
         privatizacao: 0
         previdencia: 0
       civil:
+        value: 10
+        servicoMilitarObrigatorio: 0
+        escolasMilitares: 0
+      societal:
         value: 0
+        ensinoReligiosoEscolas: 0
+        legalizacaoAborto: 0
+        casamentoGay: 0
+        legalizacaoDrogas: 0
+    nextEvent: {fileID: 11400000, guid: a1a700b7530c2ca47a2cb726614fa77b, type: 2}
+    specialConsequences: 
+  actionAccept:
+    description: Rir de felicidade
+    resources:
+      cash: 0
+      corruption: 0
+      credibility: 0
+      visibility: 0
+    alignment:
+      economic:
+        value: 0
+        bolsaFamilia: 0
+        salarioMinimo: 0
+        impostoDeRenda: 0
+        privatizacao: 0
+        previdencia: 0
+      civil:
+        value: -10
         servicoMilitarObrigatorio: 0
         escolasMilitares: 0
       societal:

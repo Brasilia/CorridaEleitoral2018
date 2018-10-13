@@ -23,7 +23,7 @@ MonoBehaviour:
       visibility: 0
     alignment:
       economic:
-        value: 10
+        value: 5
         bolsaFamilia: 0
         salarioMinimo: 0
         impostoDeRenda: 0
@@ -34,7 +34,7 @@ MonoBehaviour:
         servicoMilitarObrigatorio: 0
         escolasMilitares: 0
       societal:
-        value: 10
+        value: 5
         ensinoReligiosoEscolas: 0
         legalizacaoAborto: 0
         casamentoGay: 0
@@ -50,7 +50,7 @@ MonoBehaviour:
       visibility: 0
     alignment:
       economic:
-        value: -10
+        value: -5
         bolsaFamilia: 0
         salarioMinimo: 0
         impostoDeRenda: 0
@@ -61,7 +61,7 @@ MonoBehaviour:
         servicoMilitarObrigatorio: 0
         escolasMilitares: 0
       societal:
-        value: -10
+        value: -5
         ensinoReligiosoEscolas: 0
         legalizacaoAborto: 0
         casamentoGay: 0

@@ -19,7 +19,7 @@ MonoBehaviour:
       cash: 0
       corruption: 0
       credibility: 0
-      visibility: 0
+      visibility: 3
     alignment:
       economic:
         value: 0
@@ -41,15 +41,15 @@ MonoBehaviour:
     nextEvent: {fileID: 0}
     specialConsequences: 
   actionAccept:
-    description: "Viva a Uni\xE3o das Rep\xFAblicas Socialistas das Am\xE9ricas!"
+    description: "Viva a Uni\xE3o das Rep\xFAblicas Socialistas da Am\xE9rica Latina!"
     resources:
       cash: 0
       corruption: 0
       credibility: 0
-      visibility: 0
+      visibility: 1
     alignment:
       economic:
-        value: -15
+        value: -10
         bolsaFamilia: 0
         salarioMinimo: 0
         impostoDeRenda: 0

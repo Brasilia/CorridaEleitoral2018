@@ -14,7 +14,7 @@ MonoBehaviour:
   description: "Sobre a legaliza\xE7\xE3o do aborto para fetos de at\xE9 12 semanas\u2026"
   image: {fileID: 0}
   actionDecline:
-    description: precisamos legalizar!
+    description: Nunca!
     resources:
       cash: 0
       corruption: 0
@@ -33,7 +33,7 @@ MonoBehaviour:
         servicoMilitarObrigatorio: 0
         escolasMilitares: 0
       societal:
-        value: 0
+        value: -5
         ensinoReligiosoEscolas: 0
         legalizacaoAborto: 0
         casamentoGay: 0
@@ -41,7 +41,7 @@ MonoBehaviour:
     nextEvent: {fileID: 11400000, guid: 8a464b1e93ed76b47bd4c446c0fe7819, type: 2}
     specialConsequences: 
   actionAccept:
-    description: nunca!
+    description: Precisamos legalizar!
     resources:
       cash: 0
       corruption: 0
@@ -60,7 +60,7 @@ MonoBehaviour:
         servicoMilitarObrigatorio: 0
         escolasMilitares: 0
       societal:
-        value: 0
+        value: 5
         ensinoReligiosoEscolas: 0
         legalizacaoAborto: 0
         casamentoGay: 0

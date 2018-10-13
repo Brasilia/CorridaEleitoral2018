@@ -56,6 +56,7 @@ public class GameManager : MonoBehaviour {
 	//Gerenciamento do ciclo de eventos
 	private int countEvents;
 	public int eventsPerCicle = 2;
+    public int MainCicles = 4;
 
 
 	// Gerenciamento do fluxo de jogo
@@ -466,7 +467,7 @@ public class GameManager : MonoBehaviour {
 			//ReturnControl ();
 		} else {	// Se volta pros eventos (ou fim)
 			countCicles++;
-			if (countCicles < 2) {	// Se o loop do jogo ainda não acabou
+			if (countCicles < MainCicles) {	// Se o loop do jogo ainda não acabou
 				Debug.Log("Volta pros eventos");
 				countDebateTurns = 0;
 				state = STATE.Event;

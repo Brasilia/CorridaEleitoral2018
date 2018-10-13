@@ -17,7 +17,7 @@ MonoBehaviour:
   actionDecline:
     description: "Pouca interfer\xEAncia: livre mercado!"
     resources:
-      cash: 10
+      cash: 5
       corruption: 0
       credibility: 0
       visibility: 0

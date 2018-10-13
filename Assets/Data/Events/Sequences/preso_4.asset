@@ -14,7 +14,7 @@ MonoBehaviour:
   description: Para te soltar precisei usar uma boa quantia de dinheiro para suborno.
   image: {fileID: 0}
   actionDecline:
-    description: Pelo menos estou solto
+    description: "In\xFAtil"
     resources:
       cash: 0
       corruption: 0
@@ -41,7 +41,7 @@ MonoBehaviour:
     nextEvent: {fileID: 0}
     specialConsequences: 
   actionAccept:
-    description: "In\xFAtil"
+    description: Pelo menos estou solto
     resources:
       cash: 0
       corruption: 0

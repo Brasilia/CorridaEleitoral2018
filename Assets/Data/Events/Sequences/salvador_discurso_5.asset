@@ -14,7 +14,7 @@ MonoBehaviour:
   description: "Sobre o \xFAltimo show da Claudette de Leite\u2026"
   image: {fileID: 0}
   actionDecline:
-    description: "achei \xF3timo!"
+    description: "Poderia ser melhor\u2026"
     resources:
       cash: 0
       corruption: 0
@@ -41,7 +41,7 @@ MonoBehaviour:
     nextEvent: {fileID: 0}
     specialConsequences: 
   actionAccept:
-    description: "poderia ser melhor\u2026"
+    description: "Achei \xF3timo!"
     resources:
       cash: 0
       corruption: 0

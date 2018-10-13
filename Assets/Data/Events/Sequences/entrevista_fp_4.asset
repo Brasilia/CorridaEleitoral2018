@@ -14,7 +14,7 @@ MonoBehaviour:
   description: "Voc\xEA \xE9 a favor de criar algum tipo de lei de natalidade?"
   image: {fileID: 0}
   actionDecline:
-    description: Com toda certeza
+    description: "Claro que n\xE3o"
     resources:
       cash: 0
       corruption: 0
@@ -33,7 +33,7 @@ MonoBehaviour:
         servicoMilitarObrigatorio: 0
         escolasMilitares: 0
       societal:
-        value: 0
+        value: 5
         ensinoReligiosoEscolas: 0
         legalizacaoAborto: 0
         casamentoGay: 0
@@ -41,7 +41,7 @@ MonoBehaviour:
     nextEvent: {fileID: 11400000, guid: 2ee3bdb4e82fdfe45b0ba51959b62a33, type: 2}
     specialConsequences: 
   actionAccept:
-    description: "Claro que n\xE3o"
+    description: Com toda certeza
     resources:
       cash: 0
       corruption: 0
@@ -56,7 +56,7 @@ MonoBehaviour:
         privatizacao: 0
         previdencia: 0
       civil:
-        value: 0
+        value: -5
         servicoMilitarObrigatorio: 0
         escolasMilitares: 0
       societal:

@@ -20,7 +20,7 @@ MonoBehaviour:
       cash: 0
       corruption: 0
       credibility: 0
-      visibility: 0
+      visibility: 4
     alignment:
       economic:
         value: 0
@@ -47,7 +47,7 @@ MonoBehaviour:
       cash: 0
       corruption: 0
       credibility: 0
-      visibility: 0
+      visibility: 5
     alignment:
       economic:
         value: 0

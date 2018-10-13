@@ -50,14 +50,14 @@ MonoBehaviour:
       visibility: 0
     alignment:
       economic:
-        value: 10
+        value: 0
         bolsaFamilia: 0
         salarioMinimo: 0
         impostoDeRenda: 0
         privatizacao: 0
         previdencia: 0
       civil:
-        value: 15
+        value: 10
         servicoMilitarObrigatorio: 0
         escolasMilitares: 0
       societal:

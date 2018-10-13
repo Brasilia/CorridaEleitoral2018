@@ -14,11 +14,11 @@ MonoBehaviour:
   description: "Posso declarar voto em voc\xEA, mas vai te custar uma grana"
   image: {fileID: 0}
   actionDecline:
-    description: Passa a grana
+    description: "Hoje n\xE3o"
     resources:
       cash: 0
       corruption: 0
-      credibility: 0
+      credibility: 2
       visibility: 0
     alignment:
       economic:
@@ -41,12 +41,12 @@ MonoBehaviour:
     nextEvent: {fileID: 0}
     specialConsequences: 
   actionAccept:
-    description: "Hoje n\xE3o"
+    description: Beleza!
     resources:
-      cash: 0
+      cash: -3
       corruption: 0
       credibility: 0
-      visibility: 0
+      visibility: 4
     alignment:
       economic:
         value: 0

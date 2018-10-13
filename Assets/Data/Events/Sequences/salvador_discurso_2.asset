@@ -14,7 +14,7 @@ MonoBehaviour:
   description: "Sobre os programas sociais\u2026"
   image: {fileID: 0}
   actionDecline:
-    description: vou melhorar e ampliar todos.
+    description: Vou melhorar e ampliar todos.
     resources:
       cash: 0
       corruption: 0
@@ -22,7 +22,7 @@ MonoBehaviour:
       visibility: 0
     alignment:
       economic:
-        value: 0
+        value: -5
         bolsaFamilia: 0
         salarioMinimo: 0
         impostoDeRenda: 0
@@ -41,7 +41,7 @@ MonoBehaviour:
     nextEvent: {fileID: 11400000, guid: 7e56905b2b539714a8c8446a1740669e, type: 2}
     specialConsequences: 
   actionAccept:
-    description: vou cortar alguns para diminuir os gastos.
+    description: Vou cortar alguns para diminuir os gastos.
     resources:
       cash: 0
       corruption: 0
@@ -49,7 +49,7 @@ MonoBehaviour:
       visibility: 0
     alignment:
       economic:
-        value: 0
+        value: 5
         bolsaFamilia: 0
         salarioMinimo: 0
         impostoDeRenda: 0

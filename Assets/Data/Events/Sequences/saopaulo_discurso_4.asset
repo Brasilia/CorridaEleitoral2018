@@ -19,8 +19,8 @@ MonoBehaviour:
     resources:
       cash: 0
       corruption: 0
-      credibility: 0
-      visibility: 0
+      credibility: -2
+      visibility: 1
     alignment:
       economic:
         value: 0
@@ -46,8 +46,8 @@ MonoBehaviour:
     resources:
       cash: 0
       corruption: 0
-      credibility: 0
-      visibility: 0
+      credibility: 1
+      visibility: 1
     alignment:
       economic:
         value: 0

@@ -14,7 +14,7 @@ MonoBehaviour:
   description: "Sobre a legaliza\xE7\xE3o da maconha\u2026"
   image: {fileID: 0}
   actionDecline:
-    description: tem que ser legalizada!
+    description: "Jamais ser\xE1 no meu governo!"
     resources:
       cash: 0
       corruption: 0
@@ -33,7 +33,7 @@ MonoBehaviour:
         servicoMilitarObrigatorio: 0
         escolasMilitares: 0
       societal:
-        value: 0
+        value: -5
         ensinoReligiosoEscolas: 0
         legalizacaoAborto: 0
         casamentoGay: 0
@@ -41,12 +41,12 @@ MonoBehaviour:
     nextEvent: {fileID: 11400000, guid: 424d6c060c95f3647bb436f15e692d01, type: 2}
     specialConsequences: 
   actionAccept:
-    description: "jamais ser\xE1 no meu governo!"
+    description: Tem que ser legalizada!
     resources:
       cash: 0
       corruption: 0
       credibility: 0
-      visibility: 0
+      visibility: 1
     alignment:
       economic:
         value: 0
@@ -60,7 +60,7 @@ MonoBehaviour:
         servicoMilitarObrigatorio: 0
         escolasMilitares: 0
       societal:
-        value: 0
+        value: 5
         ensinoReligiosoEscolas: 0
         legalizacaoAborto: 0
         casamentoGay: 0

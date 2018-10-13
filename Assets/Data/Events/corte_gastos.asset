@@ -17,24 +17,24 @@ MonoBehaviour:
   actionDecline:
     description: "N\xE3o mexe no meu sal\xE1rio! Cortes em educa\xE7\xE3o e cultura!"
     resources:
-      cash: 0
+      cash: 2
       corruption: 0
       credibility: 0
       visibility: 0
     alignment:
       economic:
-        value: 3
+        value: 0
         bolsaFamilia: 0
         salarioMinimo: 0
         impostoDeRenda: 0
         privatizacao: 0
         previdencia: 0
       civil:
-        value: 0
+        value: -5
         servicoMilitarObrigatorio: 0
         escolasMilitares: 0
       societal:
-        value: -15
+        value: 0
         ensinoReligiosoEscolas: 0
         legalizacaoAborto: 0
         casamentoGay: 0
@@ -46,22 +46,22 @@ MonoBehaviour:
     resources:
       cash: 0
       corruption: 0
-      credibility: 0
-      visibility: 0
+      credibility: 1
+      visibility: 1
     alignment:
       economic:
-        value: -2
+        value: 0
         bolsaFamilia: 0
         salarioMinimo: 0
         impostoDeRenda: 0
         privatizacao: 0
         previdencia: 0
       civil:
-        value: 0
+        value: 5
         servicoMilitarObrigatorio: 0
         escolasMilitares: 0
       societal:
-        value: 5
+        value: 0
         ensinoReligiosoEscolas: 0
         legalizacaoAborto: 0
         casamentoGay: 0

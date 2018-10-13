@@ -17,7 +17,7 @@ MonoBehaviour:
     description: Eu posso te subornar
     resources:
       cash: 0
-      corruption: 0
+      corruption: 1
       credibility: 0
       visibility: 0
     alignment:

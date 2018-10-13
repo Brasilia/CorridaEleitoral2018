@@ -15,33 +15,6 @@ MonoBehaviour:
     Pedir um pastel com caldo de cana?"
   image: {fileID: 0}
   actionDecline:
-    description: Claro!
-    resources:
-      cash: 0
-      corruption: 0
-      credibility: 0
-      visibility: 0
-    alignment:
-      economic:
-        value: 0
-        bolsaFamilia: 0
-        salarioMinimo: 0
-        impostoDeRenda: 0
-        privatizacao: 0
-        previdencia: 0
-      civil:
-        value: 0
-        servicoMilitarObrigatorio: 0
-        escolasMilitares: 0
-      societal:
-        value: 0
-        ensinoReligiosoEscolas: 0
-        legalizacaoAborto: 0
-        casamentoGay: 0
-        legalizacaoDrogas: 0
-    nextEvent: {fileID: 11400000, guid: d23b73bc7fc80c44981d5db01c58082b, type: 2}
-    specialConsequences: 
-  actionAccept:
     description: "Melhor n\xE3o..."
     resources:
       cash: 0
@@ -67,4 +40,31 @@ MonoBehaviour:
         casamentoGay: 0
         legalizacaoDrogas: 0
     nextEvent: {fileID: 0}
+    specialConsequences: 
+  actionAccept:
+    description: Claro!
+    resources:
+      cash: 0
+      corruption: 0
+      credibility: 0
+      visibility: 0
+    alignment:
+      economic:
+        value: 0
+        bolsaFamilia: 0
+        salarioMinimo: 0
+        impostoDeRenda: 0
+        privatizacao: 0
+        previdencia: 0
+      civil:
+        value: 0
+        servicoMilitarObrigatorio: 0
+        escolasMilitares: 0
+      societal:
+        value: 0
+        ensinoReligiosoEscolas: 0
+        legalizacaoAborto: 0
+        casamentoGay: 0
+        legalizacaoDrogas: 0
+    nextEvent: {fileID: 11400000, guid: d23b73bc7fc80c44981d5db01c58082b, type: 2}
     specialConsequences: 

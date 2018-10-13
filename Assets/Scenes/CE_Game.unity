@@ -550,7 +550,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4391fa0d412e7ed46a8f24c5db207b47, type: 2}
   - {fileID: 11400000, guid: 84d14508d9b2c4a4c9401c1789b17666, type: 2}
   - {fileID: 11400000, guid: e9fdb820e7b53c44ab2b73c9220ce866, type: 2}
-  eventsPerCicle: 2
+  eventsPerCicle: 4
   countCicles: 0
   countDebateTurns: 0
   candidateCardPrefab: {fileID: 1999169020751720, guid: ab63804a90c441a4fba722e540202153,

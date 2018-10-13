@@ -22,7 +22,7 @@ MonoBehaviour:
       visibility: 0
     alignment:
       economic:
-        value: 0
+        value: -10
         bolsaFamilia: 0
         salarioMinimo: 0
         impostoDeRenda: 0
@@ -49,7 +49,7 @@ MonoBehaviour:
       visibility: 0
     alignment:
       economic:
-        value: 0
+        value: 10
         bolsaFamilia: 0
         salarioMinimo: 0
         impostoDeRenda: 0

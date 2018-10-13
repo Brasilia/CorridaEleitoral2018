@@ -14,11 +14,11 @@ MonoBehaviour:
   description: "E se fosse \u201CLiberdade, Igualdade, Fraternidade\u201D?"
   image: {fileID: 0}
   actionDecline:
-    description: Sempre me surpreendendo
+    description: "Isso j\xE1 existe"
     resources:
       cash: 0
       corruption: 0
-      credibility: 0
+      credibility: 1
       visibility: 0
     alignment:
       economic:
@@ -41,12 +41,12 @@ MonoBehaviour:
     nextEvent: {fileID: 11400000, guid: 7b76cb87bd7109a48a87100d2da28b49, type: 2}
     specialConsequences: 
   actionAccept:
-    description: "Isso j\xE1 existe"
+    description: Sempre me surpreendendo
     resources:
       cash: 0
       corruption: 0
       credibility: 0
-      visibility: 0
+      visibility: 1
     alignment:
       economic:
         value: 0

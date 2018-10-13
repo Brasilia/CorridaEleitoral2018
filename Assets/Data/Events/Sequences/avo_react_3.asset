@@ -14,7 +14,7 @@ MonoBehaviour:
   description: "Nando Colorido \xE9 eleito por voto direto. "
   image: {fileID: 0}
   actionDecline:
-    description: "Esse \xE9 minha inspira\xE7\xE3o"
+    description: Tempos sombrios...
     resources:
       cash: 0
       corruption: 0
@@ -41,11 +41,11 @@ MonoBehaviour:
     nextEvent: {fileID: 11400000, guid: 67442f484bf3cd3458aa104dce3301ca, type: 2}
     specialConsequences: 
   actionAccept:
-    description: "Tempos sombrios\u2026"
+    description: "Esse \xE9 minha inspira\xE7\xE3o"
     resources:
       cash: 0
       corruption: 0
-      credibility: 0
+      credibility: -1
       visibility: 0
     alignment:
       economic:
