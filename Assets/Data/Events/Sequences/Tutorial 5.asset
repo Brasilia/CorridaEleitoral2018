@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Tutorial 5
   m_EditorClassIdentifier: 
   description: "O fantasma desaparece como num passe de m\xE1gica. "
-  image: {fileID: 0}
+  image: {fileID: 21300004, guid: 5f401c70275fee94aae470819456fd99, type: 3}
   actionDecline:
     description: '...'
     resources:

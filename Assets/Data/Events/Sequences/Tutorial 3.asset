@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description: "\xC9 importante estar sempre nas m\xEDdias e com a sua credibilidade
     alta. Dinheiro sempre ajuda. "
-  image: {fileID: 0}
+  image: {fileID: 21300004, guid: 5f401c70275fee94aae470819456fd99, type: 3}
   actionDecline:
     description: "Obrigado, j\xE1 pode ir"
     resources:

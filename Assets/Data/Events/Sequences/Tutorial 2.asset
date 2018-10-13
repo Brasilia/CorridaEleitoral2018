@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description: "Essa \xE9 uma jornada dif\xEDcil, deve estar disposto a fazer tudo
     para alcan\xE7ar este alto posto de nossa sociedade. "
-  image: {fileID: 0}
+  image: {fileID: 21300004, guid: 5f401c70275fee94aae470819456fd99, type: 3}
   actionDecline:
     description: "Tudo n\xE3o..."
     resources:

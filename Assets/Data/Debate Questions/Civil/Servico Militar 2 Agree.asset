@@ -8,14 +8,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf119fa67d484b94e8a48ddea04f83d9, type: 3}
-  m_Name: Tutorial 1
+  m_Script: {fileID: 11500000, guid: 88e2d520734ba6246a682b2ed74c5006, type: 3}
+  m_Name: Servico Militar 2 Agree
   m_EditorClassIdentifier: 
-  description: "Bem vindo! Voc\xEA concorre ao cargo mais importante e honesto deste
-    pa\xEDs! "
-  image: {fileID: 21300004, guid: 5f401c70275fee94aae470819456fd99, type: 3}
+  description: "O servi\xE7o militar obrigat\xF3rio \xE9 importante para garantir
+    a soberania do nosso pa\xEDs."
+  image: {fileID: 0}
   actionDecline:
-    description: Honesto? Sei
+    description: "[Atacar advers\xE1rio]"
     resources:
       cash: 0
       corruption: 0
@@ -26,7 +26,7 @@ MonoBehaviour:
         value: 0
         bolsaFamilia: 0
         salarioMinimo: 0
-        impostoDeRenda: 10
+        impostoDeRenda: 0
         privatizacao: 0
         previdencia: 0
       civil:
@@ -39,10 +39,10 @@ MonoBehaviour:
         legalizacaoAborto: 0
         casamentoGay: 0
         legalizacaoDrogas: 0
-    nextEvent: {fileID: 11400000, guid: 0c696ba8510b14f4f8cfafdf040439eb, type: 2}
+    nextEvent: {fileID: 11400000, guid: dda7efd680cdd1a48934a6ef224ef64d, type: 2}
     specialConsequences: 
   actionAccept:
-    description: "Ol\xE1!"
+    description: '[Exaltar proposta de campanha]'
     resources:
       cash: 0
       corruption: 0
@@ -53,12 +53,12 @@ MonoBehaviour:
         value: 0
         bolsaFamilia: 0
         salarioMinimo: 0
-        impostoDeRenda: 9
+        impostoDeRenda: 0
         privatizacao: 0
         previdencia: 0
       civil:
         value: 0
-        servicoMilitarObrigatorio: 0
+        servicoMilitarObrigatorio: 1
         escolasMilitares: 0
       societal:
         value: 0
@@ -66,5 +66,7 @@ MonoBehaviour:
         legalizacaoAborto: 0
         casamentoGay: 0
         legalizacaoDrogas: 0
-    nextEvent: {fileID: 11400000, guid: 0c696ba8510b14f4f8cfafdf040439eb, type: 2}
+    nextEvent: {fileID: 11400000, guid: 405949eeebf8f55488be80eee0b8a354, type: 2}
     specialConsequences: 
+  nextEvent2nd: {fileID: 0}
+  nextEvent3rd: {fileID: 0}

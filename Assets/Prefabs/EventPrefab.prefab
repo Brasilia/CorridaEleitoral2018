@@ -308,7 +308,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardData: {fileID: 0}
   description: {fileID: 114758527905910826}
-  image: {fileID: 114826010079920134}
+  image: {fileID: 114219891494057110}
   actionDecline: 0
   actionAccept: 4
 --- !u!114 &114912724074814022

@@ -8,14 +8,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf119fa67d484b94e8a48ddea04f83d9, type: 3}
-  m_Name: Tutorial 1
+  m_Script: {fileID: 11500000, guid: 88e2d520734ba6246a682b2ed74c5006, type: 3}
+  m_Name: Legalizacao Aborto 1 Question
   m_EditorClassIdentifier: 
-  description: "Bem vindo! Voc\xEA concorre ao cargo mais importante e honesto deste
-    pa\xEDs! "
-  image: {fileID: 21300004, guid: 5f401c70275fee94aae470819456fd99, type: 3}
+  description: "Voc\xEA \xE9 a favor da legaliza\xE7\xE3o do aborto?"
+  image: {fileID: 0}
   actionDecline:
-    description: Honesto? Sei
+    description: Nunca!
     resources:
       cash: 0
       corruption: 0
@@ -23,10 +22,10 @@ MonoBehaviour:
       visibility: 0
     alignment:
       economic:
-        value: 0
+        value: 5
         bolsaFamilia: 0
         salarioMinimo: 0
-        impostoDeRenda: 10
+        impostoDeRenda: 0
         privatizacao: 0
         previdencia: 0
       civil:
@@ -39,10 +38,10 @@ MonoBehaviour:
         legalizacaoAborto: 0
         casamentoGay: 0
         legalizacaoDrogas: 0
-    nextEvent: {fileID: 11400000, guid: 0c696ba8510b14f4f8cfafdf040439eb, type: 2}
+    nextEvent: {fileID: 11400000, guid: e42f7a63b1d8c084a9c408328d2198a8, type: 2}
     specialConsequences: 
   actionAccept:
-    description: "Ol\xE1!"
+    description: Sim.
     resources:
       cash: 0
       corruption: 0
@@ -50,10 +49,10 @@ MonoBehaviour:
       visibility: 0
     alignment:
       economic:
-        value: 0
+        value: -5
         bolsaFamilia: 0
         salarioMinimo: 0
-        impostoDeRenda: 9
+        impostoDeRenda: 0
         privatizacao: 0
         previdencia: 0
       civil:
@@ -66,5 +65,7 @@ MonoBehaviour:
         legalizacaoAborto: 0
         casamentoGay: 0
         legalizacaoDrogas: 0
-    nextEvent: {fileID: 11400000, guid: 0c696ba8510b14f4f8cfafdf040439eb, type: 2}
+    nextEvent: {fileID: 11400000, guid: e42f7a63b1d8c084a9c408328d2198a8, type: 2}
     specialConsequences: 
+  nextEvent2nd: {fileID: 0}
+  nextEvent3rd: {fileID: 0}
