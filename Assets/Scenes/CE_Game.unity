@@ -528,6 +528,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7b054470b5205764988924113e90d50e, type: 2}
   - {fileID: 11400000, guid: 120bbedc0b8c9344bab0eb414684f88b, type: 2}
   - {fileID: 11400000, guid: 3e6caaff74dc8844a9b36cf93c1657cb, type: 2}
+  - {fileID: 11400000, guid: 5d737b167afc65341b211b4cfe18129c, type: 2}
   campProposals:
   - {fileID: 11400000, guid: 28f63e7faeb94d842a8dcdf752abb589, type: 2}
   - {fileID: 11400000, guid: 2b62f429d880e5a4d94728e87dcddf76, type: 2}
@@ -551,6 +552,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 84d14508d9b2c4a4c9401c1789b17666, type: 2}
   - {fileID: 11400000, guid: e9fdb820e7b53c44ab2b73c9220ce866, type: 2}
   eventsPerCicle: 4
+  MainCicles: 4
   countCicles: 0
   countDebateTurns: 0
   candidateCardPrefab: {fileID: 1999169020751720, guid: ab63804a90c441a4fba722e540202153,

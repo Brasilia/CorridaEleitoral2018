@@ -14,7 +14,7 @@ MonoBehaviour:
   description: "Nesta semana, um policial \xE0 paisana foi morto, enquanto outro assassinou
     um colega ap\xF3s uma discuss\xE3o. A quest\xE3o do armamento est\xE1 em evid\xEAncia.
     Qual a sua posi\xE7\xE3o?"
-  image: {fileID: 0}
+  image: {fileID: 21300000, guid: c35bdc8c814529449835ac8f60ec299b, type: 3}
   actionDecline:
     description: Manteremos o desarmamento
     resources:

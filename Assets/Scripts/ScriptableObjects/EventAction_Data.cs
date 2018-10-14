@@ -12,7 +12,7 @@ public class EventAction_Data {
 	//SpecialConsequence...
 	public enum SpecialConsequenceNumber {
 		ADD_CORRUPTION, //talvez não seja necessário isto para a corrupção: deve bastar adicionar uma carta genérica de "corruption" a todos os adversários, na quantidade da corrupção total menos a corrupção conhecida
-		COUNT
+        COUNT
 	}
 	public SpecialConsequenceNumber[] specialConsequences;
 

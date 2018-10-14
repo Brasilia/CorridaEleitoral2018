@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: entrevista_fp_2
   m_EditorClassIdentifier: 
   description: O que o senhor vai fazer pelos mais necessitados?
-  image: {fileID: 0}
+  image: {fileID: 21300002, guid: d5a224970108da04e920698e02533fb6, type: 3}
   actionDecline:
     description: Diminuir os impostos
     resources:

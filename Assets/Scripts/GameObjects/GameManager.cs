@@ -561,13 +561,14 @@ public class GameManager : MonoBehaviour {
 	}
 	*/
 	private void GetPlayerAnswer(){
-		if (uiBoolSlider.choice){
+		if (uiBoolSlider.choice){ // chose action accept
 			SetEventConsequences(currentQuestion.actionAccept, 0);
 			currentQuestion = (DebateQuestion_Data)currentQuestion.actionAccept.nextEvent;
 			Debug.Log ("Player aceitou.");// Consequências de positivo
 		}
-		else{
-			SetEventConsequences(currentQuestion.actionDecline, 0);
+		else
+        { // chose action decline
+            SetEventConsequences(currentQuestion.actionDecline, 0);
 			currentQuestion = (DebateQuestion_Data)currentQuestion.actionDecline.nextEvent;
 			Debug.Log ("Player recusou.");// Consequências de negativo
 		}
@@ -580,7 +581,7 @@ public class GameManager : MonoBehaviour {
 				candidates[0].resources.credibility += credibilityBonus;
 			SetEventConsequences(currentQuestion.actionAccept, 0);
 			currentQuestion = (DebateQuestion_Data)currentQuestion.actionAccept.nextEvent;
-			Debug.Log ("Player aceitou.");// Consequências de positivo
+			Debug.Log ("Player aceitou. (Ataque?)");// Consequências de positivo
 		}
 		else{	// Faz ataque
 			// FIXME - o quanto de credibilidade deve ser diminuído com base na corrupção dele?
@@ -588,7 +589,7 @@ public class GameManager : MonoBehaviour {
 			//
 			SetEventConsequences(currentQuestion.actionDecline, 0);
 			currentQuestion = (DebateQuestion_Data)currentQuestion.actionDecline.nextEvent;
-			Debug.Log ("Player recusou.");// Consequências de negativo
+			Debug.Log ("Player recusou. (Ataque?)");// Consequências de negativo
 		}
 	}
 

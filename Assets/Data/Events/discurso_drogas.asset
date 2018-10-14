@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description: "Um v\xEDdeo seu da \xE9poca de faculdade com um suposto baseado viraliza.
     Querem saber o que voc\xEA pensa sobre legaliza\xE7\xE3o de drogas"
-  image: {fileID: 0}
+  image: {fileID: 21300000, guid: c35bdc8c814529449835ac8f60ec299b, type: 3}
   actionDecline:
     description: Um absurdo! Nunca legalizarei nenhuma droga!
     resources:

@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf119fa67d484b94e8a48ddea04f83d9, type: 3}
   m_Name: entrevista_fp_1
   m_EditorClassIdentifier: 
-  description: "Voc\xEA foi convidado para o programa do Fabiano Pochete!"
+  description: "Voc\xEA foi convidado para o programa do Joso Aires!"
   image: {fileID: 0}
   actionDecline:
     description: "Aquele chato\u2026"

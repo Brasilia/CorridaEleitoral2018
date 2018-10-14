@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: entrevista_fp_4
   m_EditorClassIdentifier: 
   description: "Voc\xEA \xE9 a favor de criar algum tipo de lei de natalidade?"
-  image: {fileID: 0}
+  image: {fileID: 21300002, guid: d5a224970108da04e920698e02533fb6, type: 3}
   actionDecline:
     description: "Claro que n\xE3o"
     resources:

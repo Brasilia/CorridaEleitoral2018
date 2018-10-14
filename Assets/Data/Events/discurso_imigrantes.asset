@@ -11,8 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf119fa67d484b94e8a48ddea04f83d9, type: 3}
   m_Name: discurso_imigrantes
   m_EditorClassIdentifier: 
-  description: Milhares de imigrantes chegam em Roraima. O que faremos em nosso governo?
-  image: {fileID: 0}
+  description: "Milhares de imigrantes chegam em Roraima. O que far\xE1 no seu governo?"
+  image: {fileID: 21300000, guid: c35bdc8c814529449835ac8f60ec299b, type: 3}
   actionDecline:
     description: "As fronteiras ser\xE3o fechadas e os imigrantes expulsos!"
     resources:
