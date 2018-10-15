@@ -626,6 +626,11 @@ public class GameManager : MonoBehaviour {
 		// Incrementa alinhamento
 		candidates [index].alignment += eventChosen.alignment;
 
+		// Special Consequences
+		Debug.Log ("SetEventConsequences to " + candidates[index].personName);
+		eventChosen.RunSpecialConsequences (candidates[index]);
+
+
 		if(index == 0)
 			uiResources.UpdateValues ();
 	}

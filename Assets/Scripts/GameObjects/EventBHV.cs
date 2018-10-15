@@ -31,5 +31,9 @@ public class EventBHV : CardBHV {
 		base.Load (e);
 		actionDecline = e.actionDecline.description; //FIXME descomentar
 		actionAccept = e.actionAccept.description; //FIXME descomentar
+		AutoCardImage autoImage = GetComponentInChildren<AutoCardImage>();
+		if (autoImage != null) {
+			autoImage.SetImage ();
+		}
 	}
 }

@@ -66,6 +66,6 @@ MonoBehaviour:
         casamentoGay: 1
         legalizacaoDrogas: 0
     nextEvent: {fileID: 11400000, guid: 405949eeebf8f55488be80eee0b8a354, type: 2}
-    specialConsequences: 
+    specialConsequences: 02000000
   nextEvent2nd: {fileID: 0}
   nextEvent3rd: {fileID: 0}

@@ -24,6 +24,10 @@ public class AutoCardImage : MonoBehaviour {
 	}
 
 	void OnEnable () {
+		
+	}
+
+	public void SetImage(){
 		if (cardImage.sprite == null) {
 			if ((int)gm.state >= (int)GameManager.STATE.DebateQuestion) {
 				cardImage.sprite = gm.candidates [gm.opponentIndex].image;
